@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    一些简单的串的模式匹配算法汇总 |  小熊的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '5592CT97CC', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?1a72c38c9ff1d427d7baafcbdfa9c2c6";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-20210331"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  一些简单的串的模式匹配算法汇总
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/20210331/" class="article-date">
+  <time datetime="2021-03-31T14:26:24.000Z" itemprop="datePublished">2021-03-31</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">12 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>串的模式匹配算法在许多领域，包括爬虫、机器学习等都有重要应用。以下列了一些串的模式匹配算法：</p>
+<span id="more"></span>
+
+<hr>
+<h3 id="1-Brute-Force算法（暴力算法）"><a href="#1-Brute-Force算法（暴力算法）" class="headerlink" title="1.Brute-Force算法（暴力算法）"></a><strong>1.Brute-Force算法（暴力算法）</strong></h3><p>正如其名，非常直接且简单。</p>
+<p>首先将匹配串和模式串左对齐，然后从左向右一个一个进行比较，如果不成功则模式串向右移动一个单位。</p>
+<p>例：</p>
+<p>设置两个指针，一个匹配串指针i，一个模式串指针j</p>
+<p>一开始i=1,j=1</p>
+<p>第一个不符合，i++</p>
+<p>…当i=3时，</p>
+<p>匹配串 ：ab<strong>cbc</strong>sdxzcxx</p>
+<p>模式串：<strong>cbc</strong>ac</p>
+<p>符合i++,j++，依旧符合i++,j++，直到i=6,j=4，不符合，i回退到3+1，j回退到1</p>
+<p>…</p>
+<p>该算法的缺陷是匹配串指针i会不断地回退，使时间复杂度较高。每次进行，对模式串的错误没有记忆，相当于每次模式串都是全新。接下来的算法基本都利用了模式串匹配的错误信息，从而避免了匹配串指针i不会一直回退。</p>
+<h3 id="2-KMP算法"><a href="#2-KMP算法" class="headerlink" title="2.KMP算法"></a><strong>2.KMP算法</strong></h3><blockquote>
+<p>相关论文：<br>Knuth D.E., Morris J.H., and Pratt V.R., Fast pattern matching in strings, SIAM Journal on Computing, 6(2), 323-350, 1977.</p>
+</blockquote>
+<p>以下来自：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html">http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html</a></p>
+<p>1.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050103.png" alt="img"></p>
+<p>首先，字符串”BBC ABCDAB ABCDABCDABDE”的第一个字符与搜索词”ABCDABD”的第一个字符，进行比较。因为B与A不匹配，所以搜索词后移一位。</p>
+<p>2.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050104.png" alt="img"></p>
+<p>因为B与A不匹配，搜索词再往后移。</p>
+<p>3.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050105.png" alt="img"></p>
+<p>就这样，直到字符串有一个字符，与搜索词的第一个字符相同为止。</p>
+<p>4.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050106.png" alt="img"></p>
+<p>接着比较字符串和搜索词的下一个字符，还是相同。</p>
+<p>5.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050107.png" alt="img"></p>
+<p>直到字符串有一个字符，与搜索词对应的字符不相同为止。</p>
+<p>6.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050108.png" alt="img"></p>
+<p>这时，最自然的反应是，将搜索词整个后移一位，再从头逐个比较。这样做虽然可行，但是效率很差，因为你要把”搜索位置”移到已经比较过的位置，重比一遍。</p>
+<p>7.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050107.png" alt="img"></p>
+<p>一个基本事实是，当空格与D不匹配时，你其实知道前面六个字符是”ABCDAB”。KMP算法的想法是，设法利用这个已知信息，不要把”搜索位置”移回已经比较过的位置，继续把它向后移，这样就提高了效率。</p>
+<p>8.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050109.png" alt="img"></p>
+<p>怎么做到这一点呢？可以针对搜索词，算出一张《部分匹配表》（Partial Match Table）。这张表是如何产生的，后面再介绍，这里只要会用就可以了。</p>
+<p>9.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050107.png" alt="img"></p>
+<p>已知空格与D不匹配时，前面六个字符”ABCDAB”是匹配的。查表可知，最后一个匹配字符B对应的”部分匹配值”为2，因此按照下面的公式算出向后移动的位数：</p>
+<blockquote>
+<p>　　移动位数 = 已匹配的字符数 - 对应的部分匹配值</p>
+</blockquote>
+<p>因为 6 - 2 等于4，所以将搜索词向后移动4位。</p>
+<p>10.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050110.png" alt="img"></p>
+<p>因为空格与Ｃ不匹配，搜索词还要继续往后移。这时，已匹配的字符数为2（”AB”），对应的”部分匹配值”为0。所以，移动位数 = 2 - 0，结果为 2，于是将搜索词向后移2位。</p>
+<p>11.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050111.png" alt="img"></p>
+<p>因为空格与A不匹配，继续后移一位。</p>
+<p>12.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050112.png" alt="img"></p>
+<p>逐位比较，直到发现C与D不匹配。于是，移动位数 = 6 - 2，继续将搜索词向后移动4位。</p>
+<p>13.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050113.png" alt="img"></p>
+<p>逐位比较，直到搜索词的最后一位，发现完全匹配，于是搜索完成。如果还要继续搜索（即找出全部匹配），移动位数 = 7 - 0，再将搜索词向后移动7位，这里就不再重复了。</p>
+<p>14.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050114.png" alt="img"></p>
+<p>下面介绍《部分匹配表》是如何产生的。</p>
+<p>首先，要了解两个概念：”前缀”和”后缀”。 “前缀”指除了最后一个字符以外，一个字符串的全部头部组合；”后缀”指除了第一个字符以外，一个字符串的全部尾部组合。</p>
+<p>15.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050109.png" alt="img"></p>
+<p>“部分匹配值”就是”前缀”和”后缀”的最长的共有元素的长度。以”ABCDABD”为例，</p>
+<blockquote>
+<p>　　－　“A”的前缀和后缀都为空集，共有元素的长度为0；</p>
+<p>　　－　“AB”的前缀为[A]，后缀为[B]，共有元素的长度为0；</p>
+<p>　　－　“ABC”的前缀为[A, AB]，后缀为[BC, C]，共有元素的长度0；</p>
+<p>　　－　“ABCD”的前缀为[A, AB, ABC]，后缀为[BCD, CD, D]，共有元素的长度为0；</p>
+<p>　　－　“ABCDA”的前缀为[A, AB, ABC, ABCD]，后缀为[BCDA, CDA, DA, A]，共有元素为”A”，长度为1；</p>
+<p>　　－　“ABCDAB”的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为”AB”，长度为2；</p>
+<p>　　－　“ABCDABD”的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。</p>
+</blockquote>
+<p>16.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050112.png" alt="img"></p>
+<p>“部分匹配”的实质是，有时候，字符串头部和尾部会有重复。比如，”ABCDAB”之中有两个”AB”，那么它的”部分匹配值”就是2（”AB”的长度）。搜索词移动的时候，第一个”AB”向后移动4位（字符串长度-部分匹配值），就可以来到第二个”AB”的位置。</p>
+<p>（完）</p>
+<h3 id="3-Boyer-Moore算法"><a href="#3-Boyer-Moore算法" class="headerlink" title="3. Boyer-Moore算法"></a><strong>3. Boyer-Moore算法</strong></h3><blockquote>
+<p>相关论文：<br>R.S.Boyer, J.S.Moore, A fast string searching algorithm , Communications of the ACM,20(10):762-772 ,1977<br>来自<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html">http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html</a></p>
+</blockquote>
+<p>1.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050302.png" alt="img"></p>
+<p>假定字符串为”HERE IS A SIMPLE EXAMPLE”，搜索词为”EXAMPLE”。</p>
+<p>2.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050303.png" alt="img"></p>
+<p>首先，”字符串”与”搜索词”头部对齐，从尾部开始比较。</p>
+<p>这是一个很聪明的想法，因为如果尾部字符不匹配，那么只要一次比较，就可以知道前7个字符（整体上）肯定不是要找的结果。</p>
+<p>我们看到，”S”与”E”不匹配。这时，**”S”就被称为”坏字符”（bad character），即不匹配的字符。**我们还发现，”S”不包含在搜索词”EXAMPLE”之中，这意味着可以把搜索词直接移到”S”的后一位。</p>
+<p>3.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050304.png" alt="img"></p>
+<p>依然从尾部开始比较，发现”P”与”E”不匹配，所以”P”是”坏字符”。但是，”P”包含在搜索词”EXAMPLE”之中。所以，将搜索词后移两位，两个”P”对齐。</p>
+<p>4.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050305.png" alt="img"></p>
+<p>我们由此总结出**”坏字符规则”**：</p>
+<blockquote>
+<p>　　后移位数 = 坏字符的位置 - 搜索词中的上一次出现位置</p>
+</blockquote>
+<p>如果”坏字符”不包含在搜索词之中，则上一次出现位置为 -1。</p>
+<p>以”P”为例，它作为”坏字符”，出现在搜索词的第6位（从0开始编号），在搜索词中的上一次出现位置为4，所以后移 6 - 4 = 2位。再以前面第二步的”S”为例，它出现在第6位，上一次出现位置是 -1（即未出现），则整个搜索词后移 6 - (-1) = 7位。</p>
+<p>5.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050306.png" alt="img"></p>
+<p>依然从尾部开始比较，”E”与”E”匹配。</p>
+<p>6.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050307.png" alt="img"></p>
+<p>比较前面一位，”LE”与”LE”匹配。</p>
+<p>7.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050308.png" alt="img"></p>
+<p>比较前面一位，”PLE”与”PLE”匹配。</p>
+<p>8.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050309.png" alt="img"></p>
+<p>比较前面一位，”MPLE”与”MPLE”匹配。<strong>我们把这种情况称为”好后缀”（good suffix），即所有尾部匹配的字符串。</strong>注意，”MPLE”、”PLE”、”LE”、”E”都是好后缀。</p>
+<p>9.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050310.png" alt="img"></p>
+<p>比较前一位，发现”I”与”A”不匹配。所以，”I”是”坏字符”。</p>
+<p>10.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050311.png" alt="img"></p>
+<p>根据”坏字符规则”，此时搜索词应该后移 2 - （-1）= 3 位。问题是，此时有没有更好的移法？</p>
+<p>11.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050309.png" alt="img"></p>
+<p>我们知道，此时存在”好后缀”。所以，可以采用**”好后缀规则”**：</p>
+<blockquote>
+<p>　　后移位数 = 好后缀的位置 - 搜索词中的上一次出现位置</p>
+</blockquote>
+<p>举例来说，如果字符串”ABCDAB”的后一个”AB”是”好后缀”。那么它的位置是5（从0开始计算，取最后的”B”的值），在”搜索词中的上一次出现位置”是1（第一个”B”的位置），所以后移 5 - 1 = 4位，前一个”AB”移到后一个”AB”的位置。</p>
+<p>再举一个例子，如果字符串”ABCDEF”的”EF”是好后缀，则”EF”的位置是5 ，上一次出现的位置是 -1（即未出现），所以后移 5 - (-1) = 6位，即整个字符串移到”F”的后一位。</p>
+<p>这个规则有三个注意点：</p>
+<blockquote>
+<p>　　（1）”好后缀”的位置以最后一个字符为准。假定”ABCDEF”的”EF”是好后缀，则它的位置以”F”为准，即5（从0开始计算）。</p>
+<p>　　（2）如果”好后缀”在搜索词中只出现一次，则它的上一次出现位置为 -1。比如，”EF”在”ABCDEF”之中只出现一次，则它的上一次出现位置为-1（即未出现）。</p>
+<p>　　（3）如果”好后缀”有多个，则除了最长的那个”好后缀”，其他”好后缀”的上一次出现位置必须在头部。比如，假定”BABCDAB”的”好后缀”是”DAB”、”AB”、”B”，请问这时”好后缀”的上一次出现位置是什么？回答是，此时采用的好后缀是”B”，它的上一次出现位置是头部，即第0位。这个规则也可以这样表达：如果最长的那个”好后缀”只出现一次，则可以把搜索词改写成如下形式进行位置计算”(DA)BABCDAB”，即虚拟加入最前面的”DA”。</p>
+</blockquote>
+<p>回到上文的这个例子。此时，所有的”好后缀”（MPLE、PLE、LE、E）之中，只有”E”在”EXAMPLE”还出现在头部，所以后移 6 - 0 = 6位。</p>
+<p>12.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050312.png" alt="img"></p>
+<p>可以看到，”坏字符规则”只能移3位，”好后缀规则”可以移6位。所以，<strong>Boyer-Moore算法的基本思想是，每次后移这两个规则之中的较大值。</strong></p>
+<p>更巧妙的是，这两个规则的移动位数，只与搜索词有关，与原字符串无关。因此，可以预先计算生成《坏字符规则表》和《好后缀规则表》。使用时，只要查表比较一下就可以了。</p>
+<p>13.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050313.png" alt="img"></p>
+<p>继续从尾部开始比较，”P”与”E”不匹配，因此”P”是”坏字符”。根据”坏字符规则”，后移 6 - 4 = 2位。</p>
+<p>14.</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201305/bg2013050314.png" alt="img"></p>
+<p>从尾部开始逐位比较，发现全部匹配，于是搜索结束。如果还要继续查找（即找出全部匹配），则根据”好后缀规则”，后移 6 - 0 = 6位，即头部的”E”移到尾部的”E”的位置。</p>
+<p>（完）</p>
+<h3 id="4-Horspool算法"><a href="#4-Horspool算法" class="headerlink" title="4.Horspool算法"></a><strong>4.Horspool算法</strong></h3><blockquote>
+<p>相关论文：</p>
+<p>Horspool R.N., 1980, Practical fast searching in strings, Software - Practice &amp; Experience, 10(6):501-506</p>
+</blockquote>
+<p>Horspool算法的一个独特之处是它的模式串是尾匹配的（即从右到左）</p>
+<p>例：</p>
+<p>我们将在匹配串寻找字符使得模式串能从右往左匹配。（1）</p>
+<p>模式串的尾是e，匹配到第一个e，这已经是匹配串的第11个字符。</p>
+<p>匹配串 ：Here <strong>is a e</strong>xcellent example</p>
+<p>模式串：      <strong>example</strong></p>
+<p>这是我们从右往左匹配：</p>
+<p>空格与l不匹配,模式串将从不匹配的那个字符开始从右向左寻找匹配串中不匹配的字符的位置，模式串里没有空格，所以移动一个模式串长度的单位</p>
+<p>匹配串 ：Here is a e<strong>xcellen</strong>t example</p>
+<p>模式串：      <strong>example</strong></p>
+<p>不匹配，按（1）操作。</p>
+<p>逐次类推。</p>
+<p>（完）</p>
+<h3 id="5-Sunday算法"><a href="#5-Sunday算法" class="headerlink" title="5.Sunday算法"></a>5.Sunday算法</h3><blockquote>
+<p>相关论文：</p>
+<p>Daniel M. Sunday, A very fast substring search algorithm, Communications of the ACM, v.33 n.8, p.132-142, Aug. 1990</p>
+</blockquote>
+<p>Sunday算法和Horspool算法类似，都是尾匹配，不过匹配方式略有不同，不是找匹配串中不匹配的字符在模式串的位置，而是直接找最右边对齐的右一位的那个字符在模式串的位置</p>
+<p>例：</p>
+<p>我们将在匹配串寻找字符使得模式串能从右往左匹配。</p>
+<p>模式串的尾是e，匹配到第一个e，这已经是匹配串的第11个字符。</p>
+<p>匹配串 ：Here <strong>is a e</strong>xcellent example</p>
+<p>模式串：      <strong>example</strong></p>
+<p>空格和l没有匹配上，寻找匹配串右一个字符在模式串的位置。</p>
+<p>匹配串 ：Here is a <strong>excelle</strong>nt example</p>
+<p>模式串：          <strong>example</strong></p>
+<p>继续匹配，发现匹配串右一个字符在模式串里找不到，跳过去</p>
+<p>匹配串 ：Here is a excellen<strong>t examp</strong>le</p>
+<p>模式串：          <strong>example</strong></p>
+<p>继续匹配，匹配串右一个字符为l</p>
+<p>匹配串 ：Here is a excellent <strong>example</strong></p>
+<p>模式串：          <strong>example</strong></p>
+<p>（完）</p>
+<h3 id="更高级的串模式匹配算法还有以下几种："><a href="#更高级的串模式匹配算法还有以下几种：" class="headerlink" title="更高级的串模式匹配算法还有以下几种："></a>更高级的串模式匹配算法还有以下几种：</h3><h4 id="6-有限自动机算法"><a href="#6-有限自动机算法" class="headerlink" title="6.有限自动机算法"></a><strong>6.有限自动机算法</strong></h4><h4 id="7-Rabin-Karp算法"><a href="#7-Rabin-Karp算法" class="headerlink" title="7.Rabin-Karp算法"></a>7.Rabin-Karp算法</h4><blockquote>
+<p> 相关论文：</p>
+<p> Rachard M.Karp and Michael O.Rabin.Efficient randomized pattern-matching algorithms.IBM Journal of Research and Development,31(2):249-260,1987.</p>
+</blockquote>
+<p>利用哈希值。</p>
+<h4 id="8-Galil-Seiferas-算法"><a href="#8-Galil-Seiferas-算法" class="headerlink" title="8.Galil-Seiferas 算法"></a>8.Galil-Seiferas 算法</h4><blockquote>
+<p>相关论文：</p>
+<p>Zvi Galil and.Joel Seiferas. Time-Space-Optimal String Matching. Journal of Computer And System Sciences, 26(3),:280-294 (1983) </p>
+</blockquote>
+<p>该算法基于重复因子的字符串匹配。该算法是一个奇妙的线性时间字符串算法，除了匹配串和模式串所需的存储空间外，只需要O(1)的额外存储空间。</p>
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p>[1]<a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaodu93/article/details/39209421">https://blog.csdn.net/xiaodu93/article/details/39209421</a>.</p>
+<p>[2]算法导论（Introduction to Algorithms）.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lijianxiong.xyz/2021/20210331/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/20210405/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            有趣的几道数院每日一题
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/20210326/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">我没有为你伤春悲秋不配有憾事</div>
+      </a>
+    
+  </nav>
+
+   
+ 
+   
+  
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2021
+        <i class="ri-heart-fill heart_icon"></i> LJX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="小熊的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">人间烟火</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://iclosemyeye.icu/">欧拉计划</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+<script src="/js/dz.js"></script>
+
+
+
+    
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    《概率导论》学习笔记(持续更新中) |  小熊的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '5592CT97CC', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?1a72c38c9ff1d427d7baafcbdfa9c2c6";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-20210122"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  《概率导论》学习笔记(持续更新中)
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/20210122/" class="article-date">
+  <time datetime="2021-01-22T10:19:39.000Z" itemprop="datePublished">2021-01-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">6.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">28 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>开始时间：2021/01/22</p>
+<span id="more"></span>
+
+<h3 id="第一章-样本空间与概率"><a href="#第一章-样本空间与概率" class="headerlink" title="第一章 样本空间与概率"></a>第一章 样本空间与概率</h3><p>**样本空间$\Omega$**：这是一个试验的所有可能结果的集合.</p>
+<p><strong>概率律</strong>：概率律为试验结果的集合$A$(称为<strong>事件</strong>)确定一个非负数$P(A)$(称为事件$A$的概率).</p>
+<p>概率律满足以下几条公理(<strong>概率公理</strong>)：</p>
+<blockquote>
+<p>(1)**(非负性)<strong>对一切事件$A$,满足$P(A)\geq 0$.<br>(2)</strong>(可加性)<strong>设$A$和$B$为两个互不相交的集合(概率论中称为互不相容的事件),则它们的并满足$P(A\cup B)=P(A)+P(B)$.<br>(3)</strong>(归一化)**整个样本空间$\Omega$(称为必然事件)的概率为1,即$P(\Omega)=1$.</p>
+</blockquote>
+<p>由概率公理可导出处许多性质,下面为部分性质</p>
+<blockquote>
+<p><strong>概率论的若干性质：</strong><br>考虑一个概率律,令$A、B、C$为事件.<br>(a)若$A\subset B$,则$P(A)\leq P(B)$.<br>(b)$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.<br>(c)$P(A\cup B)\leq P(A)+P(B)$.<br>(d)$P(A\cup B\cup C)=P(A)+P(A^c\cap B)+P(A^c\cap B\cap C)$.</p>
+</blockquote>
+<p>条件概率：给定的事件$B$发生了,另一个给定的事件$A$发生的概率,记为$P(A \mid B)=\frac{P(A\cap B)}{P(B)}$.<br>显然地,条件概率是一个概率律,其满足概率律的三条公理.</p>
+<p><strong>相关定理:</strong></p>
+<blockquote>
+<p><strong>乘法法则：</strong><br>假定所有涉及的条件概率都是正的,我们有:</p>
+<p>$$<br>P(\cap _{i=1}^n A_i)=<br>P(A_1)P(A_2 \mid A_1)P(A_3 \mid A_1\cap A_2)…P(A_n \mid \cap _{i=1}^{n-1} A_i)<br>$$</p>
+</blockquote>
+<blockquote>
+<p><strong>全概率定理：</strong><br>设$A_1,A_2,…A_n$是一组互不相容的事件,形成样本空间的一个分割(每一个试验结果必定使得其中一个发生).又假定对每一个$i$,$P(A_i)&gt;0$.则对于任何事件$B$,下列公式成立<br>$$<br>P(B)=P(A_1\cap B)+…+P(A_n\cap B)</p>
+<p>=P(A_1)P(B \mid A_1)+…+P(A_n)P(B \mid A_n).<br>$$</p>
+</blockquote>
+<blockquote>
+<p><strong>关于条件概率的全概率公式：</strong><br>设$C_1,C_2,…C_n$是一组互不相容的事件,形成样本空间的一个分割(每一个试验结果必定使得其中一个发生).令A和B是两个事件，满足$P(B\cap C_i)&gt;0$对一切$i$成立，则：<br>$$<br>P(A\mid B)=\sum_{i=1}^n P(C_i\cap B)+…+P(A\mid B\cap C_i)<br>$$</p>
+</blockquote>
+<blockquote>
+<p><strong>贝叶斯准则</strong><br>设$A_1,A_2,…A_n$是一组互不相容的事件,形成样本空间的一个分割(每一个试验结果必定使得其中一个事件发生).又假定对每一个$i$,$P(A_i)&gt;0.$则对于任何事件$B$,只要它满足$P(B)&gt;0$,下列公式成立:<br>$$<br>P(A_i \mid B)=\frac{P(A_i)P(B \mid A_i)}{P(B)}<br>$$</p>
+<p>$$<br>=\frac{P(A_i)P(B \mid A_i)}{P(A_1)P(B \mid A_1)+…+P(A_n)P(B \mid A_n)}.<br>$$</p>
+<p>$=\frac{P(A_i)P(B \mid A_i)}{P(A_1)P(B \mid A_1)+…+P(A_n)P(B \mid A_n)}$.</p>
+</blockquote>
+<p><strong>独立性:</strong></p>
+<ul>
+<li><p>当等式$P(A\cap B)=P(A)P(B)$成立时,我们称$A$和$B$是相互独立的事件.<br>若$B$还满足$P(B)&gt;0$,则独立性等价于$P(A \mid B)=P(A)$.</p>
+</li>
+<li><p>$A$与$B$相互独立,则$A$与$B^c$也相互独立</p>
+</li>
+<li><p>设事件$C$满足$P(C)&gt;0$,两个事件$A$和$B$称为给定$C$的条件下条件独立,如果它们满足$P(A\cap B \mid C)=P(A \mid C)P(B \mid C)$.<br>若进一步假定$P(B\cap C)&gt;0$,则$A$和$B$在给定$C$的条件下的条件独立性和以下条件是等价的：$P(A \mid B\cap C)=P(A \mid C)$.</p>
+</li>
+<li><p>独立性并不蕴含条件独立性,反之亦然.</p>
+</li>
+<li><p><strong>几个事件的相互独立性的定义</strong>：<br>设$A_1,…A_n$为n个事件,<br>若它们满足<br>:<br>$$<br>P(\cup_{i\in S}A_i)=\prod_{i\in S}P(A_i)对{1,2,3…n}的任意子集S成立<br>$$<br>则称$A_1,…A_n$为相互独立的事件.</p>
+</li>
+</ul>
+<p><strong>德摩根公式：</strong>  $(A\cup B)^c=A^c\cap B^c,(A\cap B)^c=A^c\cup B^c$<br><strong>邦费罗尼不等式(Bonferroni’s inequality):</strong><br>$$<br>P(A\cap B)\geq P(A)+P(B)-1<br>$$<br>可推广到n个事件$A_1,A_2…A_n$的情况：<br>$$<br>P(A\cap B\cap…\cap A_n)\geq P(A)+P(B)+…+P(A_n)-(n-1)<br>$$</p>
+<p><strong>容斥原理：</strong><br>设$A_1,A_2…A_n$为n个事件.记$S_1=\left{i\mid 1\geq i\geq n\right},S_2=\left{(i_1,i_2)\mid 1\leq i_1\leq  i_2 &lt; n\right}$…<br>$$<br>P(\cup_{k=1}^n)<br>=\sum_{i\in S_1}P(A_i)-\sum_{(i_1,i_2)\in S_2}P(A_{i_1}\cap A_{i_2})<br>+\sum_{(i_1,i_2,i_3)\in S_3}P(A_{i_1}\cap A_{i_2}\cap A_{i_3})<br>-…+(-1)^{n-1}P(\cap_{k=1}^n A_k)<br>$$</p>
+<h3 id="第二章-离散随机变量"><a href="#第二章-离散随机变量" class="headerlink" title="第二章 离散随机变量"></a>第二章 离散随机变量</h3><p><strong>与随机变量相关的主要概念</strong></p>
+<p>在一个试验的概率模型之下：</p>
+<ul>
+<li><p><strong>随机变量</strong>是试验结果的实值函数；</p>
+</li>
+<li><p><strong>随机变量的函数</strong>定义了另一个随机函数；</p>
+</li>
+<li><p>对于一个随机变量,我们可以定义一些平均量,例如<strong>均值</strong>和<strong>方差</strong>；</p>
+</li>
+<li><p>可以在某事件或某随机变量的<strong>条件</strong>之下定义一个随机变量；</p>
+</li>
+<li><p>存在一个随机变量与某事件或某随机变量相互<strong>独立</strong>的概念；</p>
+</li>
+</ul>
+<p><strong>与离散随机变量相关的主要概念</strong></p>
+<p>在一个试验的概率模型之下：</p>
+<ul>
+<li><p><strong>离散随机变量</strong>是试验结果的一个实值函数,但是它的取值范围只能是有限多个值或可数无限多个值；</p>
+</li>
+<li><p>一个离散随机变量有一个<strong>分布列</strong>,它对于随机变量的每一个取值,给出一个概率；</p>
+</li>
+<li><p><strong>离散随机变量的函数</strong>也是一个离散随机变量,它的分布列可以从原随机变量的分布列得到.</p>
+</li>
+</ul>
+<p><strong>一些分布列：</strong></p>
+<blockquote>
+<p><strong>二项随机变量</strong>:将一枚硬币抛掷n次,每次抛掷,正面出现概率为p,反面出现的概率为1-p,而且每次抛掷是相互独立的.令X为n次抛掷得到正面的次数.我们称X为<strong>二项随机变量</strong>.<br>$$<br>P(X=k)=\binom{n}{k}p^k(1-p)^{n-k},k=0,1,…n.<br>$$<br><strong>几何随机变量：</strong>在上述抛硬币试验中,令X为连续地抛掷一枚硬币,直到第一次正面所需要抛掷的次数.<br>$$<br>P(X=k)=(1-p)^{k-1}p,k=1,2…<br>$$<br><strong>泊松随机变量：</strong>设随机变量X的分布列由下式给出：</p>
+<p>$$<br>P(X=k)=e^{-\lambda }\frac{\lambda ^k}{k!},k=0,1,2…<br>$$</p>
+</blockquote>
+<p><strong>期望:</strong></p>
+<p>设随机变量X的分布列为p{X},X的<strong>期望值</strong>(也称<strong>期望</strong>或<strong>均值</strong>)由下式给出：<br>$$<br>E[X]=\sum_{x} xp_{X}(x).<br>$$<br><strong>方差：</strong>(记作$var(X)$)</p>
+<p>随机变量$X$的方差由下列公式所定义：</p>
+<p>$$<br>var(X)=E[(X-E[x])^2].<br>$$<br>并且可以用下式进行计算：</p>
+<p>$$<br>var(X)=\sum_{x}(x-E[X])^2p_{X}(x)<br>$$</p>
+<p>$$<br>var(X)=E[X^2]-(E[X])^2<br>$$</p>
+<p>它是非负的,其平方根称为<strong>标准差</strong></p>
+<p><strong>随机变量的线性函数的均值与方差：</strong></p>
+<p>设$X$为随机变量,令$Y=aX+b$,其中a和b为给定的常数,则</p>
+<p>$$<br>E[Y]=aE[X]+b,var(Y)=a^2var(X)<br>$$</p>
+<p><strong>某些常用的随机变量的均值及方差：</strong></p>
+<blockquote>
+<p><strong>伯努利随机变量：</strong>$E[X]=p$.$var(X)=p(1-p)$</p>
+<p><strong>泊松随机变量：</strong>$E[X]=\lambda$.$var(X)=\lambda$.</p>
+</blockquote>
+<p><strong>关于联合分布列：</strong></p>
+<p>设$X$和$Y$为在某个试验中的随机变量.</p>
+<ul>
+<li>$X$和$Y$的联合分布列$p_{X,Y}$由下式定义：</li>
+</ul>
+<p>$$<br>p_{X,Y}(x,y)=P(X=x,Y=y)<br>$$</p>
+<ul>
+<li>$X$和$Y$的边缘分布列可由下式得到：</li>
+</ul>
+<p>$$<br>p_{X}(x)=\sum_{y} p_{X,Y}(x,y) , p_{Y}(y)=\sum_{x} p_{X,Y}(x,y).<br>$$</p>
+<ul>
+<li>$X$和$Y$的函数$g(X,Y)$是一个随机变量,并且</li>
+</ul>
+<p>$$<br>E[g(X,Y)]=\sum_x \sum_y g(x,y)p_{X,Y}(x,y)<br>$$</p>
+<p>若g是线性的,且$g=aX+bY+x$,则<br>$$<br>E[aX+bY+c]=aE[X]+bE[Y]+c.<br>$$<br>.</p>
+<ul>
+<li>上面的结论可以类似地自然地推广到两个以上的随机变量的情况.</li>
+</ul>
+<p><strong>关于条件分布列</strong></p>
+<p>设$X$和$Y$为某一试验中的两个随机变量.</p>
+<ul>
+<li><p>条件分布列与之前所学的无条件分布列完全相似,其差别只是前者是在已知某事件发生的条件下的随机变量的分布列.、</p>
+</li>
+<li><p>设A为某事件,$P(A)&gt;0$.随机变量X在给定A发生的条件下的条件分布列为：</p>
+</li>
+</ul>
+<p>$$<br>p_{X \mid A}(x)=P(X=x \mid A)<br>$$</p>
+<p>并且满足<br>$$<br>\sum_{x}p_{X \mid A}(x)=1 .<br>$$</p>
+<ul>
+<li>设$A_1,…,A_n$是一组互不相容的事件,并且形成样本空间的一个分割,进一步假定$p(A_i)&gt;0$,则<br>$$<br>p_{X}(x)=\sum_{i=1}^{n}P(A_i)p_{X \mid A_i}(x)<br>$$</li>
+</ul>
+<p>(这是全概率定理的一种特殊情况.)进一步假定事件B满足对一切$i$,$P(A_i\cap B)&gt;0$.则</p>
+<p>$$<br>p_{X \mid B}(x)=\sum_{i=1}^n P(A_i \mid b)p_{X \mid A_i \cap B}(x)<br>$$</p>
+<ul>
+<li>给定$Y =y$ 的条件下 $X$ 的条件分布列与联合分布列之间有下列关系:</li>
+</ul>
+<p>$$<br>p_{X, Y}(x, y)=p_{Y}(y) p_{X \mid Y}(x \mid y)<br>$$</p>
+<ul>
+<li>给定 $Y$ 之下的 $X$ 的条件分布列可以通过以下公式计算 $X$ 的边缘分布列:<br>$$<br>p_{X}(x)=\sum_{y} p_{Y}(y) p_{X \mid Y}(x \mid y)<br>$$</li>
+<li>同样地,上面的结论可以自然推广到两个以上的随机变量的情况.</li>
+</ul>
+<p><strong>关于条件期望：</strong></p>
+<p>设$X$ 和 $Y$ 为某一试验中的两个随机变量.</p>
+<ul>
+<li><p>设A为某事件,$P(A)&gt;0$.随机变量X在给定A发生的条件下的条件期望为<br>$$<br>E [X \mid A]=\sum_{\infty} x p_{X \mid A}(x)<br>$$<br>对于函数数 $g(X)$. 我们有<br>$$<br>E [g(X) \mid A]=\sum_{x} g(x) p_{X \mid A}(x)<br>$$</p>
+</li>
+<li><p>给定 $Y=y$ 的条件下 $X$ 的条件期望由下式定义<br>$$<br>E [X \mid Y=y]=\sum_{x} x p_{X \mid Y}(x \mid y)<br>$$</p>
+</li>
+<li><p>设$A_1,…,A_n$ 是互不相容的事件并且形成样本空间的一个分割.</p>
+<p>假定$P\left(A_{i}\right)&gt;0 \text{ 对一切 } i$ 成立. 则<br>$$<br>E [X]=\sum_{i=1}^{n} P \left(A_{i}\right) E \left[X \mid A_{i}\right]<br>$$<br>进一步假定事件 $B$ 满足对一切 $i$, $P \left(A_{i} \cap B\right)&gt;0,$ 则<br>$$<br>E [X \mid B]=\sum_{i=1}^{n} P \left(A_{ i } \mid B\right) E \left[X \mid A_{i} \cap B\right]<br>$$</p>
+</li>
+<li><p>我们有</p>
+</li>
+</ul>
+<p>$$<br>E [X]=\sum_{y} p_{Y}(y) E [X \mid Y=y]<br>$$</p>
+<p><strong>关于独立随机变量：</strong><br>设在某一试验中,A是一个时间段,满足条件$P(A)&gt;0$,又设X和Y是在同一试验中的两个随机变量.</p>
+<ul>
+<li>称X为相对于事件A独立,如果满足</li>
+</ul>
+<p>$$<br>p_{ X \mid A}(x)=p_{X}(x) \text { 对一切 } x \text { 成立 }<br>$$<br>即对一切x,事件${X=x}$与A相互独立.</p>
+<ul>
+<li>称$X$和$Y$为相互独立的随机变量,如果对一切可能的数对(x,y),事件${X=x}$ 和 ${Y=y}$ 相互独立, 或等价地</li>
+</ul>
+<p>$$<br>p_{X, Y}(x, y)=p_{X}(x) p_{Y}(y) \text { 对一切 } x \text { 和 } y \text { 成立 }<br>$$</p>
+<ul>
+<li>若 $X$ 和 $Y$ 相互独立, 则<br>$$<br>E [X Y]= E [X] E [Y]<br>$$<br>进一步地,对于任意函数$g$和$h$,随机变量$g(X)$和$h(Y)$也是相互独立的,并且<br>$$<br>E [g(X) h(Y)]= E [g(X)] E [h(Y)]<br>$$</li>
+<li>若 $X$ 和 $Y$ 相互独立, 则<br>$$<br>var(X+Y)=var(X)+var(Y)<br>$$</li>
+</ul>
+<h3 id="第三章-一般随机变量"><a href="#第三章-一般随机变量" class="headerlink" title="第三章 一般随机变量"></a>第三章 一般随机变量</h3><p><strong>关于概率密度函数(PDF)：</strong></p>
+<p>对于随机变量X,若存在一个非负函数$f_X$,使得<br>$$<br>P(X\in B)=\int <em>B f</em>{X}(x)dx<br>$$<br>对每一个实数轴上的集合B都成立,则称X为连续的随机变量,函数$f_X$就称为X的概率密度函数,或简称PDF.</p>
+<ul>
+<li><p>$f_{X}(x) \geq 0$ 对一切 $x$ 成立</p>
+</li>
+<li><p>归一化$ \int_{-\infty}^{\infty} f_{X}(x) d x=1 $</p>
+</li>
+<li><p>设 $ \delta $ 是一个充分小的正数, 则 $P ([x, x+ \delta ]) \approx f_{X}(x) \cdot \delta .$</p>
+<blockquote>
+<p>注：由于$f_X(x)$是概率律而非某一事件的概率,故其可以取任意大的值,例如：<br>$$<br>f_{X}(x)=\left{\begin{array}{ll}\frac{1}{2\sqrt{x}}, \text{若}0&lt;x\leq 1 \<br>0, \text { 其他 }<br>\end{array}\right.<br>$$<br>在$x$趋于0时,$f_X(x)$可以任意的大</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>连续随机变量的期望：</strong></p>
+<p>记$X$为连续随机变量,其相应的PDF为$f_{X}x$.</p>
+<ul>
+<li><p>X的期望由下式定义：<br>$$<br>E[X]=\int_{-\infty}^{\infty} xf_{X}(x)dx.<br>$$</p>
+</li>
+<li><p>关于随机变量$g(X)$的期望规则为：<br>$$<br>E[g(X)]=\int_{-\infty}^{\infty} g(x)f_{X}(x) d x<br>$$</p>
+</li>
+<li><p>X的方差由下式给出：<br>$$<br>var(X)=E[(X-E[X])^2]=\int_{-\infty}^{\infty} (X-E[X])^2f_{X}(x) d x<br>$$</p>
+</li>
+<li><p>关于方差,下列公式成立：<br>$$<br>0\leq var(X)=E[X^2]-(E[X])^2.<br>$$</p>
+</li>
+<li><p>设$Y=aX+b$,其中a和b为常数,则<br>$$<br>E[Y]=aE[X]+b,var(Y)=a^2var(X)<br>$$</p>
+</li>
+</ul>
+<p><strong>$分布函数(CDF)$ 的性质:</strong></p>
+<p>随机变量$X$的$CDF$ $F_X$由下式定义<br>$$<br>\text { 对每一个 } x, F_{X}(x)= P (X \leqslant x)<br>$$<br>并且 $F_{X}$ 具有下列性质._</p>
+<ul>
+<li> $F_{X}$ 是单调非减函数:</li>
+</ul>
+<p>$$<br>\text { 若 } x \leqslant y, \quad \text { 则 } F_{X}(x) \leqslant F_{X}(y) .<br>$$</p>
+<ul>
+<li><p>当 $x \rightarrow-\infty$ 的时侯, $F_{X}(x)$ 趋于 0 . 当 $x \rightarrow \infty$ 的时侯, $F_{X}(x)$ 趋于 1 .</p>
+</li>
+<li><p> 当 $X$ 是离散随机变量的时候,$F_{X}(x)$为$x$的阶梯函数.</p>
+</li>
+<li><p> 当 $X$ 是连续随机变量的时候,$F_{X}(x)$为$x$的连续函数.</p>
+</li>
+<li><p>当 $X$ 是离散随机变量并且取整数值的时,分布函数和分布列可以利用求和或差分互求:</p>
+</li>
+</ul>
+<p>$$<br>\begin{array}{c}<br>F_{X}(k)=\sum_{i=-\infty}^{k} p_{X}(i) \<br>p_X(k)=P(X \leqslant k)- P (X \leqslant k-1)=F_{X}(k)-F_{X}(k-1),<br>\end{array}<br>$$<br>其中 $k$ 可以是任意整数.</p>
+<ul>
+<li>当$X$是连续随机变量的时候,分布函数和概率密度函数可以利用积分或微分互求：<br>$$<br>F_X(x)=\int ^x_{-\infty}f_{X}(t)dt,f_{X}(t)=\frac{dF_X}{dx}(x).<br>$$<br>(第二个等式只在分布函数可微的那些点上成立.)</li>
+</ul>
+<p><strong>正态随机变量：</strong></p>
+<p>一个连续随机变量X称为正态的或高斯的,若它的概率密度函数具有下列形式：<br>$$<br>f_{X}(x)=\frac{1}{\sqrt{2 \pi} \sigma} e ^{-(x-\mu)^{2} /\left(2 \sigma^{2}\right)}<br>$$<br>其中$\mu、\sigma$是概率密度的两个参数,其中$\sigma $还必须是正数.<br>其均值及方差：<br>$$<br>E [ X ]=\mu, \quad \operatorname{var}(X)=\sigma^{2}<br>$$</p>
+<blockquote>
+<p>线性变换下($Y=aX+b$)随机变量的正态性保持不变.</p>
+<p>其均值和方差由下式给出：<br>$$<br>E[Y]=a\mu+b,var(Y)=a^2{\sigma}^2<br>$$</p>
+</blockquote>
+<p><strong>多元连续随机变量性质：</strong></p>
+<p>令X和Y为联合连续随机变量,其联合概率密度函数为$f_{X,Y}$</p>
+<ul>
+<li>利用<strong>联合概率密度函数</strong>可以进行概率计算：</li>
+</ul>
+<p>$$<br>P ((X, Y) \in B)=\int_{(x, y) \in B} \int f_{X, Y}(x, y) d x d y<br>$$</p>
+<ul>
+<li>X和Y的边缘概率密度函数可利用联合概率密度函数进行计算得到：</li>
+</ul>
+<p>$$<br>f_{X}(x)=\int_{-\infty}^{\infty} f_{(X, Y)}(x, y) d y, \quad f_{Y}(y)=\int_{-\infty}^{\infty} f_{(X, Y)}(x, y) d x<br>$$</p>
+<ul>
+<li><strong>联合分布函数</strong>由公式$F_{X,Y}(x,y)=P(X\leq x,Y\leq y)$定义,并且,在联合概率密度函数的连续点上,下面的公式成立：</li>
+</ul>
+<p>$$<br>f_{X, Y}(x, y)=\frac{\partial^{2} F_{X, Y}}{\partial x \partial y}(x, y)<br>$$</p>
+<ul>
+<li>X和Y的函数$g(X,Y)$定义了一个新的随机变量,并且</li>
+</ul>
+<p>$$<br>E [g(X, Y)]=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) f_{X, Y}(x, y) d x d y<br>$$</p>
+<ul>
+<li>若g是一个线性函数$aX+bY+c$,则</li>
+</ul>
+<p>$$<br>E[a X+b Y+c]=a B[X]+b E[Y]+c<br>$$</p>
+<ul>
+<li>上面的结论能够很自然地推广到多于两个随机变量的情况.</li>
+</ul>
+<p><strong>以事件为条件的条件概率密度函数：</strong></p>
+<ul>
+<li>对于给定的事件$A(P(A)&gt;0)$,连续随机变量X的条件概率密度函数$f_{X|A}$是满足下列条件的函数：</li>
+</ul>
+<p>$$<br>P (X \in B \mid A)=\left.\int_{B} f_{X}\right|<em>{A}(x) d x<br>$$<br>其中 $B$ 是实数轴上的任意集合.<br>$$<br>f</em>{X \mid{X \in A}}(x)=\left{\begin{array}{ll}<br>\frac{f_{X}(x)}{P(X \in A)}, &amp; \text { 若 } x \in A, \<br>0, &amp; \text { 其他. }<br>\end{array}\right.<br>$$</p>
+<ul>
+<li>设$A_1,A_2,…,A_n$为互不相容的n个事件,对每个$i$,$P(A_i)&gt;0$,并且这些事件形成样本空间的一个分割.则</li>
+</ul>
+<p>$$<br>f_{X}(x)=\sum_{i=1}^{n} P\left(A_{i}\right) f_{X \mid A_{i}}(x)<br>$$<br>(全概率定理的一种变形).</p>
+<p><strong>以另一个随机变量为条件的条件概率密度函数：</strong><br>设X和Y为联合连续随机变量,其联合概率密度函数为$f_{X,Y}$.</p>
+<ul>
+<li>X和Y的联合、边缘和条件概率密度函数是相互关联的.它们的关系用下面的公式表示：</li>
+</ul>
+<p>$$<br>\begin{aligned}<br>f_{X, Y}(x, y) &amp;=f_{Y}(y) f_{X \mid Y}(x \mid y) \<br>f_{X}(x) &amp;=\int_{-\infty}^{\infty} f_{Y}(y) f_{X \mid Y}(x \mid y) d y .<br>\end{aligned}<br>$$<br>条件概率密度函数$f_{X|Y}(x|y)$只在集合${y|f_Y(y)&gt;0}$上有定义.</p>
+<ul>
+<li>关于条件概率我们有<br>$$<br>P(X\in A \mid Y=y)=\int_{A} f_{X\mid Y}(x\mid y)dx<br>$$</li>
+</ul>
+<p><strong>条件期望性质：</strong></p>
+<p>记 $X$ 和 $Y$ 为联合连续随机变量, $A$ 是满足 $P (A)&gt;0$ 的事件.</p>
+<ul>
+<li>$X$ 在给定事件$A$ 之下的条件期望由下式定义</li>
+</ul>
+<p>$$<br>E [X \mid A]=\int_{-\infty}^{\infty} x f_{X \mid A}(x) d x<br>$$<br>给定 $Y=y$ 之下的条件期望由下式定义<br>$$<br>E[X \mid Y=y]=\int_{-\infty}^{\infty} x f_{X \mid Y}(x \mid y) d x<br>$$</p>
+<ul>
+<li><strong>期望规则</strong>仍然有效:</li>
+</ul>
+<p>$$<br>\begin{array}{c}<br>E [g(X) \mid A]=\int_{-\infty}^{\infty} g(x) f_{X \mid A}(x) d x \<br>E [g(X) \mid Y=y]=\int_{-\infty}^{\infty} g(x) f_{X \mid Y}(x \mid y) d x<br>\end{array}<br>$$</p>
+<ul>
+<li><strong>全期望定理：</strong>设$A_1,A_2,…,A_n$为互不相容的n个事件,对每个$i$,$P(A_i)&gt;0$,并且这些事件形成样本空间的一个分割,则</li>
+</ul>
+<p>$$<br>E (X]=\sum_{i=1}^{n} P \left( A <em>{i}\right) E \left[X \mid A</em>{i}\right]<br>$$<br>相似地,<br>$$<br>E [X]=\int_{-\infty}^{\infty} E \left[X|Y=y| f_{Y}(y) d y\right.<br>$$</p>
+<ul>
+<li><p>涉及几个随机变量的函数的情况,具有完全相似的结果,例如：<br>$$<br>E \left[g\left(X,Y\right)|Y=y|\right.=\int g(x, y) f_{X \mid Y}(x \mid y) d x \</p>
+<p>E[g(X, Y) \mid=\int E [g(X, Y) \mid Y=y] f_{Y}(y) d y<br>$$<br><strong>连续随机变量的相互独立性</strong></p>
+<p>令X和Y为联合连续随机变量.</p>
+</li>
+<li><p>若</p>
+<p>$$<br>f_{X, Y}(x, y)=f_{X}(x) f_{Y}(y) \quad \text { 对一切 }x\text{和}y\text{成立}<br>$$</p>
+<p>则 $X$ 和 $Y$ 相互独立.</p>
+</li>
+<li><p>若X 和 $Y$ 相互独立, 则</p>
+<p>$$<br>E [X Y]= E [X] E [Y]<br>$$<br>进一步,对于任意函数$g$和$h$,随机变量$g(X)$和$h(Y)$也是相互独立的, 于是<br>$$<br>E [g(X) h(Y)]= E [g(X)] E [h(Y)]<br>$$</p>
+</li>
+<li><p>若 $X$ 和 $Y$ 相互独立,则</p>
+<p>$$<br>\operatorname{var}(X+Y)=\operatorname{var}(X)+\operatorname{var}(Y)<br>$$</p>
+</li>
+</ul>
+<p><strong>连续随机变量的贝叶斯准则:</strong></p>
+<p>令Y为连续随机变量.</p>
+<ul>
+<li>若X为连续随机变量,我们有</li>
+</ul>
+<p>$$<br>\begin{array}{c}<br>f_{X} y(x \mid y) f_{Y}(y)=f_{X}(x) f_{Y \mid X}(y \mid x) \<br>\end{array}<br>$$</p>
+<p>和<br>$$<br>\begin{array}{c}<br>f_{X \mid Y}(x \mid y)=\frac{f_{X}(x) f_{Y \mid X}(y \mid x)}{f_{Y}(y)}=\frac{f_{X}(x) f_{Y \mid X}(y \mid x)}{\int_{-\infty}^{\infty} f_{X}(t) f_{Y} x(y \mid t) d t}<br>\end{array}<br>$$</p>
+<ul>
+<li>若N为离散随机变量,我们有</li>
+</ul>
+<p>$$<br>f_{Y}(y) P (N=n \mid Y=y)=p_{N}(n) f_{Y \mid N}(y \mid n)<br>$$<br>得到的贝叶斯公式为<br>$$<br>P ( N =n \mid Y=y)=\frac{p_{ N }(n) f_{Y \mid N}(y \mid n)}{f_{Y}(y)}=\frac{p_{N}(n) f_{Y} \mid N(y \mid n)}{\left.\sum_{i} p_{N}(\hat{i}) f_{Y}\right|<em>{N}(u \mid i)}<br>$$<br>和<br>$$<br>f</em>{Y \mid N}(y \mid n)=\frac{f_{Y}(y) P (N=n \mid Y=y)}{p_{N}(n)}=\frac{f_{Y}(y) P(N=n Y=y)}{\int_{-\infty}^{\infty} f_{Y}(t) P (N=n \mid Y=t) d t}<br>$$</p>
+<ul>
+<li>对于事件A,关于$P(A\mid Y=y)$和$f_{Y\mid A}(y)$具有类似的贝叶斯公式.</li>
+</ul>
+<h3 id="第四章-随机变量的深入内容"><a href="#第四章-随机变量的深入内容" class="headerlink" title="第四章 随机变量的深入内容"></a>第四章 随机变量的深入内容</h3><p><strong>计算连续随机变量X的函数$Y=g(X)$的概率密度函数(PDF)：</strong></p>
+<p>(1)使用如下公式计算Y的概率函数(CDF)$F_Y$<br>$$<br>F_{Y}(y)=P(g(X)\leq y)=\int_{x\mid g(x)\leq y}f_X(x)dx.<br>$$<br>(2)对$F_Y$求导,得到Y的PDF：<br>$$<br>f_{Y}(y)=\frac{dF_{Y}}{dy}(y)<br>$$<br><strong>随机变量X的线性函数的概率密度函数：</strong></p>
+<p>假设X是连续随机变量,概率密度函数为$f_X$,a和b是实数且$a\neq 0$,如果<br>$$<br>Y=aX+b<br>$$<br>则<br>$$<br>f_Y(y)=\frac{1}{\mid X\mid}f_X(\frac{y-b}{a}).<br>$$</p>
+<p><strong>连续随机变量X的严格单调函数$Y=g(x)$的概率密度函数计算公式：</strong></p>
+<p>假设g是严格单调函数,其逆函数h满足：对X的取值空间内任意一点$x$,$Y=g(x) \quad$ 当且仅当 $\quad x=h(y)$,<br>而且函数 $h$ 是可微的,则 $Y$ 在支撑集$y \mid f_{Y}(y)&gt;0$内的概率密度函数是<br>$$<br>f_{Y}(y)=f_{X}(h(y))\left|\frac{ d h}{ d y}(y)\right|<br>$$<br><strong>卷积：</strong></p>
+<p>定义：设X和Y是两个独立的随机变量考虑他们的和Z=X+Y的分布.<br>$$<br>p_Z(z)=P(X+Y=z)<br>$$<br>分布列$p_Z$称为X和Y的分布列的卷积.</p>
+<p><strong>卷积公式：</strong></p>
+<p>变量$Z=X+Y$的概率密度函数为<br>$$<br>f_Z(z)=\int_{-\infty}^{\infty} f_X(x)f_Y(z-x)dx<br>$$<br><strong>协方差和相关：</strong></p>
+<p><strong>协方差：</strong>X和Y的协方差记为cov(X,Y),其定义如下：$cov(X,Y)=E[(X-E(X))(Y-E(Y))]$.当cov(X,Y)=0时,我们说X和Y不相关的.</p>
+<p>另一种表达为$cov(X,Y)=E[XY]-E[X]E[Y]$.</p>
+<blockquote>
+<p><strong>一些性质：</strong></p>
+<p>$cov(X,X)=var(X)$</p>
+<p>$cov(X,aY+b)=a*cov(X,Y)$</p>
+<p>$cov(X,Y+Z)=cov(X,Y)+cov(X,Z)$</p>
+</blockquote>
+<p>注：X和Y是相互独立的,则E[XY]=E[X]E[Y],故cov(X,Y)=0,它们是不相关的,但是逆命题并不成立.</p>
+<p>有下列结论：</p>
+<blockquote>
+<p>假设$E[X\mid Y=y]=E[X]$ 对任意的y成立,则如果X和Y是离散变量时,E[XY]=E[X]E[Y].(在连续的情形下依然成立.)</p>
+</blockquote>
+<p><strong>相关系数：</strong></p>
+<p>两个方差非零的随机变量X和Y的相关系数$\rho (X,Y)$定义如下：<br>$$<br>\rho (X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}<br>$$<br>易证$\rho\in [-1,1]$</p>
+<p><strong>随机变量和的方差：</strong></p>
+<p>协方差可以用于计算多个随机变量(不必独立)之和的方差.特别地,设随机变量$X_1…X_n$具有有限的方差,则<br>$$<br>var(X_1+X_2)=var(X_1)+var(X_2)+2cov(X1,X2)<br>$$<br>更一般的结论是<br>$$<br>var(\sum_{i=1}^n X_i)=\sum_{i=1}^n var(X_i)+\sum_{\left{ (i,j)\mid i\neq j\right} } cov(X_i,X_j).<br>$$<br><strong>条件期望和条件方差的性质</strong>：</p>
+<ul>
+<li>$E[X\mid Y=y]$的值依赖于y.</li>
+<li>$E[X\mid Y]$是随机变量Y的函数,因此它也是一个随机变量.当Y的值为y时,它的值就等于$E[X\mid Y=y]$</li>
+<li>$E[E[X\mid Y]]=E[X]$ (<strong>重期望法则</strong>)</li>
+<li>$E[X\mid Y=y]$可视为已知Y=y时对X的估计.相应的估计误差$E[X\mid Y]-X$是一个零均值的随机变量,且与$E[X\mid Y]$是不相关的.</li>
+<li>$var(X)=E[var(X\mid Y)]+var(E[X\mid Y])$ (<strong>全方差法则</strong>)</li>
+</ul>
+<p><strong>矩母函数：</strong></p>
+<p>一个与随机变量X相关的矩母函数是参数s的函数$M_X(s)$,定义如下:<br>$$<br>M_X(s)=E[e^{sX}]<br>$$<br>当X是离散随机变量,相关矩母函数为$M(s)=\sum _x e^{sx}p_X(x)$.</p>
+<p>当X是连续随机变量,相关矩母函数为$M(s)=\int_{-\infty}^{\infty} e^{sx}f_X(x)dx$.</p>
+<blockquote>
+<p><strong>利用矩母函数计算随机变量的各阶矩：</strong><br>$$<br>M_X(0)=1,\ \ \ \ \ \frac{d}{ds}M_X(s) \bigg|<em>{s=0}=E[X], \ \ \  \frac{d^n}{ds^n}M_X(s)\bigg|</em>{s=0}=E[X^n].<br>$$</p>
+</blockquote>
+<p>若$Y=aX+b$,则$M_Y(s)=e^{sb}M_X(as)$.</p>
+<p>若X和Y相互独立,则$M_{X+Y}(s)=M_X(s)M_Y{s}$.</p>
+<p><strong>常见的离散随机变量的矩母函数：</strong></p>
+<ul>
+<li><p>参数为p的伯努利分布(k=0,1)<br>$$<br>p_X(k)=\left{\begin{array}{}<br>p, &amp; \text{若}k=1,<br>\1-p,&amp;  \text { 若k=0, }<br>\end{array}\right.<br>M_X(s)=1-p+pe^s.<br>$$</p>
+</li>
+<li><p>参数为(n,p)的二项分布(k=0,1,…,n)<br>$$<br>p_X(k)=\binom{n}{k}p^k(1-p)^{n-k},M_X(s)=(1-p+pe^s)^n.<br>$$</p>
+</li>
+<li><p>参数为 $p$ 的几何分布 $(k=1,2 \ldots)$<br>$$<br>p_{X}(k)=p(1-p)^{k-1}, \quad M_{X}(s)=\frac{p e^{s}}{1-(1-p) e^{s}}<br>$$</p>
+</li>
+<li><p>参数为$\lambda$的泊松分布 $(k=1,2 \ldots)$<br>$$<br>p_{X}(k)=\frac{e^{-\lambda} \lambda^{k}}{k !}, \quad M_{X}(s)=e^{\lambda\left(e^{s}-1\right)}<br>$$<br>$\bullet(a, b)$ 上的均匀分布 $(k=a, a+1, \cdots, b)$<br>$$<br>p x(k)=\frac{1}{b-a+1}, \quad M_{X}(s)=\frac{e^{a s}}{b-a+1} \cdot \frac{e^{(b-a+1) s}-1}{e^{s}-1}<br>$$</p>
+</li>
+</ul>
+<p><strong>常见连续随机变量的矩母函数：</strong></p>
+<ul>
+<li><p>$(a, b)$ 上的均匀分布 $(a \leqslant x \leqslant b)$<br>$$<br>f_{X}(x)=\frac{1}{b-a},<br>M_{X}(s)=\frac{1}{b-a} \cdot \frac{e^{s b}-e^{s a}}{s}<br>$$</p>
+</li>
+<li><p>参数为$\lambda$的指数分布$(x\geq 0)$<br>$$<br>f_{X}(x)=\lambda e^{\lambda x}<br>,<br>M_{X}(s)=\frac{\lambda}{\lambda-s}, (s&lt;\lambda)<br>$$</p>
+</li>
+<li><p>参数为$(\lambda,\mu)$的正态分布$(-\infty&lt;x\infty)$<br>$$<br>f_{X}(x)=\frac{1}{\sqrt{2 \pi} \sigma} e ^{-(x-\mu)^{2} / 2 \sigma^{2}}, \quad M_{X}(s)= e ^{\left(\sigma^{2} s^{2} / 2\right)+\mu s}<br>$$</p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lijianxiong.xyz/2021/20210122/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/20210122(1~5)/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            《概率导论》补充答案
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/20210115/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">随记</div>
+      </a>
+    
+  </nav>
+
+   
+ 
+   
+  
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2021
+        <i class="ri-heart-fill heart_icon"></i> LJX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="小熊的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">人间烟火</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://iclosemyeye.icu/">欧拉计划</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+<script src="/js/dz.js"></script>
+
+
+
+    
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    机器学习之回归 |  小熊的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '5592CT97CC', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?1a72c38c9ff1d427d7baafcbdfa9c2c6";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-20210411"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  机器学习之回归
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/20210411/" class="article-date">
+  <time datetime="2021-04-11T10:29:41.000Z" itemprop="datePublished">2021-04-11</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h5 id="机器学习的定义"><a href="#机器学习的定义" class="headerlink" title="机器学习的定义"></a>机器学习的定义</h5><p>（<strong>Arthur Samuel</strong>）在进行特定编程的情况下，给予计算机学习能力的领域。</p>
+<p>（<strong>Tom Mitchell</strong>）一个程序被认为能从经验（Experience，<strong>E</strong>)中学习，解决任务(Task,<strong>T</strong>)，达到性能度量值(preference，<strong>P</strong>），有了经验<strong>E</strong>后，经过<strong>P</strong>评判，程序在处理T时的性能有所提升。</p>
+<p>监督学习：监督学习指的就是我们给学习算法一个数据集。这个数据集由“正确答案”组成。</p>
+<p>无监督学习：数据集中没有任何的标签，没有提前告知算法一些信息。</p>
+<span id="more"></span>
+
+<h5 id="单变量线性回归"><a href="#单变量线性回归" class="headerlink" title="单变量线性回归"></a>单变量线性回归</h5><p>相关符号:</p>
+<blockquote>
+<p>m代表训练集中实例的数量</p>
+<p>x代表特征/输入变量</p>
+<p>y代表目标变量/输出变量</p>
+<p>(x,y)代表训练集中的实例</p>
+<p>$(x^{(i)},y^{(i)})$代表第$i$个观察实例</p>
+<p>h为<strong>hypothesis</strong>（假设）,假设函数，在这一节记为$h_{\theta \ }(x)=\theta \ _0+\theta \ _1x$</p>
+</blockquote>
+<p>为了找到最好的回归直线，我们要使得代价函数<br>$$<br>J(\theta \ _0,\theta \ _1)=\frac{1}{2m}\sum <em>{i=1}^{\ m}(h</em>{\theta \ }(x^{(i)})-y^{(i)}\ )^2<br>$$<br>最小。（这是回归中常用的代价函数，故又被称为平方误差代价函数，square error  function）</p>
+<p>梯度下降法是一个比较常用的方法。</p>
+<h5 id="多变量线性回归"><a href="#多变量线性回归" class="headerlink" title="多变量线性回归"></a>多变量线性回归</h5><p>我们引入一系列新的注释：</p>
+<p>$n$ 代表特征的数量</p>
+<p>$x^{( i )}$代表第 $i$ 个训练实例，是特征矩阵中的第$i$行，是一个<strong>向量</strong>（<strong>vector</strong>）。</p>
+<p>在多变量线性回归中，<br>$$<br>h_{\theta}( x )=\theta^TX={\theta_{0}}+{\theta_{1}}{x_{1}}+{\theta_{2}}{x_{2}}+…+{\theta_{n}}{x_{n}}<br>$$</p>
+<p>代价函数：<br>$$<br>J( {\theta_{0}},{\theta_{1}}…{\theta_{n}} )=\frac{1}{2m}\sum\limits_{i=1}^{m}{( h_\theta (X^{( i )})-{y}^{( i )} )}^{2}<br>$$</p>
+<p>当使用梯度下降法时：</p>
+<blockquote>
+<p> 在我们面对多维特征问题的时候，我们要保证这些特征都具有相近的尺度，这将帮助梯度下降算法更快地收敛。</p>
+</blockquote>
+<p><img src="http://www.ai-start.com/ml2014/images/b8167ff0926046e112acf789dba98057.png" alt="img"></p>
+<blockquote>
+<p> 最简单的方法是令：${x_n}=\frac{x_n-\mu_n}{s_n}$，其中 ${\mu_n}$是平均值，${s_n}$是标准差(极差也行)。</p>
+</blockquote>
+<p>使用正规方程：</p>
+<blockquote>
+<p>假设我们的训练集特征矩阵为 $X$（包含了 ${X_{0}}=1$）并且我们的训练集结果为向量 $y$，则利用正规方程解出向量:<br>$$<br>\theta =( X^T X )^{-1}{X^T}y<br>$$</p>
+</blockquote>
+<p>梯度下降与正规方程的比较：</p>
+<table>
+<thead>
+<tr>
+<th>梯度下降</th>
+<th>正规方程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>需要选择学习率$\alpha$</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>需要多次迭代</td>
+<td>一次运算得出</td>
+</tr>
+<tr>
+<td>当特征数量$n$大时也能较好适用</td>
+<td>需要计算$(X^TX )^{-1}$ 如果特征数量n较大则运算代价大，因为矩阵逆的计算时间复杂度为$O( n^{3} )$，通常来说当$n$小于10000 时还是可以接受的</td>
+</tr>
+<tr>
+<td>适用于各种类型的模型</td>
+<td>只适用于线性模型，不适合逻辑回归模型等其他模型梯度下降与正规方程的比较：</td>
+</tr>
+</tbody></table>
+<p>若$(X^T X)^-1$不可逆的情况:<br>(1)首先，看特征值里是否有一些多余的特征，像这些${x_1}$和${x_2}$是线性相关的，互为线性函数。同时，当有一些多余的特征时，可以删除这两个重复特征里的其中一个，无须两个特征同时保留，将解决不可逆性的问题。<br>(2)正规化方法<br>(3)直接使用伪逆(pseudoinverse）,有时被称为广义逆（Generalized inverse）。定义：A* B* A=A，则B是A的广义逆矩阵。所有的矩阵都存在逆矩阵。若一矩阵存在逆矩阵，则其逆矩阵即为其唯一的广义逆矩阵。Matlab的伪逆函数是pinv(逆矩阵函数为inv），可以证明：使用伪逆，以下式子任成立<br>$$<br>\theta =( X^T X )^{-1}{X^T}y<br>$$</p>
+<h5 id="逻辑回归-Logistic-Regression"><a href="#逻辑回归-Logistic-Regression" class="headerlink" title="逻辑回归 (Logistic Regression)"></a>逻辑回归 (<strong>Logistic Regression</strong>)</h5><p>简单而言，即将数据分类划分为离散的值{0,1}。</p>
+<p>我们将因变量(<strong>dependent variable</strong>)可能属于的两个类分别称为负向类（<strong>negative class</strong>）和正向类（<strong>positive class</strong>），则因变量$y\in { 0,1 \}$ ，其中 0 表示负向类，1 表示正向类。</p>
+<p>我们引入一个新的模型，逻辑回归，该模型的输出变量范围始终在0和1之间。<br>逻辑回归模型的假设是： $h_\theta ( x )=g(\theta^{T}X )$<br>其中：<br>$X$ 代表特征向量<br>$g$ 代表逻辑函数（<strong>logistic function</strong>)是一个常用的逻辑函数为<strong>S</strong>形函数（<strong>Sigmoid function</strong>），公式为： $g( z )=\frac{1}{1+e^{-z}}$。</p>
+<p>该函数的图像为：</p>
+<p><img src="http://www.ai-start.com/ml2014/images/1073efb17b0d053b4f9218d4393246cc.jpg" alt="img"></p>
+<p>$h_\theta ( x )$的作用是，对于给定的输入变量，根据选择的参数计算输出变量=1的可能性（<strong>estimated probablity</strong>）即$h_\theta ( x )=P( y=1|x;\theta )$<br>例如，如果对于给定的$x$，通过已经确定的参数计算得出$h_\theta ( x )=0.7$，则表示有70%的几率$y$为正向类，相应地$y$为负向类的几率为1-0.7=0.3。</p>
+<p><strong>代价函数：</strong></p>
+<p>若按照原来的公式，我们得到的代价函数将是一个非凸函数（<strong>non-convexfunction</strong>）。</p>
+<p><img src="http://www.ai-start.com/ml2014/images/8b94e47b7630ac2b0bcb10d204513810.jpg" alt="img"></p>
+<p>这意味着我们的代价函数有许多局部最小值，这将影响梯度下降算法寻找全局最小值。</p>
+<p>故我们重新定义逻辑回归的代价函数为：$J( \theta  )=\frac{1}{m}\sum\limits_{i=1}^{m}Cost( {h_\theta}( {x}^{( i )} ),{y}^{( i )} )}$，其中<img src="http://www.ai-start.com/ml2014/images/54249cb51f0086fa6a805291bf2639f1.png" alt="img"></p>
+<p>${h_\theta}( x )$与 $Cost( {h_\theta}( x ),y )$之间的关系如下图所示：</p>
+<p><img src="http://www.ai-start.com/ml2014/images/ffa56adcc217800d71afdc3e0df88378.jpg" alt="img"></p>
+<p><em>\theta}( x )$的变大而变大。<br>将构建的 $Cost( {h_\theta}( x ),y )$简化如下：<br>$Cost( {h_\theta}( x ),y )=-y\times log( {h_\theta}( x ) )-(1-y)\times log( 1-{h_\theta}( x ) )$<br>带入代价函数得到：<br>$J( \theta  )=\frac{1}{m}\sum\limits</em>{i=1}^{m}{[-y^{(i)}\log ( {h_\theta}( x^{(i)} ) )-( 1-y^{(i)} )\log ( 1-{h_\theta}( x^{(i)} ) )]}$<br>即：$J( \theta  )=-\frac{1}{m}\sum\limits_{i=1}^{m}{[y^{(i)}\log ( {h_\theta}( x^{(i)} ) )+( 1-y^{(i)} )\log ( 1-{h_\theta}( x^{(i)} ) )]}$</p>
+<p><strong>一对多的情况：</strong></p>
+<p><img src="http://www.ai-start.com/ml2014/images/b72863ce7f85cd491e5b940924ef5a5f.png" alt="img"></p>
+<p>我们只需分别多次如右上角的操作，可化归为分成两类的逻辑回归。</p>
+<h5 id="正规化"><a href="#正规化" class="headerlink" title="正规化"></a>正规化</h5><p>我们已经学了几种算法，如最小二乘法（Ordinary Least Squares,OLS)。我们所学的算法不足之处是随着特征维度的增加会出现线性模型的过度拟合。</p>
+<p><img src="http://www.ai-start.com/ml2014/images/72f84165fbf1753cd516e65d5e91c0d3.jpg" alt="img"></p>
+<p>过拟合解决方案：</p>
+<ol>
+<li><p>丢弃一些不能帮助我们正确预测的特征。可以是手工选择保留哪些特征，或者使用一些模型选择的算法来帮忙（例如<strong>PCA</strong>）</p>
+</li>
+<li><p>正则化。 保留所有的特征，但是减少参数的大小（<strong>magnitude</strong>）。</p>
+</li>
+</ol>
+<p>正则化：</p>
+<p>我们可以修改代价函数，增加几个惩罚项。比如将代价函数写成：<br>$$<br>J\left( \theta  \right)=\frac{1}{2m}[\sum\limits_{i=1}^{m}({h_\theta}(x^{(i)})-y^{(i)})^{2}+\lambda \sum\limits_{j=1}^{n}{\theta_j^2}]<br>$$</p>
+<p>其中$\lambda $又称为正则化参数（<strong>Regularization Parameter</strong>）。 注：根据惯例，我们不对${\theta_{0}}$ 进行惩罚。事实上其也被称为岭回归：（Ridge Regression），由俄罗斯科学家Tikhonov 提出的对OLS的改进。$\lambda \sum\limits_{j=1}^{n}{\theta_j^2}$被称为L2惩罚项（L2 Penalty）。</p>
+<blockquote>
+<p> 附：Lasso回归：</p>
+<p>与岭回归类似：</p>
+</blockquote>
+<p>$$<br>\lambda \sum\limits_{j=1}^{n}{\theta_j^2}改为\lambda \sum\limits_{j=1}^{n}{|\theta_j|}<br>$$</p>
+<blockquote>
+<p>相应地，$\lambda \sum\limits_{j=1}^{n}{|\theta_j|}$被称为L1惩罚项。</p>
+</blockquote>
+<p>在这里，我们展示只讨论岭回归。</p>
+<p>我们也利用正规方程来求解正则化线性回归模型：<img src="http://www.ai-start.com/ml2014/images/71d723ddb5863c943fcd4e6951114ee3.png" alt="img"></p>
+<p>图中的矩阵尺寸为 （n+1）*(n+1)。</p>
+<p>同样对于逻辑回归，我们也给代价函数增加一个正则化的表达式，得到代价函数：</p>
+<p>$$<br>J(\theta)=\frac{1}{m}\sum\limits_{i=1}^{m}{[-y^{(i)}\log (h_\theta( x^{(i)}) )-( 1-y^{(i)} )\log ( 1-{h_\theta}( x^{(i)}) )]}+\frac{\lambda }{2m}\sum\limits_{j=1}^{n}\theta _j ^2<br>$$</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lijianxiong.xyz/2021/20210411/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/20210415/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Wolfram Mathematica识别猫种
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/20210410/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">机器学习教程中文笔记——斯坦福大学2014（吴恩达）</div>
+      </a>
+    
+  </nav>
+
+   
+ 
+   
+  
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2021
+        <i class="ri-heart-fill heart_icon"></i> LJX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="小熊的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">人间烟火</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://iclosemyeye.icu/">欧拉计划</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+<script src="/js/dz.js"></script>
+
+
+
+    
+  </div>
+</body>
+
+</html>

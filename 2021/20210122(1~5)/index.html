@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    《概率导论》补充答案 |  小熊的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '5592CT97CC', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?1a72c38c9ff1d427d7baafcbdfa9c2c6";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-20210122(1~5)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  《概率导论》补充答案
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/20210122(1~5)/" class="article-date">
+  <time datetime="2021-01-22T10:20:39.000Z" itemprop="datePublished">2021-01-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">16.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">80 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>《概率导论》第二版答案补充，书上已给解答的不再赘述。</p>
+<span id="more"></span>
+
+<p>部分来自：</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/NeilKleistGao/answer-to-introduction-to-probability">answer-to-introduction-to-probability</a> （NeilKleistGao/雪岛/HumphreyYang）</p>
+<p><a target="_blank" rel="noopener" href="http://athenasc.com/prob-solved_2ndedition.pdf">http://athenasc.com/</a> （Athena Scientific, Belmont, Massachusetts）-</p>
+<hr>
+<h3 id="第一章-样本空间与概率"><a href="#第一章-样本空间与概率" class="headerlink" title="第一章 样本空间与概率"></a>第一章 样本空间与概率</h3><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p>令事件A为掷出偶数，即$A = {2, 4, 6}$</p>
+<p>令B表示点数大于3的事件，即$B = {4, 5, 6}$</p>
+<p>那么：</p>
+<p>$A^c = {1, 3, 5}, B^c = {1, 2, 3}$</p>
+<p>$A \cup B = {2, 4, 5, 6}, A \cap B = {4, 6}$</p>
+<p>所以$(A \cup B)^c = {1, 3} = A^c \cap B^c$</p>
+<p>$(A \cap B)^c = {1, 2, 3, 5} = A^c \cup B^c$</p>
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><h5 id="a"><a href="#a" class="headerlink" title="(a)"></a>(a)</h5><p>设全集为S，由代数性质：</p>
+<p>$\begin{array}{lcr}<br>                A^c = \<br>            A^c \cap S = \<br>            A^c \cap (B \cup B^c) = \<br>            (A^c \cap B) \cup (A^c \cap B^c)<br>            \end{array}$</p>
+<p>对$B^c$的结论同理，证毕。</p>
+<p>也可以通过韦恩图进行证明：任意一个集合中的元素，要么属于$B$，要么属于$B^c$。上式就是全概率定理的特殊情况。</p>
+<h5 id="b"><a href="#b" class="headerlink" title="(b)"></a>(b)</h5><p>设全集为S，由德摩根律：</p>
+<p>$\begin{array}{lcr}<br>                (A \cap B)^c = \<br>                A^c \cup B^c = \<br>                (A^c \cap S) \cup (B^c \cap S) = \<br>                (A^c \cap B) \cup  (A^c \cap B^c) \cup (A^c \cap B^c) \cup (A \cap B^c) = \<br>                (A^c \cap B) \cup  (A^c \cap B^c) \cup (A \cap B^c)<br>            \end{array}$</p>
+<p>证毕。</p>
+<p>也可以通过韦恩图进行证明：A交B的补集中，只有三种可能：属于A但不属于B、属于B但不属于A、既不属于A也不属于B，整理即可得到上式。</p>
+<h5 id="c"><a href="#c" class="headerlink" title="(c)"></a>(c)</h5><p>令事件A为掷出偶数，即$A = {2, 4, 6}$</p>
+<p>令B表示点数大于3的事件，即$B = {1, 2, 3}$</p>
+<p>则$(A \cap B)^c = {1, 3, 4, 5, 6}$</p>
+<p>$(A^c \cap B) \cup  (A^c \cap B^c) \cup (A \cap B^c) = {1, 3} \cup {5} \cup {4, 6} = {1, 3, 4, 5, 6}$</p>
+<p>所以$(A \cap B)^c = (A^c \cap B) \cup  (A^c \cap B^c) \cup (A \cap B^c)$。</p>
+<h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><p>略。</p>
+<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4><p>证明略，这里给出一个实例。假设[0, 1]区间中的数可数，那么我们可以列出：<br>$$\begin{array}{rcl}<br>            x_1 &amp;= 0.3154… \<br>            x_2 &amp;= 0.114514… \<br>            x_3 &amp;= 0.2333… \<br>            …<br>        \end{array}$$<br>我们可以找到一个y，使得$y = 0.121…$。由于y的第n位与$x_n$不同，于是这个y不可能在上面的数中。</p>
+<p>当然找到y的方式并不止书上一种。</p>
+<h4 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h4><p>设挑选一个学生，这个学生是天才为事件A，这个学生喜欢巧克力为事件B，那么：</p>
+<p>$P(A) = 0.6, P(B) = 0.7, P(A \cap B) = 0.4$</p>
+<p>所以$P(\bar A \cap \bar B) = 1 - P(A) - P(B) + P(A \cap B) = 0.1$。</p>
+<p>这题是12题容斥原理的应用。</p>
+<h4 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h4><p>因为偶数的概率是奇数的两倍，又因为$P(even) + P(odd) = 1$，所以$P(even) = \frac{2}{3}, P(odd) = \frac{1}{3}$。</p>
+<p>因为不同偶数/奇数面出现的概率相同，于是：</p>
+<p>$$\begin{array}{rcl}<br>            P(1) &amp;= \frac{1}{9} \<br>            P(2) &amp;= \frac{2}{9} \<br>            P(3) &amp;= \frac{1}{9} \<br>            P(4) &amp;= \frac{2}{9} \<br>            P(5) &amp;= \frac{1}{9} \<br>            P(6) &amp;= \frac{2}{9}<br>        \end{array}$$</p>
+<p>所以点数小于4的概率为$P(1) + P(2) + P(3) = \frac{4}{9}$。</p>
+<h4 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h4><p>样本空间为：第一次时停止，第二次时停止，第三次时停止……</p>
+<h4 id="8"><a href="#8" class="headerlink" title="8."></a>8.</h4><p>不妨设第n局获胜的概率为$P_n$，那么最终获胜的概率：</p>
+<p>$P = P_1(1 - P_2)P_3 + P_1P_2 + (1 - P_1)P_2P_3$</p>
+<p>化简上式得到$P = P_1P_3 + P_2(P_1 + P_3 - 2P_1P_3)$。</p>
+<p>对于函数$f(x, y) = x + y - 2xy$在x和y都属于[0,<br>1]区间内时，$x \geq x^2, y \geq y^2, (x - y)^2 \geq 0$，所以$x + y - 2xy \geq x^2 + y^2 -2xy = (x - y)^2 \geq 0$</p>
+<p>所以对于$(P_1 + P_3 - 2P_1P_3)$，这个值永远非负，故$P_2$最大时整个式子最大，且与$P_1,P_3$的顺序无关。</p>
+<p>证毕。</p>
+<h4 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h4><h5 id="a-1"><a href="#a-1" class="headerlink" title="(a)"></a>(a)</h5><p>$P(A) = P(A \cap \Omega) = P(A \cap \bigcup_{i = 1}^nS_i) = P(\bigcup_{i = 1}^n(A \cap S_i))$</p>
+<p>由于${S_1, S_2, …, S_n}$互不相容，故$P(A) = \sum_{i = 1}^nP(A \cap S_i)$</p>
+<p>证毕。</p>
+<h5 id="b-1"><a href="#b-1" class="headerlink" title="(b)"></a>(b)</h5><p>不难发现，$B^c \cap C^c, B \cap C^c, B^c \cap C, B \cap C$互不相容</p>
+<p>所以$P(A) = P(A \cap B^c \cap C^c) + P(A \cap B \cap C^c) + P(A \cap B^c \cap C) + P(A \cap B \cap C)$</p>
+<p>由容斥原理，$P(A) = P(A \cap B^c \cap C^c) + P(A \cap B) + P(A \cap C) - P(A \cap B \cap C)$</p>
+<p>证毕。</p>
+<h4 id="10"><a href="#10" class="headerlink" title="10."></a>10.</h4><p>$P(A) + P(B) - 2P(A \cap B) = P(A \cup B) - P(A \cap B) = P((A \cap B^c) \cup (A^c \cap B))$</p>
+<p>证毕。</p>
+<h4 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h4><h5 id="a-2"><a href="#a-2" class="headerlink" title="(a)"></a>(a)</h5><p>原文给出的等式应为$P(A \cup B) = P(A) + P(B) - P(A \cap B)$，似乎存在笔误。</p>
+<h5 id="b-2"><a href="#b-2" class="headerlink" title="(b)"></a>(b)</h5><p>略。</p>
+<h4 id="12"><a href="#12" class="headerlink" title="12."></a>12.</h4><h5 id="a-3"><a href="#a-3" class="headerlink" title="(a)"></a>(a)</h5><p>略。</p>
+<h5 id="b-3"><a href="#b-3" class="headerlink" title="(b)"></a>(b)</h5><p>当n = 3时，由(a)可知等式成立。</p>
+<p>假定n = m时等式依然成立，那么当n = m + 1时：</p>
+<p>$P(\bigcup_{k = 1}^{m + 1}) = P(A_{m + 1} \cup \bigcup_{k = 1}^m A_k) =<br>            P(A_{m + 1}) + \sum_{i \in S_1}P(A_i)<br>            - \sum_{(i_1, i_2) \in S_2}P(A_{i_1} \cap A_{i_2}) + … + (-1)^{n - 1}P(\bigcap_{k = 1}^{n}A_k) -P(A_{m + 1} \cap \bigcup_{k = 1}^m A_k)$</p>
+<p>整理上式可得：</p>
+<p>$P(\bigcup_{k = 1}^{m + 1}) = \sum_{i \in S_1}P(A_i) - \sum_{(i_1, i_2) \in S_2}P(A_{i_1} \cap A_{i_2}) + … + (-1)^nP(\bigcap_{k = 1}^{m + 1}A_k)$</p>
+<p>归纳完毕。</p>
+<h4 id="13"><a href="#13" class="headerlink" title="13."></a>13.</h4><p>略。</p>
+<h4 id="14"><a href="#14" class="headerlink" title="14."></a>14.</h4><h5 id="a-4"><a href="#a-4" class="headerlink" title="(a)"></a>(a)</h5><p>仅有(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6,<br>6)满足情况，故$P = \frac{1}{6}$</p>
+<h5 id="b-4"><a href="#b-4" class="headerlink" title="(b)"></a>(b)</h5><p>若总和小于等于4，则有(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (3,<br>1)六种情况，其中一对的事件有两个，故$P = \frac{1}{3}$。</p>
+<h5 id="c-1"><a href="#c-1" class="headerlink" title="(c)"></a>(c)</h5><p>设两个骰子都是6为事件A，恰有一个骰子为6为事件B，则$P(A) + P(B) = \frac{1}{36} + \frac{10}{36} = \frac{11}{36}$即为所求。</p>
+<h5 id="d"><a href="#d" class="headerlink" title="(d)"></a>(d)</h5><p>不同的抛掷结果一共有30种，而至少一个骰子为6（也只能有一个骰子为6）有10种情况，所以$P = \frac{1}{3}$</p>
+<h4 id="15"><a href="#15" class="headerlink" title="15."></a>15.</h4><p>在已知第一次为正面的情况下，两次均正面朝上的概率只取决于第二次抛掷的情况，所以此时的概率为$\frac{1}{2}$。</p>
+<p>而两次中至少有一次正面朝上的概率为$\frac{3}{4}$，在已知该前提下，两次正面的概率为$\frac{1}{3}$，所以爱丽丝的结论是正确的。</p>
+<p>假定硬币不对称，即$p \ne 1 - p$，那么第一种情况的概率变为$p$；而第二种情况下至少一次正面朝上的概率变为了$1 - (1 - p)^2 = 2p - p^2$，<br>在该前提下两次正面朝上的概率就应该是$\frac{p}{2 - p}$。因为$p \leq 1$，所以仅当$p = 1$或$p = 0$，即正面始终朝上或朝下时，两个条件概率相等，<br>其他条件下，前者的概率都要比后者大。</p>
+<p>可以将这个结论推广到任意n$(n \geq 2)$次游戏：将前n -<br>1次游戏抛得正面条件下得到n次正面的概率与至少n-1次得到正面条件下的概率相差，<br>得到$\frac{(n - 1)p + (1 - n)p^2}{p + n - np}$，由于$p \geq p^2$，可以得到和上面一样的结论。</p>
+<h4 id="16"><a href="#16" class="headerlink" title="16."></a>16.</h4><p>所有抛掷可以得到正面的概率为$\frac{1}{3} + \frac{1}{6} = \frac{1}{2}$，而选中正常硬币并抛掷得到正面的概率为$\frac{1}{3} \times \frac{1}{2} = \frac{1}{6}$，<br>于是由条件概率可得$\frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$。</p>
+<p>也可以考虑所有抛掷的结果：一共是三正三反，而三个正面朝上的情况中只有其中一个是来自于正常硬币，结果也是$\frac{1}{3}$。</p>
+<h4 id="17"><a href="#17" class="headerlink" title="17."></a>17.</h4><p>设这批产品被接受为事件A，则$P(A) = \frac{C_{96}^{5}}{C_{100}^5}$，那么被拒绝的概率就为$1 - P(A) \approx 0.19$</p>
+<h4 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h4><p>$P(A \cap B|B) = \frac{P(A \cap B \cap B)}{P(B)} = \frac{P(A \cap B)}{P(B)} = P(A|B)$</p>
+<p>证毕。</p>
+<h4 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h4><p>若$j \ne i$，则在第i个抽屉内找但没有找到的概率为$1 - p_id_i$（要么不在这个抽屉，要么在但是没有找到），而报告在第j个抽屉的概率为$p_j$，<br>故结果为$\frac{p_j}{1 - p_id_i}$。</p>
+<p>若$j = i$，在第i个抽屉内找但没有找到的概率同上，而报告恰好就在第i个抽屉并且没有被找到的概率为$P_i(1 - d_i)$，<br>故结果为$\frac{p_i(1 - d_i)}{1 - p_id_i}$</p>
+<p>证毕。</p>
+<h4 id="20"><a href="#20" class="headerlink" title="20."></a>20.</h4><h5 id="a-5"><a href="#a-5" class="headerlink" title="(a)"></a>(a)</h5><h5 id="i"><a href="#i" class="headerlink" title="(i)"></a>(i)</h5><p>进攻风格下，和局的概率为0，所以我们只需要考虑两种情况：<br>前两局鲍里斯均获胜，前两局平局，第三局鲍里斯获胜。</p>
+<p>所以获胜概率为：$p_w^2 + p_w^2(1 - p_w)$。</p>
+<h5 id="ii"><a href="#ii" class="headerlink" title="(ii)"></a>(ii)</h5><p>保守风格下，获胜的概率为0，所以获胜情况只有一种：<br>前两局和局，第三局获胜。</p>
+<p>所以获胜概率为：$p_d^2p_w$。</p>
+<h5 id="iii"><a href="#iii" class="headerlink" title="(iii)"></a>(iii)</h5><p>由全概率定理，整理出所有获胜情况：</p>
+<ul>
+<li><p>  第一局获胜，第二局平局</p>
+</li>
+<li><p>  第一局获胜，第二局失败，第三局获胜</p>
+</li>
+<li><p>  第一局失败，第二局获胜，第三局获胜</p>
+</li>
+</ul>
+<p>所以获胜概率为：$p_wp_d + p_w^2(1 - p_d) + p_w^2(1 - p_w)$</p>
+<h5 id="b-5"><a href="#b-5" class="headerlink" title="(b)"></a>(b)</h5><p>由(a)(iii)可知，策略三的获胜概率为$p_w(p_d + 2p_w - p_w^2 - p_wp_d)$。</p>
+<p>不难发现若$p_w = 0.49$时，$\exists p_d \approx 0.56$，使得上式可以大于0.5。</p>
+<h4 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h4><ul>
+<li><p>  若在第一回合获胜，概率为$\frac{m}{m + n}$</p>
+</li>
+<li><p>  若在第二回合获胜，概率为$\frac{n}{m + n}\frac{n - 1}{m + n - 1}\frac{m}{m + n - 2}$</p>
+</li>
+<li><p>  若在第三回合获胜，概率为$\frac{n}{m + n}\frac{n - 1}{m + n - 1}\frac{n - 2}{m + n - 2}\frac{n - 3}{m + n - 3}\frac{m}{m + n - 4}$</p>
+</li>
+<li><p>  ...</p>
+</li>
+</ul>
+<p>从上面的式子并不容易看出递推式来，但如果稍作一些改动：</p>
+<ul>
+<li><p>  若第一回合前无法决出胜负，概率为$1$</p>
+</li>
+<li><p>  若第二回合前无法决出胜负，概率为$\frac{n}{m + n}\frac{n - 1}{m + n - 1}$</p>
+</li>
+<li><p>  若第三回合前无法决出胜负，概率为$\frac{n}{m + n}\frac{n - 1}{m + n - 1}\frac{n - 2}{m + n - 2}\frac{n - 3}{m + n - 3}$</p>
+</li>
+<li><p>  ...</p>
+</li>
+</ul>
+<p>设第i回合前无法决出胜负的概率为$p_i$，那么我们可以得到$p_1 = 1$，递推式$p_i = p_{i - 1}\frac{n - 2i + 4}{m + n - 2i + 4}\frac{n - 2i + 3}{m + n -2i + 3}$</p>
+<p>所以获胜概率为：$\sum_{i = 1}^{1 + \lfloor \frac{n}{2} \rfloor}p_i \frac{m}{m + n - 2i + 2}$</p>
+<h4 id="22"><a href="#22" class="headerlink" title="22."></a>22.</h4><p>当$k = 1$时，取出白球的概率为$\frac{m}{m + n}$显然成立。</p>
+<p>不妨假设当$k = p$时，在第k个罐子里取出白球的概率依然是$\frac{m}{m + n}$，<br>则对于$k = p + 1$时，由全概率定理， 在第k个罐子里取出白球的概率为</p>
+<p>$\frac{m}{m + n}\frac{m + 1}{m + n + 1} + \frac{n}{m + n}\frac{n}{m + n + 1}$</p>
+<p>整理后得到$\frac{m}{m + n}$，归纳完毕。</p>
+<p>证毕。</p>
+<h4 id="23"><a href="#23" class="headerlink" title="23."></a>23.</h4><p>不妨设罐子里的球的个数为n，分两种情况讨论：</p>
+<ul>
+<li><p>  第一次交换两个球，第二次再交换回来，第三第四次亦如此，这样做的概率为$(\frac{1}{n})^4$</p>
+</li>
+<li><p>  第一次第二次一共交换了两组球，第三第四次再交换回来，这样做的概率为$\frac{4(n - 1)^2}{n^6}$</p>
+</li>
+</ul>
+<p>总的概率为二者之和。</p>
+<h4 id="24"><a href="#24" class="headerlink" title="24."></a>24.</h4><p>$\frac{2}{3}$是先验概率，而$\frac{1}{2}$是后验概率。</p>
+<h4 id="25"><a href="#25" class="headerlink" title="25."></a>25.</h4><p>不妨设两个信封内的钱数分别为S和L，且$L &gt; S$。</p>
+<p>对于S，选中的概率为$\frac{1}{2}$，且只有抛硬币的次数不少于S次时才会换信封。<br>若第一次选中了该信封，则最后得到的钱数为L的概率为</p>
+<p>$\frac{1}{2}(1 - \sum_{i = 1}^{S - 1}(\frac{1}{2})^i) = (\frac{1}{2})^S$</p>
+<p>对于L，选中的概率也是$\frac{1}{2}$，且只有抛硬币的次数小于L次时才会选择不换信封。<br>若第一次选中了该信封，则最后得到的钱数为L的概率为</p>
+<p>$\frac{1}{2}\sum_{i = 1}^{L - 1}(\frac{1}{2})^i = \frac{1}{2} - (\frac{1}{2})^L$</p>
+<p>所以最后的概率为$\frac{1}{2} - (\frac{1}{2})^L + (\frac{1}{2})^S$。因为$L &gt; S$，所以这个概率大于$\frac{1}{2}$。</p>
+<h4 id="26"><a href="#26" class="headerlink" title="26."></a>26.</h4><h5 id="a-6"><a href="#a-6" class="headerlink" title="(a)"></a>(a)</h5><p>由于A和B独立，由条件概率$P(A|B) = \frac{p(1 - q)}{1 -q} = p$。</p>
+<h5 id="b-6"><a href="#b-6" class="headerlink" title="(b)"></a>(b)</h5><p>$P(C) = q(p + \frac{1 - p}{2}) = \frac{q(1 + p)}{2}$</p>
+<p>由贝叶斯准则：$P(A|C) = \frac{P(A)P(C|A)}{P(C)} = \frac{2p}{p + 1}$</p>
+<h4 id="27"><a href="#27" class="headerlink" title="27."></a>27.</h4><ul>
+<li><p>  当鲍勃的所有硬币均正面朝上时，爱丽丝无论怎么抛都是失败，一共有$2^n$种情况</p>
+</li>
+<li><p>  当鲍勃有一枚硬币朝下时，对于鲍勃来说有$C^1_{n+1}$种可能，而对于爱丽丝来说，除了全正以外都是鲍勃获胜，故有$2^n - C^0_n$种情况</p>
+</li>
+<li><p>  当鲍勃有两枚硬币朝下时，对于鲍勃来说有$C^2_{n+1}$种可能，对于爱丽丝来说，有$2^n - C^0_n - C^1_n$种情况</p>
+</li>
+<li><p>  …</p>
+</li>
+</ul>
+<p>综上，所有鲍勃获胜的情况的可能数一共是<br>$2^n + C_{n + 1}^1(2^n - C_n^0) + C_{n + 1}^2(2^n - C_n^0 - C_n^1) + \dots + C_{n + 1}^n(2^n - C_n^0 - \dots - C_n^{n - 1})$</p>
+<p>上式化简后得到$2^{2n + 1} - 2^n - \sum_{i = 1}^nC_{n + 1}^i(\sum_{j = 0}^{i - 1}C_n^j)$。</p>
+<p>注意到$2^{2n + 1} = 2^{n + 1} \times 2^n = (\sum_{i = 0}^{n + 1}C_{n + 1}^i)(\sum_{i = 0}^{n}C_n^i)$</p>
+<p>所以$(\sum_{i = 0}^{n + 1}C_{n + 1}^i)(\sum_{i = 1}^{n}C_n^i) = 2^{2n + 1} - 2^{n + 1}$</p>
+<p>因为$\sum_{i = 1}^{n}C_{n + 1}^i(\sum_{j = 0}^{i - 1}C_n^j) = \sum_{i = 1}^{n}C_{n + 1}^i(\sum_{j = i}^{n}C_n^j)$</p>
+<p>所以<br>$2\sum_{i = 1}^{n}C_{n + 1}^i(\sum_{j = 0}^{i - 1}C_n^j) = \sum_{i = 1}^{n}C_{n + 1}^i(\sum_{j = 0}^{i - 1}C_n^j) + \sum_{i = 1}^{n}C_{n + 1}^i(\sum_{j = i}^{n}C_n^j)$</p>
+<p>上式就等于$(\sum_{i = 1}^{n}C_{n + 1}^i)(\sum_{i = 0}^{n}C_n^i)$，即$2^{2n + 1} - 2^{n + 1}$</p>
+<p>带回原式可知鲍勃获胜的情况总共有$2^{2n}$种，所有情况一共有$2^{2n + 1}$种，故获胜的概率为$\frac{1}{2}$。</p>
+<p>证毕。</p>
+<h4 id="28"><a href="#28" class="headerlink" title="28."></a>28.</h4><p>略。</p>
+<h4 id="29"><a href="#29" class="headerlink" title="29."></a>29.</h4><p>略。</p>
+<h4 id="30"><a href="#30" class="headerlink" title="30."></a>30.</h4><p>如果两头猎犬均选择了正确方向，概率为$p^2$；<br>如果只有一头选择了正确方向，概率为$2p(1 - p)$，此时随机选择到正确方向的概率是$p(1 - p)$，<br>故在这个策略下选择正确方向的概率为$p^2 + p - p^2 = p$，并不会比只让一条猎犬选择更优。</p>
+<h4 id="31"><a href="#31" class="headerlink" title="31."></a>31.</h4><h5 id="a-7"><a href="#a-7" class="headerlink" title="(a)"></a>(a)</h5><p>由于不同信号之间独立，第k个信号正确传输的概率为$p(1 - \epsilon_0) + (1 - p)(1 - \epsilon_1)$</p>
+<h5 id="b-7"><a href="#b-7" class="headerlink" title="(b)"></a>(b)</h5><p>1011一共含有三个1和一个0，且彼此独立，所以正确传输的概率为$(1 - \epsilon_0)(1 - \epsilon_1)^3$</p>
+<h5 id="c-2"><a href="#c-2" class="headerlink" title="(c)"></a>(c)</h5><p>只有以下的情况数据可以被正常传输：</p>
+<ul>
+<li><p>  3个0均没有错误，概率为$(1 - \epsilon_0)^3$</p>
+</li>
+<li><p>  只有一个0发生错误，概率为$C^1_3\epsilon_0(1 - \epsilon_0)^2$</p>
+</li>
+</ul>
+<p>综上，0被正确传输的概率为$(1 - \epsilon_0)^3 + 3\epsilon_0(1 - \epsilon_0)^2$</p>
+<h5 id="d-1"><a href="#d-1" class="headerlink" title="(d)"></a>(d)</h5><p>将(c)中的式子变形为$1^3 - 3\epsilon_0^2(1 - \epsilon_0) - \epsilon_0^3 = 1 - 3\epsilon_0^2 + 2\epsilon_0^3$</p>
+<p>对上式求导得到$-6\epsilon_0 + 6\epsilon_0^2$,由于$0 \leq \epsilon_0 \leq 1$，所以函数在$\epsilon_0 = 0$时取到最大值。<br>即：整个传输过程完全不要出错是坠吼的。</p>
+<h5 id="e"><a href="#e" class="headerlink" title="(e)"></a>(e)</h5><p>由贝叶斯准则，对方发出的数据为0的概率为$\frac{P(0)}{P(1) + P(0)} = \frac{\epsilon_0^2}{\epsilon_1 + \epsilon_0^2}$</p>
+<h4 id="32"><a href="#32" class="headerlink" title="32."></a>32.</h4><ul>
+<li><p>  因为各次生育是独立的，所以国王的性别并不会影响他的兄弟姐妹，而生男的概率为$\frac{1}{2}$，故国王有一个兄弟的概率为$\frac{1}{2}$</p>
+</li>
+<li><p>  国王的母亲一共有两个孩子，并且两个都是男性，所以国王有一个兄弟的概率为$\frac{1}{4}$</p>
+</li>
+</ul>
+<h4 id="33"><a href="#33" class="headerlink" title="33."></a>33.</h4><p>投一次硬币已经没办法解决这个问题了，那我们考虑投两次。投两次硬币的全部概率为$1^2 = (1 - p + p)^2 = (1 - p)^2 + 2p(1 - p) + p^2$。注意到里面有一个2，<br>那么我们不妨投两次硬币，如果两次结果相同，则重新开始；剩余的两种情况每个人获胜的概率均为$\frac{1}{2}$。</p>
+<h4 id="34"><a href="#34" class="headerlink" title="34."></a>34.</h4><ul>
+<li><p>  第一个子系统有效的概率为$p$</p>
+</li>
+<li><p>  第二个子系统有效的概率为$p + 3p^2 - 5P^3 + 2p^4$</p>
+</li>
+<li><p>  第三个子系统有效的概率为$2p - p^2$</p>
+</li>
+</ul>
+<p>由于三个子系统独立，整个系统的有效概率为$p(p + 3p^2 - 5p^3 + 2p^4)(2p - p^2) = 2p^3 + 5p^4 -13p^5 + 9p^6 -2p^7$</p>
+<h4 id="35"><a href="#35" class="headerlink" title="35."></a>35.</h4><p>由独立性： $\sum_{i = k}^nC^i_np^i(1 - p)^{n - i}$</p>
+<h4 id="36"><a href="#36" class="headerlink" title="36."></a>36.</h4><h5 id="a-8"><a href="#a-8" class="headerlink" title="(a)"></a>(a)</h5><p>只有所有电厂均中断的时候全市才会停电，故由独立性可得：<br>$\Pi_{i = 1}^np_i$</p>
+<h5 id="b-8"><a href="#b-8" class="headerlink" title="(b)"></a>(b)</h5><p>如果所有电厂中断，或者只有不到三个电厂在供电，全市会处在停电状态。<br>设$P(i), P(i, j)$分别为仅第i个电厂工作的概率和仅第i，j个电厂在工作的概率，<br>即$P(i) = \frac{(1 - p_i)\Pi_{j = 1}^np_j}{p_i}, P(i, j) = \frac{(1 - p_i)(1 - p_j)\Pi_{k = 1}^np_k}{p_ip_j}$，<br>全市停电的概率为$\Pi_{i = 1}^n + \sum_{i = 1}^nP(i) + \sum_{1 \leq i &lt; j \leq n}P(i, j)$。</p>
+<h4 id="37"><a href="#37" class="headerlink" title="37."></a>37.</h4><p>$\sum_{i = 0}^{n_1}\sum_{j = 0}^{n_2}\left[r_1i + r_2j &gt; c\right]C_{n_1}^ip_1^i(1 - p_1)^{n_1 - i}C_{n_2}^jp_2^j(1 - p_2)^{n_2 - j}$</p>
+<h4 id="38"><a href="#38" class="headerlink" title="38."></a>38.</h4><p>考虑泰里思领先的概率$p_T$：只有在剩下的比赛中得到至少6分，才能保证泰里思领先。<br>所以$p_T = \sum_{i = 6}^8C_8^ip^i(1 - p)^{8 - i}$。</p>
+<p>同理对于温迪来说，$P_W = \sum_{i = 4}^8C_8^i(1 - p)^ip^{8 - i} = \sum_{i = 0}^4C_8^ip^i(1 - p)^{8 - i}$。</p>
+<p>所以泰里思可以分到的钱为$\frac{10p_T}{p_T + p_W} = \frac{10p_T}{1 - p^5(1 - p)^3}$</p>
+<h4 id="39"><a href="#39" class="headerlink" title="39."></a>39.</h4><p>设这天是好天气的概率为$p_w$，若当天每个学生的出勤概率为$t$，<br>则当天出勤人数不少于k的概率$P_k(t) = \sum_{i = k}^nC_n^it^i(1 - t)^{n - i}$，<br>那么教授可以讲课的概率为$p_wP_k(p_g) + (1 - p_w)P_k(p_b)$。</p>
+<h4 id="40"><a href="#40" class="headerlink" title="40."></a>40.</h4><p>当$n = 0$时，$p_n = 1$。</p>
+<p>当$n &gt; 0$时，$p_n = p(1 - p_{n - 1}) + p_{n - 1}(1 - p)$。</p>
+<p>所以$p_n = p_{n - 1}(1 - 2p) + p$。令$p_n’ = p_n - \frac{1}{2}$，则$p_n’ = (1 - 2p)p_{n - 1}’$，<br>由等比数列通项公式：$p_n’ = \frac{(1 - 2p)^n}{2}$，所以$p_n = \frac{1 + (1 - 2p)^n}{2}$。</p>
+<h4 id="41"><a href="#41" class="headerlink" title="41."></a>41.</h4><p>假设第一个人转出来的数字为$p$，则在某一回合内，这个人被淘汰的概率为$p$。<br>所以第一个人在第n个回合被淘汰的概率等于前n-1回合没被淘汰的概率乘上这个回合被淘汰的概率，<br>即$P(N = n) = (1 - p)^{n - 1}p$。</p>
+<h4 id="42"><a href="#42" class="headerlink" title="42."></a>42.</h4><p>略。这个问题在第七章马尔可夫链中还会再遇到。</p>
+<h4 id="43"><a href="#43" class="headerlink" title="43."></a>43.</h4><p>略。</p>
+<h4 id="44"><a href="#44" class="headerlink" title="44."></a>44.</h4><h5 id="a-9"><a href="#a-9" class="headerlink" title="(a)"></a>(a)</h5><p>略。</p>
+<h5 id="b-9"><a href="#b-9" class="headerlink" title="(b)"></a>(b)</h5><p>由(a)可知：若A和B独立，则$A$和$B^c$独立，<br>即$P(A \cap B^c) = P(A)P(B^c)$。</p>
+<p>对于事件$B^c$，由全概率公式：<br>$P(B^c) = P(A \cap B^c) + P(A^c \cap B^c) = P(A)P(B^c) + P(A^c \cap B^c)$，<br>所以$P(A^c \cap B^c) = (1 - P(A))P(B^c) = P(A^c)P(B^c)$，所以$A^c$和$B^c$独立。</p>
+<p>证毕。</p>
+<h4 id="45"><a href="#45" class="headerlink" title="45."></a>45.</h4><p>略。</p>
+<h4 id="46"><a href="#46" class="headerlink" title="46."></a>46.</h4><p>略。</p>
+<h4 id="47"><a href="#47" class="headerlink" title="47."></a>47.</h4><p>略。</p>
+<h4 id="48"><a href="#48" class="headerlink" title="48."></a>48.</h4><p>略。</p>
+<h4 id="49"><a href="#49" class="headerlink" title="49."></a>49.</h4><p>第一次投掷：</p>
+<hr>
+<p>  点数   1               2               3               4               5               6<br>  概率   $\frac{1}{6}$   $\frac{1}{6}$   $\frac{1}{6}$   $\frac{1}{6}$   $\frac{1}{6}$   $\frac{1}{6}$</p>
+<hr>
+<p>第二次投掷：</p>
+<hr>
+<p>  点数和   2                3                4                5                6                7                8                9                10               11               12<br>  概率     $\frac{1}{36}$   $\frac{2}{36}$   $\frac{3}{36}$   $\frac{4}{36}$   $\frac{5}{36}$   $\frac{6}{36}$   $\frac{5}{36}$   $\frac{4}{36}$   $\frac{3}{36}$   $\frac{2}{36}$   $\frac{1}{36}$</p>
+<hr>
+<p>第三次投掷：</p>
+<hr>
+<p>  点数和   3                 4                 5                 6                  7                  8                 9                  10                 11                 12                 13                 14                 15                 16                17                18<br>  概率     $\frac{1}{216}$   $\frac{3}{216}$   $\frac{6}{216}$   $\frac{10}{216}$   $\frac{15}{216}$   $\frac{21}{36}$   $\frac{25}{216}$   $\frac{27}{216}$   $\frac{27}{216}$   $\frac{25}{216}$   $\frac{21}{216}$   $\frac{15}{216}$   $\frac{10}{216}$   $\frac{6}{216}$   $\frac{3}{216}$   $\frac{1}{216}$</p>
+<hr>
+<p>从上表来看和为11的概率要大于和为12。</p>
+<h4 id="50"><a href="#50" class="headerlink" title="50."></a>50.</h4><p>如果$n &gt; 365$，那么根据鸽巢原理，一定有两个人的生日在同一天，所以这个概率是0。</p>
+<p>如果$1 &lt; n \leq 365$，那么没有任何两个人在同一天生日的概率为$\frac{C_{365}^n}{365^n}$（每个人选其中的某一天作为自己的生日，可选的所有可能是$365^n$种）。</p>
+<h4 id="51"><a href="#51" class="headerlink" title="51."></a>51.</h4><h5 id="a-10"><a href="#a-10" class="headerlink" title="(a)"></a>(a)</h5><p>样本空间：抽走两个红球（设为事件A），抽走两个白球（设为事件B），抽走一个红球和一个白球（设为事件C）。</p>
+<p>基于离散均匀分布律的计数方法，我们有：<br>$$P(A) = \frac{C_m^2}{C_{m + n}^2}, P(B) = \frac{C_n^2}{C_{m + n}^2},<br>             P(C) = \frac{C_m^1C_n^1}{C_{m + n}^2}$$</p>
+<p>设第一次抽到红球为事件D，第一次抽到白球为事件E，基于乘积规则，我们也可以得到：<br>$$P(D) = \frac{m}{m + n}, P(E) = \frac{n}{m + n}$$</p>
+<p>那么：<br>$$P(A) = \frac{m - 1}{m + n - 1}P(D) = \frac{C_m^2}{C_{m + n}^2}$$<br>$$P(B) = \frac{n - 1}{m + n - 1}P(E) = \frac{C_n^2}{C_{m + n}^2}$$<br>$$P(C) = \frac{m}{m + n - 1}P(E) + \frac{n}{m + n - 1}P(D) = \frac{C_m^1C_n^1}{C_{m + n}^2}$$</p>
+<h5 id="b-10"><a href="#b-10" class="headerlink" title="(b)"></a>(b)</h5><ul>
+<li><p>  出现1的时候，全是红球的概率为$\frac{C_m^1}{C_{m + n}^1}$</p>
+</li>
+<li><p>  出现2的时候，全是红球的概率为$\frac{C_m^2}{C_{m + n}^2}$</p>
+</li>
+<li><p>  出现3的时候，全是红球的概率为$\frac{C_m^3}{C_{m + n}^3}$</p>
+</li>
+</ul>
+<p>由全概率公式，取出的球全是红色的概率为$\frac{1}{3}(\frac{C_m^1}{C_{m + n}^1} + \frac{C_m^2}{C_{m + n}^2} + \frac{C_m^3}{C_{m + n}^3})$。</p>
+<h4 id="52"><a href="#52" class="headerlink" title="52."></a>52.</h4><p>第13张牌正好是老K，意味着前12张牌均不能是老K，故概率为$\frac{C_{48}^{12}}{C_{52}^{12}}\frac{C_4^1}{C_{40}^{1}}$。</p>
+<h4 id="53"><a href="#53" class="headerlink" title="53."></a>53.</h4><p>我们把90个学生排成一排，前30个学生在一个班，中间30个学生在一个班，最后30个学生在一个班。这样所有的可能有$90!$种。<br>对于乔和简，他们两个人可以先确定在三个班中的某一个，然后在这个班的30个位置中任意占据两个，其他人再随机排列。<br>这样满足条件的排列数是$C_3^1C_{30}^298!$。所以分到一个班的概率为$\frac{C_3^1C_{30}^298!}{90!}$。</p>
+<h4 id="54"><a href="#54" class="headerlink" title="54."></a>54.</h4><h5 id="a-11"><a href="#a-11" class="headerlink" title="(a)"></a>(a)</h5><p>$\frac{20!}{10!10!} = 184756‬$</p>
+<h5 id="b-11"><a href="#b-11" class="headerlink" title="(b)"></a>(b)</h5><p>不难发现只有两种排列方式满足要求（”美国车，外国车，美国车，…，外国车”和”外国车，美国车，外国车，…，美国车”）。<br>所以这个概率为$\frac{2}{184756}$。</p>
+<h4 id="55"><a href="#55" class="headerlink" title="55."></a>55.</h4><p>总共可以摆放的方案一共是$C_{64}^8$种。考虑合法的情况，每一个车一定单独占据一行，第一行的车有8种选择，第二行的车只有7种选择……<br>所以合法的概率为$\frac{8!}{C_{64}^8}$。</p>
+<h4 id="56"><a href="#56" class="headerlink" title="56."></a>56.</h4><h5 id="a-12"><a href="#a-12" class="headerlink" title="(a)"></a>(a)</h5><p>$C_8^4C_{10}^3 = 1680$</p>
+<h5 id="b-12"><a href="#b-12" class="headerlink" title="(b)"></a>(b)</h5><ul>
+<li><p>  假定所选的所有高水平课程均在$H_1, \dots, H_5$中，那么所有的可能有$C_7^3C_5^3 = 350$种；</p>
+</li>
+<li><p>  假定所选的所有高水平课程均在$H_6, \dots, H_10$中，那么所有的可能有$C_6^2C_5^3 = 150$种；</p>
+</li>
+<li><p>  假设二者均有涉及，那么三门先修课程均需要开设，所有的可能有$C_5^1\sum_{i = 1}^2C_5^iC_5^{3 - i} = 500$种</p>
+</li>
+</ul>
+<p>所以一共有1000种。</p>
+<h4 id="57"><a href="#57" class="headerlink" title="57."></a>57.</h4><p>将问题换一个方式陈述：将一个26个不同字母随机排列组成的字符串划分为6个部分，有多少种划分方式？</p>
+<p>26个字母的总排列数是$26!$，将长度为26的字符串划分为6个部分，只需要在其中的25个间隔处插入空格即可，且不能有连续的空格。<br>所以最后的结果为$26!C_{25}^5$。</p>
+<h4 id="58"><a href="#58" class="headerlink" title="58."></a>58.</h4><p>接下来的问题中我们假设一共有52张牌。</p>
+<h5 id="a-13"><a href="#a-13" class="headerlink" title="(a)"></a>(a)</h5><p>$\frac{C_4^3C_{48}^4}{C_{52}^7}$</p>
+<h5 id="b-13"><a href="#b-13" class="headerlink" title="(b)"></a>(b)</h5><p>$\frac{C_4^2C_{48}^5}{C_{52}^7}$</p>
+<h5 id="c-3"><a href="#c-3" class="headerlink" title="(c)"></a>(c)</h5><p>$\frac{C_4^3C_{48}^4}{C_{52}^7} + \frac{C_4^2C_{48}^5}{C_{52}^7} - \frac{C_4^2C_4^3C_{44}^2}{C_{52}^7}$</p>
+<h4 id="59"><a href="#59" class="headerlink" title="59."></a>59.</h4><p>$\frac{C_k^nC_{100 - k}^{m - n}}{C_{100}^m}$</p>
+<p>柠檬法案：柠檬法（Lemon<br>Laws）是一种美国的消费者保护法，主要是在保障汽车买主的权益。柠檬法的名称起源于美国经济学家乔治·阿克罗夫（George<br>A.<br>Akerlof）所发表的一篇经济学论文，因为这缘故，对于出厂后有瑕疵问题的汽车，通常也会称呼其为柠檬车（Lemon<br>Car）或直接就称为柠檬。</p>
+<h4 id="60"><a href="#60" class="headerlink" title="60."></a>60.</h4><p>我们可以使用类似于53题的思路，得到$\frac{13^4 \times \frac{48!}{(4!)^{12}}}{\frac{52!}{(4!)^{13}}} \approx 0.105$</p>
+<h4 id="61"><a href="#61" class="headerlink" title="61."></a>61.</h4><p>略。</p>
+<h4 id="62"><a href="#62" class="headerlink" title="62."></a>62.</h4><p>略。</p>
+<h3 id="第二章-离散随机变量"><a href="#第二章-离散随机变量" class="headerlink" title="第二章 离散随机变量"></a>第二章 离散随机变量</h3><h4 id="1-1"><a href="#1-1" class="headerlink" title="1."></a>1.</h4><hr>
+<p>  得分   0      1      2      3      4<br>  概率   0.18   0.27   0.34   0.14   0.07</p>
+<hr>
+<h4 id="2-1"><a href="#2-1" class="headerlink" title="2."></a>2.</h4><p>假设有k个人与你的生日相同，由二项分布：<br>$$P_X(k) = C_{500}^kp^k(1 - p)^{500 - k}$$<br>其中$p = \frac{1}{365}$，则有人生日与你相同的概率为$1 - P_X(0) = 1 - (1 - \frac{1}{365})^{500} \approx 0.75$。</p>
+<p>若使用泊松分布逼近，$\lambda = np = \frac{500}{365}$，<br>那么$1 - P_X(0) = 1 - e^{-\lambda}\frac{\lambda^0}{0!} \approx 0.75$。</p>
+<h4 id="3-1"><a href="#3-1" class="headerlink" title="3."></a>3.</h4><h5 id="a-14"><a href="#a-14" class="headerlink" title="(a)"></a>(a)</h5><p>设k为比赛连续平局的局数，则$P(k) = 0.3^k$，那么赢得比赛的概率为$0.4\sum_{i = 0}^9P(i) = 0.5714251972‬$。</p>
+<h5 id="b-14"><a href="#b-14" class="headerlink" title="(b)"></a>(b)</h5><p>下棋的前9局数满足几何分布，所以$P_X(k) = (1 - p)^{k - 1}p = 0.3^{k - 1}0.7$，<br>第10局后比赛一定结束， 所以分布列为：</p>
+<hr>
+<p>  局数   1     2      3       4         5<br>  概率   0.7   0.21   0.063   0.0189‬   0.00567‬</p>
+<hr>
+<hr>
+<p>  局数   6           7            8             9              10<br>  概率   0.001701‬   0.0005103‬   0.00015309‬   0.000045927‬   0.000019683‬</p>
+<hr>
+<h4 id="4-1"><a href="#4-1" class="headerlink" title="4."></a>4.</h4><h5 id="a-15"><a href="#a-15" class="headerlink" title="(a)"></a>(a)</h5><p>在使用者的数量小于等于50的时候，调制解调器的数量分布满足二项分布；<br>使用者数量大于50的时候，由于调制解调器数量不足，故一定是50个。</p>
+<p>所以分布列为：</p>
+<hr>
+<p>  人数   $k \leq 50$                         $k &gt; 50$<br>  概率   $C_{1000}^k0.01^k0.99^{1000 - k}$   $1 - \sum_{i = 0}^{50}C_{1000}^i0.01^i0.99^{1000 - i}$</p>
+<hr>
+<h5 id="b-15"><a href="#b-15" class="headerlink" title="(b)"></a>(b)</h5><p>设使用者人数为k，由泊松分布有$P_X(k) = e^{-\lambda}\frac{\lambda^k}{k!} = e^{-10}\frac{10^k}{k!}$</p>
+<h5 id="c-4"><a href="#c-4" class="headerlink" title="(c)"></a>(c)</h5><p>利用精确分布，$P = 1 - \sum_{i = 0}^{50}C_{1000}^i0.01^i0.99^{1000 - i}$，而利用泊松分布，$P = 1 - \sum_{i = 0}^{50}e^{-10}\frac{10^i}{i!}$</p>
+<h4 id="5-1"><a href="#5-1" class="headerlink" title="5."></a>5.</h4><h5 id="a-16"><a href="#a-16" class="headerlink" title="(a)"></a>(a)</h5><p>第一时段结束时：</p>
+<hr>
+<p>  信息包数量k   $k &lt; b$                              $k = b$<br>  概率          $e^{-\lambda}\frac{\lambda^k}{k!}$   $1 - \sum_{i = 0}^{b - 1}e^{-\lambda}\frac{\lambda^i}{i!}$</p>
+<hr>
+<p>第二时段结束时：</p>
+<hr>
+<p>  信息包数量k   $k = 0$                                             $k &gt; 0$<br>  概率          $\sum_{i = 0}^c e^{-\lambda}\frac{\lambda^i}{i!}$   $\sum_{i = c + 1}^{b - 1} e^{-\lambda}\frac{\lambda^i}{i!} + 1 - \sum_{i = 0}^{b - 1}e^{-\lambda}\frac{\lambda^i}{i!}$</p>
+<hr>
+<h5 id="b-16"><a href="#b-16" class="headerlink" title="(b)"></a>(b)</h5><p>如果到达的信息包的数量不超过b，是不会发生丢包的，<br>所以丢包的概率为$1 - \sum_{i = 0}^{b}e^{-\lambda}\frac{\lambda^i}{i!}$。</p>
+<h4 id="6-1"><a href="#6-1" class="headerlink" title="6."></a>6.</h4><h5 id="a-17"><a href="#a-17" class="headerlink" title="(a)"></a>(a)</h5><p>对于$n = 5$，凯尔特人队获胜的概率为$p^3 + C_3^1p^3(1 - p) + C_4^2p^3(1 - p)^2 = 10p^3 - 15p^4 + 6p^5$；</p>
+<p>对于$n = 3$，凯尔特人队获胜的概率为$p^2 + C_2^1p^2(1 - p) = 3p^2 - 2p^3$</p>
+<p>所以当$10p^3 - 15p^4 + 6p^5 &gt; 3p^2 - 2p^3$，时，$n = 5$比$n = 3$合算。<br>将所有式子移到左侧，消去$p^2(p &gt; 0)$并求导得到$18p^2 - 30p + 12$，不难发现当$p = \frac{1}{2}$或$p = 1$时，原式为0，<br>且该函数在$[0.5, 1]$上先增后减，所以当$p \in (0.5, 1)$时$n = 5$比$n = 3$合算。</p>
+<h5 id="b-17"><a href="#b-17" class="headerlink" title="(b)"></a>(b)</h5><p>不难得到$P_N(n = 2k + 1) = p^{k + 1} + C_{k + 1}^1P^{k+1}(1 - p) + \dots + C_{2k}^kp^{k + 1}(1 - p)^k$，<br>并且对于不同的k，$P_N(0) = 0, P_N(1) = 1, P_N(\frac{1}{2}) = \frac{1}{2}$恒成立（0和1十分显然，对于0.5的证明我们额外放在(c)部分讲解）。</p>
+<p>不妨做差$P_N(2k + 3) - P_N(2k + 1)$并对这个式子求导，不难验证导数在$\frac{1}{2}$处大于0。<br>由罗尔定理导函数在$[0.5, 1]$之间一定存在值为0的点，且仅有一个（这是一个$2k + 1$重多项式，其中0为k重根，1为k重根，$\frac{1}{2}$为1重根）。<br>所以导函数在区间上先增后减，原来的差值函数保证大于0，故$p \in (0.5, 1)$。</p>
+<h5 id="c-5"><a href="#c-5" class="headerlink" title="(c)"></a>(c)</h5><p>原题不存在，这部分是(b)中$P_N(n)$在$p = \frac{1}{2}$为常数的证明。</p>
+<p>因为$P_N(n = 2k + 1) = p^{k + 1} + C_{k + 1}^1p^{k+1}(1 - p) + \dots + C_{2k}^kp^{k + 1}(1 - p)^k$,<br>将$\frac{1}{2}$带入后$P_N(2k + 1) = (\frac{1}{2})^{k + 1} + C_k^1(\frac{1}{2})^{k + 2} + \dots + C_{2k}^k(\frac{1}{2})^{2k + 1}$。</p>
+<p>当$k = 0$时，原式显然成立。假定$k = m$时原式也成立，则$k = m + 1$时，<br>我们不妨计算$2^{k+2}P_N(2m + 3), 2^{k + 1}P_N(2m + 1)$，将两个式子逐项做差，得到$2^{k + 1}P_N(2m + 1)$，<br>则$2^{k+2}P_N(2m + 3) = 2^{k + 2}P_N(2m + 1)$，故原式也为$\frac{1}{2}$，归纳完毕。</p>
+<p>证毕。</p>
+<h4 id="7-1"><a href="#7-1" class="headerlink" title="7."></a>7.</h4><h5 id="a-18"><a href="#a-18" class="headerlink" title="(a)"></a>(a)</h5><h5 id="1-2"><a href="#1-2" class="headerlink" title="(1)"></a>(1)</h5><p>由于失败后会做记号，所以尝试的次数最多只有四次（第四次即便失败，剩下的钥匙也没必要再试一次了）。</p>
+<p>分布列：</p>
+<hr>
+<p>  尝试次数   1               2               3               4<br>  概率       $\frac{1}{5}$   $\frac{1}{5}$   $\frac{1}{5}$   $\frac{2}{5}$</p>
+<hr>
+<h5 id="2-2"><a href="#2-2" class="headerlink" title="(2)"></a>(2)</h5><p>随机尝试的情况下，尝试次数满足几何分布，所以分布律为：$P(k) = (\frac{4}{5})^{k - 1}(\frac{1}{5})^k$。</p>
+<h5 id="b-18"><a href="#b-18" class="headerlink" title="(b)"></a>(b)</h5><h5 id="1-3"><a href="#1-3" class="headerlink" title="(1)"></a>(1)</h5><hr>
+<p>  尝试次数   1               2                3                4                5               6                7                8<br>  概率       $\frac{1}{5}$   $\frac{8}{45}$   $\frac{7}{45}$   $\frac{2}{15}$   $\frac{1}{9}$   $\frac{4}{45}$   $\frac{1}{15}$   $\frac{1}{15}$</p>
+<hr>
+<h5 id="2-3"><a href="#2-3" class="headerlink" title="(2)"></a>(2)</h5><p>$P(k) = (\frac{4}{5})^{k - 1}(\frac{1}{5})^k$</p>
+<h4 id="8-1"><a href="#8-1" class="headerlink" title="8."></a>8.</h4><p>二项随机变量满足$P_X(k) = C_n^kp^k(1 - p)^{n - k}$。</p>
+<p>所以 $$P_X(k + 1) = C_n^{k + 1}p^{k + 1}(1 - p)^{n - k - 1} =$$<br>$$\frac{n!}{(k + 1)!(n - k -1)!}p^{k + 1}(1 - p)^{n - k - 1} =$$<br>$$\frac{n - k}{k + 1}\frac{n!}{k!(n - k)!}\frac{p}{1 - p}p^k(1 - p)^{n - k} = \frac{p}{1 - p}\frac{n - k}{k + 1}P_X(k)$$</p>
+<p>证毕。</p>
+<h4 id="9-1"><a href="#9-1" class="headerlink" title="9."></a>9.</h4><p>由第8题，我们可以得到：<br>$P_X(k + 1) - P_X(k) = (\frac{p}{1 - p}\frac{n - k}{k + 1} - 1)P_X(k)$。</p>
+<p>由于$P_X(k) \geq 0$，我们不妨令$f(k) = \frac{p}{1 - p}\frac{n - k}{k + 1} - 1$，<br>则$f’(k) = \frac{-p(n + 1)}{(1 - p)(k + 1)^2}$。</p>
+<p>不难发现导函数恒为负，且当$k = p(n + 1) - 1$时，原函数为0。所以当$k &lt;= (n + 1)p$时，$P_X(k)$是非降的，而在$k &gt; (n + 1)p$时是单调递减的。</p>
+<p>证毕。</p>
+<h4 id="10-1"><a href="#10-1" class="headerlink" title="10."></a>10.</h4><p>因为泊松分布$P_X(k) = e^{-\lambda}\frac{\lambda^k}{k!}$，<br>所以$P_X’(k) = \frac{\lambda^ke^{-\lambda}}{(k!)^2}(ln\lambda\Gamma(k + 1) - \Gamma’(k + 1))$。</p>
+<p>由于括号外的部分恒正，我们解括号内的部分等于0，即$\frac{\Gamma’(k + 1)}{\Gamma(k + 1)} = \Psi(k + 1) = ln\lambda$。</p>
+<p>解得近似解为$k = \lambda$。由于$\Psi(x)$是单调递增的，故导函数在$[0, \lambda]$上大于0，在$(\lambda, \infty)$上小于0。</p>
+<p>也可以简单地通过$\frac{P_X(k + 1)}{P_X(k)} = \frac{\lambda}{k + 1}$看出单调性。</p>
+<p>证毕。</p>
+<h4 id="11-1"><a href="#11-1" class="headerlink" title="11."></a>11.</h4><p>略。</p>
+<h4 id="12-1"><a href="#12-1" class="headerlink" title="12."></a>12.</h4><p>略。</p>
+<h4 id="13-1"><a href="#13-1" class="headerlink" title="13."></a>13.</h4><hr>
+<p>  数量   2                3                4                 5                 6                7<br>  概率   $\frac{1}{32}$   $\frac{5}{32}$   $\frac{10}{32}$   $\frac{10}{32}$   $\frac{5}{32}$   $\frac{1}{32}$</p>
+<hr>
+<h4 id="14-1"><a href="#14-1" class="headerlink" title="14."></a>14.</h4><h5 id="a-19"><a href="#a-19" class="headerlink" title="(a)"></a>(a)</h5><hr>
+<p>  Y   0               1                2<br>  P   $\frac{2}{5}$   $\frac{3}{10}$   $\frac{3}{10}$</p>
+<hr>
+<h5 id="b-19"><a href="#b-19" class="headerlink" title="(b)"></a>(b)</h5><hr>
+<p>  Y   0               1               2                5<br>  P   $\frac{1}{5}$   $\frac{1}{5}$   $\frac{1}{10}$   $\frac{1}{2}$</p>
+<hr>
+<h4 id="15-1"><a href="#15-1" class="headerlink" title="15."></a>15.</h4><p>因为$Y = ln(X), X = a^{|k|}$， 所以$Y = |K|lna$。<br>又因为$K$是$[-n, n]$上的均匀分布，<br>所以$P_Y(y = |k|lna) = {\begin{array}{lcr}<br>            \frac{2}{2n + 1} &amp; &amp; k \ne 0\<br>            \frac{1}{2n + 1} &amp; &amp; k = 0<br>        \end{array}$</p>
+<h4 id="16-1"><a href="#16-1" class="headerlink" title="16."></a>16.</h4><h5 id="a-20"><a href="#a-20" class="headerlink" title="(a)"></a>(a)</h5><p>由归一性可知$2(P_X(3) + P_X(2) +P_X(1)) + P_X(0) = 1$，<br>解之得$a = \frac{1}{28}$。</p>
+<p>由于$P_X$及其定义域关于$x = 0$对称，所以$E[x] = 0$。</p>
+<h5 id="b-20"><a href="#b-20" class="headerlink" title="(b)"></a>(b)</h5><p>因为$E[x] = 0$，所以$Z = X^2$， 故$P_Z(z) = {\begin{array}{lcr}<br>                \frac{2z}{28} &amp; &amp; z = 0, 1, 4, 9 \<br>                0 &amp; &amp; otherwise<br>            \end{array}$</p>
+<h5 id="c-6"><a href="#c-6" class="headerlink" title="(c)"></a>(c)</h5><p>由(b)得，$var(X) = E[Z] = \frac{2}{28} + \frac{32}{28} + \frac{162}{28} = 7$。</p>
+<h5 id="d-2"><a href="#d-2" class="headerlink" title="(d)"></a>(d)</h5><p>$var(X) = \sum_{x}(x - E[X])^2p_X(x) = 2(\frac{1}{28} + \frac{16}{28} + \frac{81}{28}) = 7$</p>
+<h4 id="17-1"><a href="#17-1" class="headerlink" title="17."></a>17.</h4><p>因为$F = 1.8C + 32$，所以$E[F] = 1.8E[C] + 32 = 40$，$var(F) = 1.8^2var(C) = 324$，所以$\sigma_F = 18$。</p>
+<h4 id="18-1"><a href="#18-1" class="headerlink" title="18."></a>18.</h4><p>$E[X] = \int_a^b\frac{2^x}{b - a}dx = \frac{2^b - 2^a}{(b - a)ln2}$</p>
+<p>$var(X) = \int_a^b(2^x - E[X])^2 = \frac{2^{2b} - 2^{2a}}{2ln2} - \frac{b - a}{ln2} + (2^b - 2^a)^2(b - a)$</p>
+<h4 id="19-1"><a href="#19-1" class="headerlink" title="19."></a>19.</h4><p>略。</p>
+<h4 id="20-1"><a href="#20-1" class="headerlink" title="20."></a>20.</h4><p>设需要购买的数量为随机变量X，则X满足几何分布。所以$P_X(x) = (1 - p)^{x - 1}p$，<br>故期望$E[X] = \sum_{x = 1}^{\infty}x(1 - p)^{x - 1}p$，计算$E[x] - (1 - p)E[x]$后求得期望为$\frac{1}{p}$。</p>
+<p>首先计算$E[X^2]$，然后使用$var(X) = E[X^2] - E[X]^2$计算方差。<br>因为$\E[X^2] = \sum_{x = 1}^{\infty}x^2(1 - p)^{x - 1}p$，<br>不难发现可以利用积分得到类似$E[X]$的形式。最后求得$E[X^2] = \frac{2 - p}{p^2}$，<br>故$var(X) = \frac{1 - p}{p^2}$。</p>
+<p>几何分布的期望也可以通过第6节的全期望定理完成。</p>
+<h4 id="21-1"><a href="#21-1" class="headerlink" title="21."></a>21.</h4><p>由题意得，这是一个几何分布，所以$P_N(n) = (\frac{1}{2})^n$。<br>于是我们可以求得期望$E[X] = \sum_{x = 1}^{\infty}(\frac{1}{2})^x2^x = \infty$。</p>
+<p>这个级数并不收敛，所以理论上你可以得到无穷多的钱，但是事实上这并不可能发生。</p>
+<h4 id="22-1"><a href="#22-1" class="headerlink" title="22."></a>22.</h4><h5 id="a-21"><a href="#a-21" class="headerlink" title="(a)"></a>(a)</h5><p>$$P_X(x) = (1 - p - q + 2pq)^{x - 1}(p + q - 2pq)$$<br>$$E[X] = \frac{1}{p + q -2pq}$$<br>$$var(X) = \frac{1 - p - q + 2pq}{(p + q - 2pq)^2}$$</p>
+<h5 id="b-21"><a href="#b-21" class="headerlink" title="(b)"></a>(b)</h5><p>由条件概率得： $\frac{p(1 - q)}{p + q - 2pq}$</p>
+<h4 id="23-1"><a href="#23-1" class="headerlink" title="23."></a>23.</h4><h5 id="a-22"><a href="#a-22" class="headerlink" title="(a)"></a>(a)</h5><p>抛掷k次，前$k - 1$次必定是正反交替，最后一次和倒数第二次相同。抛掷k次结束可以有两种情况（最后一次为正面和最后一次为反面），<br>所以分布列为$P_X(k) = (\frac{1}{2})^{k - 1}$。</p>
+<p>期望值$E[X] = \sum_{x = 2}^{\infty}x(\frac{1}{2})^{x - 1}$，利用积分可得$E[X] = 3$。</p>
+<p>同理方差$var(X) = E[X^2] - E[X]^2 = 12 - 9 = 3$。</p>
+<p>这个问题在条件一节的习题33中有对任意p值下期望值公式的推广。</p>
+<h5 id="b-22"><a href="#b-22" class="headerlink" title="(b)"></a>(b)</h5><p>抛掷k次，一定先出现若干次（可以为0）反面朝上，接下来若干次正面朝上I（至少有一次），最后一次反面朝上。<br>所以分布列为$P_X(k) = (k - 1)(\frac{1}{2})^k$。</p>
+<p>期望值$E[X] = \sum_{x = 2}^{\infty}x(x - 1)(\frac{1}{2})^x = 4$。</p>
+<p>方差$var(X) = E[X^2] - E[X]^2 = 80 - 16 = 64$</p>
+<h4 id="24-1"><a href="#24-1" class="headerlink" title="24."></a>24.</h4><h5 id="a-23"><a href="#a-23" class="headerlink" title="(a)"></a>(a)</h5><p>由题意得：X，Y是$-2 \leq x \leq 4, x - 1 \leq y \leq x + 1$上的均匀分布，所以：</p>
+<hr>
+<p>  Y/X   -2               -1               0                1                2                3                4<br>  -3    $\frac{1}{21}$   0                0                0                0                0                0<br>  -2    $\frac{1}{21}$   $\frac{1}{21}$   0                0                0                0                0<br>  -1    $\frac{1}{21}$   $\frac{1}{21}$   $\frac{1}{21}$   0                0                0                0<br>  0     0                $\frac{1}{21}$   $\frac{1}{21}$   $\frac{1}{21}$   0                0                0<br>  1     0                0                $\frac{1}{21}$   $\frac{1}{21}$   $\frac{1}{21}$   0                0<br>  2     0                0                0                $\frac{1}{21}$   $\frac{1}{21}$   $\frac{1}{21}$   0<br>  3     0                0                0                0                $\frac{1}{21}$   $\frac{1}{21}$   $\frac{1}{21}$<br>  4     0                0                0                0                0                $\frac{1}{21}$   $\frac{1}{21}$<br>  5     0                0                0                0                0                0                $\frac{1}{21}$</p>
+<hr>
+<p>所以边缘分布列$$P_X(x) = \left{\begin{array}{lcr}<br>                \frac{1}{7} &amp; &amp; -2 \leq x \leq 4 \<br>                0 &amp; &amp; otherwise<br>            \end{array}\right.$$</p>
+<p>$$P_Y(y) = \left{\begin{array}{lcr}<br>                \frac{1}{21} &amp; &amp; y = -3/y = 5\<br>                \frac{2}{21} &amp; &amp; y = -2/y = 4\<br>                \frac{1}{7} &amp; &amp; -1 \leq y \leq 3\<br>                0 &amp; &amp; otherwise<br>            \end{array}\right.$$</p>
+<p>期望$E[X] = 1, E[Y] = 1$。</p>
+<h5 id="b-23"><a href="#b-23" class="headerlink" title="(b)"></a>(b)</h5><p>$$E[100X + 200Y] = \sum_{(x, y)}(100x + 200y)P_{X, Y}(x, y) = \frac{8200}{21} \approx 390$$</p>
+<h4 id="25-1"><a href="#25-1" class="headerlink" title="25."></a>25.</h4><h5 id="a-24"><a href="#a-24" class="headerlink" title="(a)"></a>(a)</h5><p>因为答案被选中的可能性相等，故$P_{I, J}$满足均匀分布，所以<br>$$P_{I, J}(i, j) = \left{<br>                \begin{array}{lcr}<br>                    \frac{1}{\sum_{k = 1}^{n}m_k} &amp; &amp; 0 &lt; j \leq m_i\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>                \right.$$</p>
+<p>不难得到边缘分布列$P_I(i) = \frac{m_i}{\sum_{k = 1}^{n}m_k}, P_J(j) = \frac{\sum_{k = 1}^{n}[j \leq m_k]}{\sum_{k = 1}^{n}m_k}$。</p>
+<h5 id="b-24"><a href="#b-24" class="headerlink" title="(b)"></a>(b)</h5><p>对于第i个学生，可以将其回答情况视为$m_i$个独立的题目的得分期望的和，所以总分的期望值为$\sum_{k = 0}^{m_i}ap_{i, k} + b(1 - p_{i, k})$。</p>
+<h4 id="26-1"><a href="#26-1" class="headerlink" title="26."></a>26.</h4><h5 id="a-25"><a href="#a-25" class="headerlink" title="(a)"></a>(a)</h5><p>因为最低分不小于x的分布列$P(X_1 \geq x, X_2 \geq x, X_3 \geq x) = \Pi_{i = 1}^3\frac{111 - x}{10}$</p>
+<p>所以$P_X(x) = (\frac{111 - x}{10})^3 - (\frac{110 - x}{10})^3$</p>
+<h5 id="b-25"><a href="#b-25" class="headerlink" title="(b)"></a>(b)</h5><p>三天的平均得分为$\frac{x_1 + x_2 + x_3}{3}$，而X的期望$E[X] = \sum_{i = 101}^{110}x((\frac{111 - x}{10})^3 - (\frac{110 - x}{10})^3)$。</p>
+<p>平均分的期望值为$105.5$，而X的期望为$103.025$。</p>
+<h4 id="27-1"><a href="#27-1" class="headerlink" title="27."></a>27.</h4><p>略。</p>
+<h4 id="28-1"><a href="#28-1" class="headerlink" title="28."></a>28.</h4><p>换一种方式陈述书上的答案，使得答案更加容易理解。</p>
+<p>我们如果按照原来的顺序答题，奖金的期望$E[L] = p_1v_1 + p_1p_2v_2 + \dots + p_1p_2\dots p_nv_n$。</p>
+<p>假定我们尝试着交换相邻两道题的顺序（交换任意两道题的顺序可以通过若干次相邻交换实现），<br>则交换后的期望值变为$E[L’] = p_1v_1 + \dots + p_1p_2\dots p_{k + 1}v_{k + 1} + p_1p_2\dots p_kp_{k + 1}v_k + \dots + p_1p_2\dots p_nv_n$。<br>将两个式子做差，可以得到$p_1p_2\dots p_{k - 1}(p_kv_k + p_kp_{k + 1}v_{k + 1} - p_{k + 1}v_{k + 1} - p_kp_{k + 1}v_k)$。括号外的式子一定为正，<br>我们只看括号内：$p_kv_k(1 - p_{k + 1}) + p_{k + 1}v_{k + 1}(p_k - 1)$，提出一个$(1 - p_{k + 1})(1 - p_{k})$，得到<br>$\frac{p_kv_k}{1 - p_k} - \frac{p_{k + 1}v_{k + 1}}{1 - p_{k + 1}}$。所以先选$\frac{p_iv_i}{1 - p_i}$是明智的。</p>
+<p>证毕。</p>
+<h4 id="29-1"><a href="#29-1" class="headerlink" title="29."></a>29.</h4><p>略。</p>
+<h4 id="30-1"><a href="#30-1" class="headerlink" title="30."></a>30.</h4><p>略。</p>
+<h4 id="31-1"><a href="#31-1" class="headerlink" title="31."></a>31.</h4><p>因为$P_{X, Y}(x, y) = P_Y(y)P_{X|Y}(x|y)$，所以 $P_{X,Y}(x, y) =\<br>         C_4^y(\frac{1}{6})^y(\frac{1}{6})^{4 - y}C_{4 - y}^x(\frac{1}{6})^x(\frac{5}{6})^{4 - y - x}$。</p>
+<p>如果不满足$0 \leq x,y \leq 4$且$0 \leq x + y \leq 4$，则$P_{X, Y}(x, y) = 0$。</p>
+<h4 id="32-1"><a href="#32-1" class="headerlink" title="32."></a>32.</h4><p>$$E[S|A = a] = \sum_{s}sP_{S|A = a}(s) = \sum_{s}\frac{sC_{m}^sC_{m - s}^{a - 2s}}{C_{2m}^a}$$</p>
+<h4 id="33-1"><a href="#33-1" class="headerlink" title="33."></a>33.</h4><p>略。</p>
+<h4 id="34-1"><a href="#34-1" class="headerlink" title="34."></a>34.</h4><p>略</p>
+<h4 id="35-1"><a href="#35-1" class="headerlink" title="35."></a>35.</h4><p>略。</p>
+<h4 id="36-1"><a href="#36-1" class="headerlink" title="36."></a>36.</h4><p>略。</p>
+<h4 id="37-1"><a href="#37-1" class="headerlink" title="37."></a>37.</h4><p>略。</p>
+<h4 id="38-1"><a href="#38-1" class="headerlink" title="38."></a>38.</h4><p>设每个路口遇到红灯的概率为p。</p>
+<h5 id="a-26"><a href="#a-26" class="headerlink" title="(a)"></a>(a)</h5><p>$$P_X(x) = C_4^xp^x(1 - p)^{4 - x}$$ $$E[X] = 4p$$<br>$$var(X) = \sum_{i = 0}^4var(X_i) = 4p(1 - p)$$</p>
+<h5 id="b-26"><a href="#b-26" class="headerlink" title="(b)"></a>(b)</h5><p>$$var(2X) = 16p(1 - p)$$</p>
+<h4 id="39-1"><a href="#39-1" class="headerlink" title="39."></a>39.</h4><p>由独立性，有： $$E[X] = \sum_{i = 1}^{10}E[X_i] = 35$$<br>$$var(X) = \sum_{i = 1}^{10}var(X_i) = \frac{175}{6}$$</p>
+<h4 id="40-1"><a href="#40-1" class="headerlink" title="40."></a>40.</h4><p>由于论文之间的成绩完全独立，我们不妨在论文与论文之间插入隔板，以此区分不同成绩的两批论文。<br>如果上交了k篇论文，每种评分的论文至少有一篇的概率就为$P(k) = \frac{5!C_{k - 1}^5}{(k + 1)^5}$<br>（一共需要安插5个隔板，分为6个不同评分的区间，所有的可能安插的位置一共是$k + 1$个，而合法的安插位置只能在中间的$k - 1$个中选择，且不能重复，隔板自身的顺序有$5!$种）。</p>
+<p>其中$P(24) \approx 0.5$，$\lim_{k \to \infty} = 1$。</p>
+<h4 id="41-1"><a href="#41-1" class="headerlink" title="41."></a>41.</h4><h5 id="a-27"><a href="#a-27" class="headerlink" title="(a)"></a>(a)</h5><p>不难得到$P(x) = C_{250}^x0.02^x0.98^{250 - x}$，所以$E[X] = 50$。</p>
+<p>所以罚单数刚好等于50的概率为$P(50)$。</p>
+<h5 id="b-27"><a href="#b-27" class="headerlink" title="(b)"></a>(b)</h5><p>利用泊松分布近似(a)中的结果：$P(50) \approx e^{-50}\frac{(50)^{50}}{50!} \approx 0.056$。</p>
+<h5 id="c-7"><a href="#c-7" class="headerlink" title="(c)"></a>(c)</h5><p>$$E[0.5 \times 10X + 0.3 \times 20X + 0.2 \times 50X] = 1050$$<br>$$var(0.5 \times 10X + 0.3 \times 20X + 0.2 \times 50X) = 2160.9$$</p>
+<h5 id="d-3"><a href="#d-3" class="headerlink" title="(d)"></a>(d)</h5><p>因为$\sigma(X) \approx 2.21$，所以$p \in [0, 0.064]$。</p>
+<h4 id="42-1"><a href="#42-1" class="headerlink" title="42."></a>42.</h4><h5 id="a-28"><a href="#a-28" class="headerlink" title="(a)"></a>(a)</h5><p>因为$P_{X_i} = S$，所以$E[X_i] = S$，故$E[S_n] = \frac{nS}{n} = S$。</p>
+<p>对于单个点的方差$var(X_i) = S(1 - S)$是有限值，<br>所以由独立性$\\lim_{n \to \infty}var(S_n) = \frac{nS(1 - S)}{n^2} = 0$。</p>
+<p>证毕。</p>
+<h5 id="b-28"><a href="#b-28" class="headerlink" title="(b)"></a>(b)</h5><p>$$S_n = \frac{(n - 1)S_{n - 1} + X_n}{n}$$</p>
+<h5 id="c-8"><a href="#c-8" class="headerlink" title="(c)"></a>(c)</h5><p>由于单位正方形的内切圆的半径为$\frac{1}{2}$，所以<br>$$\pi = 4E[S_n] = \frac{4}{n}\sum_{i = 1}^{10000}P_{X_i}$$<br>只要计算落在圆形内部的点的数量即可确定$\pi$的值。</p>
+<h5 id="d-4"><a href="#d-4" class="headerlink" title="(d)"></a>(d)</h5><p>类似于(c)。</p>
+<h4 id="43-1"><a href="#43-1" class="headerlink" title="43."></a>43.</h4><p>略。</p>
+<h4 id="44-1"><a href="#44-1" class="headerlink" title="44."></a>44.</h4><p>略。</p>
+<h4 id="45-1"><a href="#45-1" class="headerlink" title="45."></a>45.</h4><p>略。</p>
+<h4 id="46-1"><a href="#46-1" class="headerlink" title="46."></a>46.</h4><p>略。</p>
+<h3 id="第三章-一般随机变量"><a href="#第三章-一般随机变量" class="headerlink" title="第三章 一般随机变量"></a>第三章 一般随机变量</h3><h4 id="1-4"><a href="#1-4" class="headerlink" title="1."></a>1.</h4><p>因为X是$[0, 1]$上的均匀分布，所以$p_X(x) = 1, x \in [0, 1]$。<br>所以Y的分布列为 $$P_Y(y) = \left{<br>            \begin{array}{lcr}<br>                \int_{0}^{\frac{1}{3}}p_X(x)dx = \frac{1}{3} &amp; &amp; y = 1\<br>                \int_{\frac{1}{3}}^{1}p_X(x)dx = \frac{2}{3} &amp; &amp; y = 2\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<p>所以$E[Y] = \frac{5}{3}$，根据期望规则，<br>$E[Y] = \int_{0}^{\frac{1}{3}}dx + \int_{\frac{1}{3}}^{1}2dx = \frac{5}{3}$，<br>可以验证我们的结果是正确的。</p>
+<h4 id="2-4"><a href="#2-4" class="headerlink" title="2."></a>2.</h4><p>$\int_{-\infty}^{\infty}\frac{\lambda}{2}e^{-\lambda |x|} = \int_{0}^{\infty}\lambda e^{-\lambda x}$，<br>可见积分值与指数分布相同，归一化得证。</p>
+<p>所以拉普拉斯随机变量的期望$E[X] = \int_{-\infty}^{\infty}\frac{x\lambda}{2}e^{-\lambda |x|} = 0$，<br>则$var(X) = E[X^2] = \int_{-\infty}^{\infty}\frac{x^2\lambda}{2}e^{-\lambda |x|}dx = \frac{2}{\lambda^2}$。</p>
+<p>拉普拉斯分布的更普遍形式为$p_X(x) = \frac{1}{2\lambda}e^{-\frac{|x - \mu|}{\lambda}}$，<br>这个形式下的$\E[X] = \mu, var(X) = 2\lambda^2$。</p>
+<h4 id="3-2"><a href="#3-2" class="headerlink" title="3."></a>3.</h4><p>略。</p>
+<h4 id="4-2"><a href="#4-2" class="headerlink" title="4."></a>4.</h4><p>略。</p>
+<h4 id="5-2"><a href="#5-2" class="headerlink" title="5."></a>5.</h4><p>不妨设三角形的高为H，对应的底边长度为L，<br>则分布函数$P_X(x)$可以用梯形的面积除以三角形面积得到：<br>$P_X(x) = \frac{\frac{H - x}{H}L + L}{2}\frac{2}{HL} = \frac{x(2H - x)}{H^2}, x \in [0, H]$。</p>
+<p>所以概率密度函数$f_X(x) = P_X’(x) = \frac{2(H - x)}{H^2}$。</p>
+<h4 id="6-2"><a href="#6-2" class="headerlink" title="6."></a>6.</h4><p>有0个顾客的时候，等候的时间为0；有一个顾客的时候，等候时间是一个指数随机变量。<br>所以： $$P_X(x) = \left{<br>            \begin{array}{lcr}<br>                0 &amp; &amp; x &lt; 0\<br>                \frac{1}{2} &amp; &amp; x = 0\<br>                \frac{1}{2}(1 + \int_{0}^{x}\lambda e^{-\lambda t}dt) &amp; &amp; x &gt; 0<br>            \end{array}<br>        \right.$$</p>
+<p>解之得： $$P_X(x) = \left{<br>            \begin{array}{lcr}<br>                0 &amp; &amp; x &lt; 0\<br>                \frac{1}{2} &amp; &amp; x = 0\<br>                \frac{1}{2}(2 - e^{-\lambda x}) &amp; &amp; x &gt; 0<br>            \end{array}<br>        \right.$$</p>
+<h4 id="7-2"><a href="#7-2" class="headerlink" title="7."></a>7.</h4><h5 id="a-29"><a href="#a-29" class="headerlink" title="(a)"></a>(a)</h5><p>X的分布函数为两个圆形面积的比值，所以$P_X(x) = \frac{x^2}{r^2}, x \in [0, r]$。<br>求导后可以得到概率密度函数$f_X(x) = \frac{2x}{r^2}$。所以$E[X] = \int_{0}^{r}\frac{2x^2}{r^2}dx = \frac{2r}{3}$，<br>$var(X) = E[X^2] - E[X]^2 = \frac{r^2}{18}$。</p>
+<h5 id="b-29"><a href="#b-29" class="headerlink" title="(b)"></a>(b)</h5><p>由上一问可知： $$P_S(s) = \left{<br>                \begin{array}{lcr}<br>                    0 &amp; &amp; s &lt; 0\<br>                    \frac{r^2 - t^2}{r^2} &amp; &amp; s = 0\<br>                    \frac{r^2 - t^2}{r^2} &amp; &amp; 0 &lt; s &lt; \frac{1}{t}\<br>                    \frac{r^2 - t^2}{r^2} + \frac{t^2 - (\frac{1}{s})^2}{r^2} &amp; &amp; s \geq \frac{1}{t}<br>                \end{array}<br>            \right.$$</p>
+<p>是连续随机变量。</p>
+<h4 id="8-2"><a href="#8-2" class="headerlink" title="8."></a>8.</h4><h5 id="a-30"><a href="#a-30" class="headerlink" title="(a)"></a>(a)</h5><p>X的分布函数为$P_X(X \leq x)$，由全概率公式，可以得到$P_X(X \leq x) = pP_Y(Y \leq x) + (1 - p)P_Z(Z \leq x)$。<br>对式子两侧分别求导可得$f_X(x) = pf_Y(x) + (1 - p)f_Z(x)$。</p>
+<p>证毕。</p>
+<h5 id="b-30"><a href="#b-30" class="headerlink" title="(b)"></a>(b)</h5><p>$$P_X(x) = \left{<br>                \begin{array}{lcr}<br>                    pe^{\lambda x} &amp; &amp; x &lt; 0\<br>                    1 + (p - 1)e^{-\lambda x} &amp; &amp; x \geq 0<br>                \end{array}<br>            \right.$$</p>
+<h4 id="9-2"><a href="#9-2" class="headerlink" title="9."></a>9.</h4><p>略。</p>
+<h4 id="10-2"><a href="#10-2" class="headerlink" title="10."></a>10.</h4><p>略。</p>
+<h4 id="11-2"><a href="#11-2" class="headerlink" title="11."></a>11.</h4><h5 id="a-31"><a href="#a-31" class="headerlink" title="(a)"></a>(a)</h5><p>因为$\sigma_X = 1, \mu_X = 0$，所以X服从标准正态分布。<br>所以我们根据标准正态分布表，可以得到： $P(X \leq 1.5) \approx 0.9332,\<br>             P(X leq -1) = 1 - \Phi(1) \approx 0.1587$。</p>
+<h5 id="b-31"><a href="#b-31" class="headerlink" title="(b)"></a>(b)</h5><p>因为$\sigma_Y = 2, \mu_Y = 1$，而$Z = \frac{Y - 1}{2}$，所以<br>$\sigma_Z = 1, \mu_Z = 0$，所以<br>$f_Z(z) = \frac{1}{\sqrt{2\pi}}e^{\frac{-x^2}{2}}$。</p>
+<h5 id="c-9"><a href="#c-9" class="headerlink" title="(c)"></a>(c)</h5><p>由(b)可知：$P(-1 \leq Y \leq 1) = P(-1 \leq Z \leq 0) =\ 0.5 - P(Z \leq -1) \approx 0.3413$。</p>
+<h4 id="12-2"><a href="#12-2" class="headerlink" title="12."></a>12.</h4><p>$P(X \geq k\sigma) = 1 - P(X \leq k\sigma)$，令$Y = \frac{X}{\sigma}$，<br>则$P(X \geq k\sigma) = 1 - P(Y \leq k)$，于是：$P(X \geq \sigma) \approx 0.1587,<br>        P(X \geq 2\sigma) \approx 0.0228, P(X \geq 3\sigma) \approx 0.0013$。</p>
+<p>由于$\mu = 0$，所以$P(|X| \leq k\sigma) = 1 - 2P(X \geq k\sigma)$，<br>所以$P(X \geq \sigma) \approx 0.6826,<br>        P(X \geq 2\sigma) \approx 0.9544, P(X \geq 3\sigma) \approx 0.9974$。</p>
+<h4 id="13-2"><a href="#13-2" class="headerlink" title="13."></a>13.</h4><p>因为$C = \frac{F - 32}{1.8}$，所以$P(F \leq 59) = P(C \leq 15)$，<br>其中C满足正态分布，$\mu_C = 10, \sigma_C = 10$。</p>
+<p>再令$X = \frac{C - \mu_C}{\sigma_C}$，则$P(F \leq 59) = P(X \leq 0.5) \approx 0.6915$。</p>
+<h4 id="14-2"><a href="#14-2" class="headerlink" title="14."></a>14.</h4><p>略。</p>
+<h4 id="15-2"><a href="#15-2" class="headerlink" title="15."></a>15.</h4><h5 id="i-1"><a href="#i-1" class="headerlink" title="(i)"></a>(i)</h5><p>$$f_{X,Y}(x, y) = \left{<br>                \begin{array}{lcr}<br>                    \frac{2}{\pi r} &amp; &amp; x^2 + y^2 \leq r, y &gt; 0\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<h5 id="ii-1"><a href="#ii-1" class="headerlink" title="(ii)"></a>(ii)</h5><p>由(i)得：$f_Y(y) = \int_{-\sqrt{r - y^2}}^{\sqrt{r - y^2}}\frac{2}{\pi r}dx = \frac{4}{\pi r}\sqrt{r - y^2}$，<br>所以$E[Y] =\ \int_{0}^{\sqrt{r}}\frac{4y}{\pi r}\sqrt{r - y^2}dy = \frac{4\sqrt{2}}{3 \pi}$。</p>
+<h5 id="iii-1"><a href="#iii-1" class="headerlink" title="(iii)"></a>(iii)</h5><p>利用期望规则直接积分：<br>$E[Y] = \int_{0}^{\sqrt{r}}ydy\int_{-\sqrt{r - y^2}}^{\sqrt{r - y^2}}\frac{2}{\pi r}dx = \frac{4\sqrt{2}}{3 \pi}$。</p>
+<h4 id="16-2"><a href="#16-2" class="headerlink" title="16."></a>16.</h4><p>不妨设针的中点到最近的水平线的距离为X，到最近的垂直线的距离为Y，针与水平线的夹角为$\Theta$，<br>根据布丰抛针问题，我们可以得到： $$f_{X, Y, \Theta} = \left{<br>            \begin{array}{lcr}<br>                \frac{8}{ab\pi} &amp; &amp; x \in [0, \frac{b}{2}], y \in [0, \frac{a}{2}], \theta \in [0, \frac{\pi}{2}]\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<p>所以针与水平线相交的概率为<br>$\P(X \leq \frac{l}{2}sin\Theta) = \frac{8}{ab\pi}\int_{0}^{\frac{a}{2}}\int_{0}^{\frac{\pi}{2}}\int_{0}^{\frac{l}{2}sin\theta}dxd\theta dy = \frac{2l}{b\pi}$。</p>
+<p>同理，针与垂直线相交的概率为：<br>$\P(Y \leq \frac{l}{2}cos\Theta) = \frac{8}{ab\pi}\int_{0}^{\frac{b}{2}}\int_{0}^{\frac{\pi}{2}}\int_{0}^{\frac{l}{2}cos\theta}dyd\theta dx = \frac{2l}{a\pi}$。</p>
+<p>所以相交边数的期望值为$\frac{2l}{b\pi}(1 - \frac{2l}{a\pi}) + \frac{2l}{a\pi}(1 - \frac{2l}{b\pi}) + 2\frac{2l}{a\pi}\frac{2l}{b\pi} = \frac{2l}{b\pi} + \frac{2l}{a\pi}$，<br>至少交于一条边的概率为$\frac{2l}{b\pi} + \frac{2l}{a\pi} - \frac{2l}{a\pi}\frac{2l}{b\pi}$。</p>
+<h4 id="17-2"><a href="#17-2" class="headerlink" title="17."></a>17.</h4><p>略。</p>
+<h4 id="18-2"><a href="#18-2" class="headerlink" title="18."></a>18.</h4><h5 id="a-32"><a href="#a-32" class="headerlink" title="(a)"></a>(a)</h5><p>$$E[X] = \int_{1}^{3}\frac{x^2}{4}dx = \frac{13}{6}$$<br>$$P(A) = 1 - P(X \leq 2) = 1 - \int_{1}^{2}\frac{x}{4}dx = \frac{5}{8}$$<br>$$f_{X|A}(x) = \left{<br>                \begin{array}{lcr}<br>                    \frac{2x}{5} &amp; &amp; 2 \leq x \leq 3\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$<br>$$E[X|A] = \int_{2}^{3}\frac{2x^2}{5}dx = \frac{38}{15}$$</p>
+<h5 id="b-32"><a href="#b-32" class="headerlink" title="(b)"></a>(b)</h5><p>$$E[Y] = E[X^2] = \int_{1}^{3}\frac{x^3}{4}dx = 5$$<br>$$var(Y) = E[Y^2] - E[Y]^2 = \int_{1}^{3}\frac{x^5}{4}dx - 25 = \frac{16}{3}$$</p>
+<h4 id="19-2"><a href="#19-2" class="headerlink" title="19."></a>19.</h4><h5 id="a-33"><a href="#a-33" class="headerlink" title="(a)"></a>(a)</h5><p>由归一性：$\int_{1}^{2}cx^{-2}dx = 1$，解得$c = 2$。</p>
+<h5 id="b-33"><a href="#b-33" class="headerlink" title="(b)"></a>(b)</h5><p>$$P(A) = 1 - P(X \leq 1.5) = 1 - \int_{1}^{1.5}\frac{2dx}{x^2} = \frac{1}{3}$$<br>$$f_{X|A}(x) = \left{<br>                \begin{array}{lcr}<br>                    \frac{6}{x^2} &amp; &amp; 1.5 \leq x \leq 2\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<h5 id="c-10"><a href="#c-10" class="headerlink" title="(c)"></a>(c)</h5><p>$$E[Y|A] = E[X^2|A] = \int_{1.5}^{2}6dx = 3$$<br>$$var(Y|A) = E[Y^2|A] - E[Y|A]^2 = \frac{1}{4}$$</p>
+<h4 id="20-2"><a href="#20-2" class="headerlink" title="20."></a>20.</h4><p>因为共同的分布为指数分布，且期望值为30，所以$f_X(x) = \frac{1}{30}e^{-\frac{x}{30}}$。<br>第二个学生到达时，第一个学生已经到达了5分钟，所以$P(X \geq 5) = 1 - \int_{0}^{5}f_X(x) = e^{-\frac{1}{6}}$。<br>所以第一个学生答疑时间的概率密度函数变为$f_{X|A}(x) = \frac{e^{\frac{1}{6}}}{30}e^{-\frac{x}{30}}$，<br>其期望值为$E[X|A] = \int_{5}^{\infty}\frac{e^{\frac{1}{6}}x}{30}e^{-\frac{x}{30}}dx = 35$，所以所花时间的期望值为65。</p>
+<h4 id="21-2"><a href="#21-2" class="headerlink" title="21."></a>21.</h4><h5 id="a-34"><a href="#a-34" class="headerlink" title="(a)"></a>(a)</h5><p>$$f_{X, Y}(x, y) = \left{<br>                \begin{array}{lcr}<br>                    \frac{1}{xl} &amp; &amp; y \leq x \leq l\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<h5 id="b-34"><a href="#b-34" class="headerlink" title="(b)"></a>(b)</h5><p>$$f_{Y}(y) = \left{<br>                \begin{array}{lcr}<br>                    \int_{y}^{l}\frac{dx}{xl} &amp; &amp; 0 \leq y \leq l\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<p>解之得： $$f_{Y}(y) = \left{<br>                \begin{array}{lcr}<br>                    \frac{lnl - lny}{l} &amp; &amp; 0 \leq y \leq l\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<h5 id="c-11"><a href="#c-11" class="headerlink" title="(c)"></a>(c)</h5><p>$$E[Y] = \int_{0}^{l}\frac{y(lnl - lny)}{l}dy = \frac{l}{4}$$</p>
+<h5 id="d-5"><a href="#d-5" class="headerlink" title="(d)"></a>(d)</h5><p>$E[Y] = E[X\frac{Y}{X}] = E[X]E[\frac{Y}{X}] = \frac{l}{2}\frac{1}{2} = \frac{l}{4}$。</p>
+<h4 id="22-2"><a href="#22-2" class="headerlink" title="22."></a>22.</h4><h5 id="i-2"><a href="#i-2" class="headerlink" title="(i)"></a>(i)</h5><p>设随机选取的两个点距离左侧的距离为X和Y，不妨认为X为更靠右侧的那个点，则概率密度函数为：<br>$$f_{X, Y}(x, y) = \left{<br>                \begin{array}{lcr}<br>                    \frac{1}{x} &amp; &amp; 0 \leq y \leq x \leq 1\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<p>由于三角形的两边之和大于第三边，我们可以列出满足条件的三个式子：<br>$$\begin{array}{lcr}<br>                Y + X - Y &amp; &gt; &amp; 1 - X\<br>                Y + 1 - X &amp; &gt; &amp; X - Y\<br>                X - Y + 1 - X &amp; &gt; &amp; Y\<br>            \end{array}$$</p>
+<p>整理后得到： $$\begin{array}{lccrr}<br>                X &amp; &gt; &amp; \frac{1}{2} &amp; \rightarrow &amp; A\<br>                Y &amp; &lt; &amp; \frac{1}{2} &amp; \rightarrow &amp; B\<br>                X - Y &amp; &lt; &amp; \frac{1}{2} &amp; \rightarrow &amp; C\<br>            \end{array}$$</p>
+<p>所以$P(A) = 1 - \int_{0}^{\frac{1}{2}}\int_{0}^{x}\frac{dydx}{x} = \frac{1}{2}$，<br>$P(B|A) = \int_{\frac{1}{2}}^{1}\int_{0}^{\frac{1}{2}}\frac{2}{x}dydx = ln2$，<br>$P(C|(B|A)) = \int_{\frac{1}{2}}^{1}\int_{x - \frac{1}{2}}^{\frac{1}{2}}\frac{dydx}{xln2} = 1 - \frac{1}{2ln2}$。</p>
+<h5 id="ii-2"><a href="#ii-2" class="headerlink" title="(ii)"></a>(ii)</h5><p>本质上和(i)是一样的，仅仅只是选取方向的不同。</p>
+<h5 id="iii-2"><a href="#iii-2" class="headerlink" title="(iii)"></a>(iii)</h5><p>设Y为第一次选取的点距离最近的一端的距离，X为第二次选区的点距离Y的距离，则概率密度函数为：<br>$$f_{X, Y}(x, y) = \left{<br>                \begin{array}{lcr}<br>                    \frac{2}{1 - y} &amp; &amp; 0 \leq y \leq \frac{1}{2}, y \leq x \leq 1\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<p>同(i)，我们可以列出以下的条件（注意，此时的三段杆的距离已经变成了$X, Y, 1 - X - y$）：<br>$$\begin{array}{lccrr}<br>                X &amp; &lt; &amp; \frac{1}{2} &amp; \rightarrow &amp; A\<br>                Y &amp; &lt; &amp; \frac{1}{2} &amp; \rightarrow &amp; B\<br>                X + Y &amp; &gt; &amp; \frac{1}{2} &amp; \rightarrow &amp; C\<br>            \end{array}$$</p>
+<p>所以$P(A) = \int_{0}^{\frac{1}{2}}\int_{y}^{\frac{1}{2}}\frac{2}{1 - y}dxdy = 1 - ln2$，<br>$P(B|A) = 1$，$P(C|(B|A)) = 2ln\frac{4}{3} + \frac{1}{2}ln\frac{3}{2} - \frac{1}{4}$。</p>
+<h4 id="23-2"><a href="#23-2" class="headerlink" title="23."></a>23.</h4><h5 id="a-35"><a href="#a-35" class="headerlink" title="(a)"></a>(a)</h5><p>$$f_{X, Y}(x, y) = \left{<br>                \begin{array}{lcr}<br>                    2 &amp; &amp; x \geq 0, y \geq 0, x + y \leq 1\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<h5 id="b-35"><a href="#b-35" class="headerlink" title="(b)"></a>(b)</h5><p>$$f_Y(y) = \int_{0}^{1 - y}2dx = 2(1 - y)$$</p>
+<h5 id="c-12"><a href="#c-12" class="headerlink" title="(c)"></a>(c)</h5><p>$$f_{X|Y = y}(x) = \frac{1}{1 - y}$$</p>
+<h5 id="d-6"><a href="#d-6" class="headerlink" title="(d)"></a>(d)</h5><p>$$E[X|Y = y] = \frac{1 - y}{2}$$<br>$$E[X] = \int_{0}^{1}E[X|Y = y]F_{Y}(y)dy = \int_{0}^{1}(1 - y)^2dy = \frac{1}{3}$$</p>
+<h5 id="e-1"><a href="#e-1" class="headerlink" title="(e)"></a>(e)</h5><p>利用对称性，$E[Y] = E[X] = \frac{1}{3}$。</p>
+<h4 id="24-2"><a href="#24-2" class="headerlink" title="24."></a>24.</h4><p>概率密度函数： $$f_{X, Y}(x, y) = \left{<br>            \begin{array}{lcr}<br>                1 &amp; &amp; x \geq 0, y \geq 0, 2x + y \leq 2\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<p>边缘概率密度函数： $$f_X(x) = \int_{0}^{-2x + 2}dy = -2x + 2$$<br>$$f_Y(y) = \int_{0}^{\frac{2 - y}{2}}dx = \frac{2 - y}{2}$$</p>
+<p>条件期望： $$E[X|Y = y] = \frac{2 - y}{4}$$ $$E[Y|X = x] = 1 - x$$</p>
+<p>所以由全期望定理可得：<br>$$E[X] = \int_{0}^{1}E[X|Y = y]f_Y(y)dy = \frac{5}{24}$$<br>$$E[Y] = \int_{0}^{2}E[Y|X = x]f_X(x)dx = \frac{4}{3}$$</p>
+<h4 id="25-2"><a href="#25-2" class="headerlink" title="25."></a>25.</h4><p>$(X, Y)$离原点的距离至少为c，故$\sqrt{X^2 + Y^2} \geq c$，<br>所以$P(A) =\ P(\sqrt{X^2 + Y^2} \geq c) = 1 - \int_{0}^{2\pi}\int_{0}^{c}\frac{\rho}{2\pi \sigma^2}e^{\frac{-\rho^2}{2\sigma^2}}d\rho d\theta = e^{\frac{-c^2}{2\sigma^2}}$。</p>
+<p>于是得到条件联合概率密度函数：<br>$$f_{(X, Y)|A} = \frac{1}{2\pi \sigma^2}e^{\frac{-x^2 - y^2 + c^2}{2\sigma^2}}$$</p>
+<h4 id="26-2"><a href="#26-2" class="headerlink" title="26."></a>26.</h4><p>略。</p>
+<h4 id="27-2"><a href="#27-2" class="headerlink" title="27."></a>27.</h4><h5 id="a-36"><a href="#a-36" class="headerlink" title="(a)"></a>(a)</h5><p>$$\int_{(x, y) \in A}f_{X,Y|C}(x, y)dxdy = \frac{1}{P(C)}\int_{(x, y) \in A}f_{X, Y}(x, y)dxdy = \frac{P(C)}{P(C)} = 1$$<br>所以$f_{X,Y|C}(x, y)$是一个合格的联合概率密度函数。</p>
+<h5 id="b-36"><a href="#b-36" class="headerlink" title="(b)"></a>(b)</h5><p>令$C = \bigcup_{i = 1}^{n}C_i$，因为$A_i$是二维平面的分割，所以$C_i$也是$C$的一个分割。<br>由(a)可知：$f_{X, Y}(x, y) = P(C)f_{X, Y|C}(x, y)$，所以由全概率公式即可得到<br>$f_{X, Y}(x, y) = \sum_{i = 1}^{n}P(C_i)f_{X, Y|C_i}(x, y)$。</p>
+<h4 id="28-2"><a href="#28-2" class="headerlink" title="28."></a>28.</h4><p>略。</p>
+<h4 id="29-2"><a href="#29-2" class="headerlink" title="29."></a>29.</h4><p>略。</p>
+<h4 id="30-2"><a href="#30-2" class="headerlink" title="30."></a>30.</h4><p>略。</p>
+<h4 id="31-2"><a href="#31-2" class="headerlink" title="31."></a>31.</h4><p>略。</p>
+<h4 id="32-2"><a href="#32-2" class="headerlink" title="32."></a>32.</h4><p>略。</p>
+<h4 id="33-2"><a href="#33-2" class="headerlink" title="33."></a>33.</h4><p>略。</p>
+<h4 id="34-2"><a href="#34-2" class="headerlink" title="34."></a>34.</h4><h5 id="a-37"><a href="#a-37" class="headerlink" title="(a)"></a>(a)</h5><p>不妨设硬币正面朝上为事件A，由连续的全期望定理：$P(A) =\ \int_{0}^{1}p^2e^pdp = e - 2$</p>
+<h5 id="b-37"><a href="#b-37" class="headerlink" title="(b)"></a>(b)</h5><p>$$f_{P|A}(p) = \left{<br>                \begin{array}{lcr}<br>                    \frac{pe^p}{e - 2} &amp; &amp; p \in A\<br>                    0 &amp; &amp; otherwise<br>                \end{array}<br>            \right.$$</p>
+<h5 id="c-13"><a href="#c-13" class="headerlink" title="(c)"></a>(c)</h5><p>由连续贝叶斯准则：<br>$f_{P|X}(p|x) = \frac{f_{P}(p)P(X = x|P = p)}{P(x)} = \frac{p^2e^p}{e - 2}$，<br>所以第二次抛掷正面朝上的条件概率为$\int_{0}^{1}\frac{p^3e^p}{e - 2}dp = \frac{6 - 2e}{e - 2}$</p>
+<h4 id="35-2"><a href="#35-2" class="headerlink" title="35."></a>35.</h4><p>略。</p>
+<h3 id="第四章-随机变量的深入内容"><a href="#第四章-随机变量的深入内容" class="headerlink" title="第四章 随机变量的深入内容"></a>第四章 随机变量的深入内容</h3><h4 id="1-5"><a href="#1-5" class="headerlink" title="1."></a>1.</h4><p>由题意得，$f_X(x) = \frac{1}{2}$，所以<br>$F_Y(y) = P(Y \leq y) = P(\sqrt{|X|} \leq y) = P(|X| \leq y^2)$。</p>
+<p>$$F_Y(y) = \left{<br>            \begin{array}{lcr}<br>                y^2 &amp; &amp; y \in [0, 1]\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<p>求导后即可得到： $$f_Y(y) = \left{<br>            \begin{array}{lcr}<br>                2y &amp; &amp; y \in [0, 1]\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<p>因为$F_Z(z) = P(Z \leq z) = P(-ln|X| \leq z) = P(|X| \geq e^{-z})$</p>
+<p>$$F_Z(z) = \left{<br>            \begin{array}{lcr}<br>                1 - e^{-z} &amp; &amp; z \in [0, \infty]\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<p>所以 $$f_Z(z) = \left{<br>            \begin{array}{lcr}<br>                e^{-z} &amp; &amp; z \in [0, \infty]\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<h4 id="2-5"><a href="#2-5" class="headerlink" title="2."></a>2.</h4><p>令$Y = e^X$，则$F_Y(y) = P(Y \leq y) = P(e^X \leq y) = P(X \leq lny)$，<br>所以$F_Y(y) = \int_{-\infty}^{lny}f_X(x)dx$，求导后$f_Y(y) = \frac{f_X(lny)}{y}$。</p>
+<p>当X服从$[0, 1]$上的均匀分布时： $$f_Y(y) = \left{<br>            \begin{array}{lcr}<br>                \frac{1}{y} &amp; &amp; y \in [1, e]\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<h4 id="3-3"><a href="#3-3" class="headerlink" title="3."></a>3.</h4><p>令$Y = |X|^{\frac{1}{3}}, Z = |X|^{\frac{1}{4}}$，则：<br>$F_Y(y) = P(Y \leq y) = P(|X|^{\frac{1}{3}} \leq y) = P(|X| \leq y^3) = \int_{0}^{y^3}f_{|X|}(|x|)dx$，<br>所以$f_Y(y) = 3y^2f_{|X|}(y^3)$，同理$f_Z(z) = 4z^3f_{|X|}(y^4)$。</p>
+<h4 id="4-3"><a href="#4-3" class="headerlink" title="4."></a>4.</h4><p>因为$F_Y(y) = P(Y \leq y)$，当$0 \leq y \leq 5$时，由全概率公式，<br>$P(Y \leq y) = \frac{1}{4}P(X \leq y) + \frac{3}{4}P(X - 5 \leq y) = \frac{1}{4}P(X \leq y) + \frac{3}{4}P(X \leq y + 5)$，<br>所以$P(Y \leq y) = \frac{1}{4}(\int_{0}^{y}f_{X_A}(x)dx + 3\int_{0}^{y + 5}f_{X_B}(x)dx) = \frac{y}{10} + \frac{1}{4}$，故$f_Y(y) = \frac{1}{10}$；<br>同理当$5 &lt; y \leq 15$时，$P(Y \leq y) = \frac{3}{4}\int_{0}^{y + 5}f_{X_B}(x)dx = \frac{y + 5}{20}$，所以$f_Y(y) = \frac{1}{20}$。</p>
+<h4 id="5-3"><a href="#5-3" class="headerlink" title="5."></a>5.</h4><p>$|z| = 0.5$的情况</p>
+<p><img src="https://s3.ax1x.com/2021/02/15/y6GADf.jpg"></p>
+<p>由于$X, Y$均服从均匀分布，两个随机变量的联合概率可以用以上的正方形区域面积表示。<br>考虑$|X - Y| \leq z$，这个式子可以被拆开为两个式子$X - Y \leq z$和$Y - X \leq z$，在图中做出这两个函数的图像。<br>不难发现$P(Z \leq z)$就是两条平行线与正方形所包围的图形的面积，即$P(Z \leq z) = 2z - z^2$，所以$f_Z(z) = 2 - 2z$。</p>
+<h4 id="6-3"><a href="#6-3" class="headerlink" title="6."></a>6.</h4><p>使用和第五题类似的做法：$P(Z \leq z) = P(|X - Y| \leq z) = \frac{\sqrt{2}z}{2}(\sqrt{2}z + \frac{\sqrt{2}}{2}(1 - z) * 2) = \frac{z}{2}$，<br>所以$f_Z(z) = \frac{1}{2}$。</p>
+<h4 id="7-3"><a href="#7-3" class="headerlink" title="7."></a>7.</h4><p>不难看出这题的随机变量就是第五题中的Z。所以$E[Z] = \int_{0}^{1}2z^2 - z^3dz = \frac{1}{3}$。</p>
+<p>证毕。</p>
+<h4 id="8-3"><a href="#8-3" class="headerlink" title="8."></a>8.</h4><p>$$f_Z(z) = \int_{-\infty}^{\infty}f_X(x)f_Y(z - x)dx = \int_{0}^{z}\lambda^2e^{-\lambda x}e^{-\lambda (z - x)}dx = \lambda^2ze^{-\lambda z}$$</p>
+<h4 id="9-3"><a href="#9-3" class="headerlink" title="9."></a>9.</h4><p>当$z \leq 0$， $$\begin{array}{l}<br>            F_Z(z) = P(X - Y \leq z) = 1 - P(X - Y &gt; z)\<br>            = 1 - \int_{0}^{\infty}\mu e^{-\mu y}dy\int_{z + y}^{\infty}\lambda e^{-\lambda x}dx\<br>            = 1 - \frac{\mu}{\lambda + \mu}e^{-\lambda z}<br>        \end{array}$$</p>
+<p>当$z &lt; 0$时，$-z \leq 0$，所以$F_Z(z) = 1 - F_Z(-z) = \frac{\mu}{\lambda + \mu}e^{\lambda z}$。</p>
+<h4 id="10-3"><a href="#10-3" class="headerlink" title="10."></a>10.</h4><p>由离散卷积公式$f_Z(z) = \sum f_X(x)f_Y(z - x)$可以求得：<br>$$p_Z(z) = \left{<br>            \begin{array}{lcr}<br>                \frac{1}{6} &amp; &amp; z = 1\<br>                \frac{5}{18} &amp; &amp; z = 2\<br>                \frac{1}{3} &amp; &amp; z = 3\<br>                \frac{1}{6} &amp; &amp; z = 4\<br>                \frac{1}{18} &amp; &amp; z = 5<br>            \end{array}<br>        \right.$$</p>
+<h4 id="11-3"><a href="#11-3" class="headerlink" title="11."></a>11.</h4><p>设$P_X(k) = e^{-\lambda}\frac{\lambda^k}{k!}, P_Y(k) = e^{-\mu}\frac{\mu^k}{k!}$，<br>由卷积公式，有$P_Z(z) =\ \sum P_X(k)P_Y(z - k)$，因为$C_z^k = \frac{z!}{k!(z - k)!}$，<br>所以$P_Z(z) = \frac{e^{(-\lambda + \mu)}}{z!}\sum C_z^k \lambda^k \mu^{z - k}\ = e^{-(\lambda + \mu)}\frac{(\lambda + \mu)^z}{z!}$。</p>
+<p>证毕。</p>
+<h4 id="12-3"><a href="#12-3" class="headerlink" title="12."></a>12.</h4><p>先求$W = X + Y$的概率密度函数： $$f_W(w) = \left{<br>            \begin{array}{llccr}<br>                \int_{0}^{w}dx &amp; = &amp; w &amp; &amp; 0 \leq w \leq 1\<br>                \int_{w - 1}^{1}dx &amp; = &amp; 2 - w &amp; &amp; 1 &lt; w \leq 2\<br>                0 &amp; &amp; &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<p>再求$R = W + Z$： $$f_R(r) = \left{<br>            \begin{array}{llccr}<br>                \int_{0}^{r}wdw &amp; = &amp; \frac{r^2}{2} &amp; 0 \leq r \leq 1\<br>                \int_{r - 1}^{1}wdw + \int_{1}^{r}2-wdw &amp; = &amp; 3r - r^2 - \frac{3}{2} &amp; 1 &lt; r \leq 2\<br>                \int_{r - 1}^{2}2 - wdw &amp; = &amp; \frac{r^2}{2} - 3r + \frac{9}{2} &amp; 2 &lt; r \leq 3\<br>                0 &amp; &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<h4 id="13-3"><a href="#13-3" class="headerlink" title="13."></a>13.</h4><p>因为概率密度函数的对称轴为$\frac{a + b}{2}$，所以有$f(x) = f(a + b - x)$，<br>而$X + Y$和$X - Y$的积分区间正好差着$a + b$的距离，所以只需要将$f_{X + Y}$平移即可。</p>
+<h4 id="14-3"><a href="#14-3" class="headerlink" title="14."></a>14.</h4><p>$$\begin{array}{l}<br>            P_Z(z) = P(min{X, Y} \leq z)\<br>            = 1 - P((min{X, Y} &gt; z)\<br>            = 1 - P(X &gt; z)P(Y &gt; z)\<br>            = 1 - (1 - P(X \leq z))(1 - P(Y \leq z))\<br>            = 1 - (1 - \int_{0}^{z}\lambda e^{-\lambda x}dx)(1 - \int_{0}^{z}\mu e^{-\mu y}dy)\<br>            = 1 - e^{-(\lambda + \mu)z}<br>        \end{array}$$</p>
+<p>所以$Z = min{X, Y}$服从参数为$\lambda + \mu$的指数分布。</p>
+<p>证毕。</p>
+<h4 id="15-3"><a href="#15-3" class="headerlink" title="15."></a>15.</h4><p>略。</p>
+<h4 id="16-3"><a href="#16-3" class="headerlink" title="16."></a>16.</h4><p>略。</p>
+<h4 id="17-3"><a href="#17-3" class="headerlink" title="17."></a>17.</h4><p>因为$var(X) = var(Y)$，所以 $$\begin{array}{l}<br>            cov(X + Y, X - Y) = cov(X + Y, X) - cov(X + Y, Y)\<br>            = cov(X, X) + cov(Y, X) - cov(X, Y) - cov(Y, Y)\<br>            = cov(X, X) - cov(Y, Y)\<br>            = var(X) - var(Y)\<br>            = 0<br>        \end{array}$$</p>
+<p>所以$X + Y, X - Y$不相关。</p>
+<p>证毕。</p>
+<h4 id="18-3"><a href="#18-3" class="headerlink" title="18."></a>18.</h4><p>由题意得：<br>$cov(W, X) = cov(W, Y) = cov(W, Z) = cov(X, Y) =\ cov(X, Z) = cov(Y, Z) = 0$，<br>所以： $$\begin{array}{l}<br>            \rho(R, S) = \frac{cov(R, S)}{\sqrt{var(R)var(S)}}\<br>            = \frac{cov(W + X, X + Y)}{\sqrt{var(W + X)var(X + Y)}}\<br>            = \frac{cov(W, X) + cov(W, Y) + cov(X, X) + cov(X, Y)}{\sqrt{(var(W) + var(X) + 2cov(W, X))(var(X) + var(Y) + 2cov(X, Y))}}\<br>            = \frac{var(X)}{\sqrt{(var(W) + var(X))(var(X) + var(Y)}}\<br>            = \frac{1}{2}<br>        \end{array}$$</p>
+<p>同理$\rho(S, T) = \frac{1}{2}$</p>
+<h4 id="19-3"><a href="#19-3" class="headerlink" title="19."></a>19.</h4><p>$$\begin{array}{l}<br>            \rho(X, Y) = \frac{cov(X, Y)}{\sqrt{var(X)var(Y)}}\<br>            = \frac{cov(X, a + bX + cX^2)}{\sqrt{var(X)var(a + bX + cX^2)}}\<br>            = \frac{cov(X, bX) + cov(X, cX^2)}{\sqrt{var(X)(var(a + bX) + var(cX^2) +2cov(a + bX, cX^2))}}\<br>            = \frac{b\times var(X) + c \times cov(X, X^2)}{\sqrt{var(X)(a^2var(X) + c^2var(X^2) + 2bc \times cov(X, X^2))}}\<br>            = \frac{b}{\sqrt{a + 2c^2}}<br>        \end{array}$$</p>
+<h4 id="20-3"><a href="#20-3" class="headerlink" title="20."></a>20.</h4><p>略。</p>
+<h4 id="21-3"><a href="#21-3" class="headerlink" title="21."></a>21.</h4><p>略。</p>
+<h4 id="22-3"><a href="#22-3" class="headerlink" title="22."></a>22.</h4><p>设第i次赌博的收益比率为常量$R_i$，资产值为随机变量$X_i$，我们可以得到：</p>
+<ul>
+<li><p>  $E[X_1] = (pR_1 + 2(1 - p)^2)x$</p>
+</li>
+<li><p>  $E[X_2] = E[E[X_2|X_1]] = (pR_2 + 2(1 - p)^2)X_1$</p>
+</li>
+<li><p>  $E[X_3] = E[E[X_3|X_2]] = (pR_3 + 2(1 - p)^2)X_2$</p>
+</li>
+<li><p>  …</p>
+</li>
+</ul>
+<p>综上：$E[X_n] = x\Pi_{i = 1}^n(pR_i + 2(1 - p)^2)$</p>
+<h4 id="23-3"><a href="#23-3" class="headerlink" title="23."></a>23.</h4><h5 id="a-38"><a href="#a-38" class="headerlink" title="(a)"></a>(a)</h5><p>当$X \leq 1$时，纳特的等待时间为0；当$X &gt; 1$时，等待时间的期望值为$\int_{1}^{2}\frac{x - 1}{2}dx = \frac{1}{4}$，<br>所以总的等待时间的期望值为15分钟。</p>
+<h5 id="b-38"><a href="#b-38" class="headerlink" title="(b)"></a>(b)</h5><p>当$X \leq 1$时，约会的时长是3小时；当$X &gt; 1$时，约会时间的期望值为$E[Y] = E[E[Y|X]]$，<br>因为$E[Y|X] = \frac{3 - X}{2}$，所以$E[Y] = \frac{3}{2} - \frac{E[X]}{2} = 1$。<br>所以总的约会时间的期望值为2小时。</p>
+<h5 id="c-14"><a href="#c-14" class="headerlink" title="(c)"></a>(c)</h5><p>TODO:</p>
+<h4 id="24-3"><a href="#24-3" class="headerlink" title="24."></a>24.</h4><h5 id="a-39"><a href="#a-39" class="headerlink" title="(a)"></a>(a)</h5><p>由重期望法则： $$\begin{array}{l}<br>                E[X] = E[E[X|Y]] \<br>                = E[5 - Y] \<br>                = 5 - E[Y] \<br>                = 3<br>            \end{array}$$</p>
+<h5 id="b-39"><a href="#b-39" class="headerlink" title="(b)"></a>(b)</h5><p>$E[X + Y] = E[X] + E[Y] = 3 + 2 = 5$小时，所以是下午两点。</p>
+<h5 id="c-15"><a href="#c-15" class="headerlink" title="(c)"></a>(c)</h5><p>TODO:</p>
+<h4 id="25-3"><a href="#25-3" class="headerlink" title="25."></a>25.</h4><p>略。</p>
+<h4 id="26-3"><a href="#26-3" class="headerlink" title="26."></a>26.</h4><p>略。</p>
+<h4 id="27-3"><a href="#27-3" class="headerlink" title="27."></a>27.</h4><p>略。</p>
+<h4 id="28-3"><a href="#28-3" class="headerlink" title="28."></a>28.</h4><p>略。</p>
+<h4 id="29-3"><a href="#29-3" class="headerlink" title="29."></a>29.</h4><p>$$\begin{array}{l}<br>            M(s) = \sum_{x}e^{sx}p_X(x)\<br>            = e^s \times \frac{1}{2} + e^{2s} \times \frac{1}{4} + e^{3s} \times \frac{1}{4}\<br>        \end{array}$$</p>
+<p>所以：</p>
+<ul>
+<li><p>  $E[X] = \frac{d}{ds}M(s)|_{s = 0} = \frac{7}{4}$</p>
+</li>
+<li><p>  $E[X^2] = \frac{d^2}{ds^2}M(s)|_{s = 0} = \frac{15}{4}$</p>
+</li>
+<li><p>  $E[X^3] = \frac{d^3}{ds^3}M(s)|_{s = 0} = \frac{37}{4}$</p>
+</li>
+</ul>
+<h4 id="30-3"><a href="#30-3" class="headerlink" title="30."></a>30.</h4><p>标准正态分布$f_X(x) = \frac{1}{\sqrt{2\pi}}e^{\frac{-x^2}{2}}$，<br>其矩母函数为 $$\begin{array}{l}<br>            M(s) = \int_{-\infty}^{\infty}e^{sx}f_X(x)dx\<br>            = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-x^2}{2} + sx}dx\<br>            = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{x^2 - 2sx + s^2 - s^2}{2}}dx\<br>            = \frac{e^{\frac{s^2}{2}}}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{(x - s)^2}{2}}dx\<br>            = e^{\frac{s^2}{2}}<br>        \end{array}$$</p>
+<p>所以$E[X^3] = 0, E[X^4] = 3$。</p>
+<h4 id="31-3"><a href="#31-3" class="headerlink" title="31."></a>31.</h4><p>$M(s) = \int_{0}^{\infty}\lambda e^{-\lambda x + sx}dx = \frac{-\lambda}{s - \lambda}$，<br>所以$E[X^3] = \frac{6}{\lambda^4}, E[X^4] = \frac{24}{\lambda^5},\ E[X^5] = \frac{120}{\lambda^6}$</p>
+<h4 id="32-3"><a href="#32-3" class="headerlink" title="32."></a>32.</h4><h5 id="a-40"><a href="#a-40" class="headerlink" title="(a)"></a>(a)</h5><p>第二个不是矩母函数。根据矩母函数的定义$M_X(s) = E[e^{sX}]$,$M_X(0) = E[1] = 1$，<br>很明显第二个函数不满足这个条件。</p>
+<h5 id="b-40"><a href="#b-40" class="headerlink" title="(b)"></a>(b)</h5><p>设N为满足$\lambda = 2$的泊松分布的随机变量，Y为满足$\lambda = 1$的泊松分布的随机变量，<br>所以X为N个Y之和（见4.5节），$P(X = 0) = \sum_{n = 0}^{\infty}p_N(n)p_Y(0)\ = e^{-1}$</p>
+<h4 id="33-3"><a href="#33-3" class="headerlink" title="33."></a>33.</h4><p>不难看出加号两侧是指数分布的矩母函数的形式，所以概率密度函数：<br>$$f_X(x) = \left{<br>            \begin{array}{lcr}<br>                \frac{1}{3} \times 2e^{-2x} + \frac{2}{3} \times 3e^{-3x} &amp; &amp; x \geq 0\<br>                0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$$</p>
+<h4 id="34-3"><a href="#34-3" class="headerlink" title="34."></a>34.</h4><p>利用卷积计算的分布列： $$p(x) = \left{<br>            \begin{array}{lcr}<br>                1 - p_1 - p_2 - p_3 + p_1p_2 + p_1p_3 + p_2p_3 - p_1p_2p_3 &amp; &amp; x = 0\<br>                3p_1p_2p_3 + p_1 + p_2 + p_3 - 2(p_1p_2 + p_1p_3 + p_2p_3) &amp; &amp; x = 1\<br>                p_1p_2 + p_1p_3 + p_2p_3 - 3p_1p_2p_3 &amp; &amp; x = 2\<br>                p_1p_2p_3 &amp; &amp; x = 3<br>            \end{array}<br>        \right.$$</p>
+<p>对于某一个球员，其矩母函数为$M_{X_i}(s) = 1 - p_i + p_ie^s$，<br>又因为独立随机变量的和的矩母函数是和项的矩母函数的乘积，<br>所以$M_X(s) = \Pi_{i = 1}^{3}(1 - p_i + p_ie^s)$，展开后去掉$e^{sk}$，<br>形式与上面的分布列是一样的。</p>
+<h4 id="35-3"><a href="#35-3" class="headerlink" title="35."></a>35.</h4><p>由$M(0) = 1$，可以计算得$c = \frac{2}{9}$，所以$E[X] = \frac{d}{ds}M(s)|_{s = 0} = \frac{37}{18}$；<br>令$\alpha = \frac{e^s}{3}$，那么$M(s) = \frac{c(3 + 4e^2 + 2e^3)}{3(1 - \alpha)} = \frac{2}{27}(3 + 4e^2 + 2e^3)(1 + \alpha + \alpha^2 + \dots)$，<br>所以$p_X(1) = \frac{2}{27}, p_X(0) = \frac{2}{9}$，由条件期望：$E[X|X \ne 0] = \frac{E[X]}{1 - p_X(0)} = \frac{37}{14}$。</p>
+<h4 id="36-2"><a href="#36-2" class="headerlink" title="36."></a>36.</h4><h5 id="a-41"><a href="#a-41" class="headerlink" title="(a)"></a>(a)</h5><p>由题意得：$M_{XY}(s) = \frac{1}{3}M_Y(s) = \frac{1}{3}\frac{s}{2 - s}$，<br>$M_{(1 - X)Z} = \frac{2}{3}M_Z(s) = \frac{2}{3}e^{3(e^s - 1)}$，所以$M_{U}(s) = \frac{2s}{9(2 - s)}e^{3(e^s - 1)}$。</p>
+<h5 id="b-41"><a href="#b-41" class="headerlink" title="(b)"></a>(b)</h5><p>$M_{2Z + 3}(s) = M_{2Z}(s)M_{3}(s) = e^{3(e^{2s} - 1) + 3s}$</p>
+<h5 id="c-16"><a href="#c-16" class="headerlink" title="(c)"></a>(c)</h5><p>$M_{Y + Z}(s) = \frac{s}{2 - s}e^{3(e^s - 1)}$</p>
+<h4 id="37-2"><a href="#37-2" class="headerlink" title="37."></a>37.</h4><p>TODO:</p>
+<h4 id="38-2"><a href="#38-2" class="headerlink" title="38."></a>38.</h4><p>略。</p>
+<h4 id="39-2"><a href="#39-2" class="headerlink" title="39."></a>39.</h4><p>略。</p>
+<h4 id="40-2"><a href="#40-2" class="headerlink" title="40."></a>40.</h4><p>略。</p>
+<h4 id="41-2"><a href="#41-2" class="headerlink" title="41."></a>41.</h4><h5 id="a-42"><a href="#a-42" class="headerlink" title="(a)"></a>(a)</h5><p>因为$X_i$服从$[0, 1]$上的均匀分布，所以$M_X(s) = \frac{e^s - 1}{s}$，<br>由于人数服从泊松分布，所以$M_N(s) = e^{\lambda(e^s - 1)}$，将$e^s$替换后得到<br>$M_Y(s) = e^{\lambda(\frac{e^s - 1}{s} - 1)}$</p>
+<h5 id="b-42"><a href="#b-42" class="headerlink" title="(b)"></a>(b)</h5><p>由(a)中的矩母函数可得：$E[Y] = \frac{d}{ds}M_Y(s)|_{s = 0} = \frac{\lambda}{2}$</p>
+<h5 id="c-17"><a href="#c-17" class="headerlink" title="(c)"></a>(c)</h5><p>由重期望法则：$E[Y] = E[E[Y|N]] = E[X]E[N] = \frac{\lambda}{2}$，与(b)中的结果一致。</p>
+<h4 id="42-2"><a href="#42-2" class="headerlink" title="42."></a>42.</h4><p>个数服从参数为$\lambda$的泊松分布的情况下，<br>$M_X(s) = e^{\lambda(e^{\frac{\sigma^2s^2}{2}} + \mu s) - 1}$，<br>显然不满足正态分布的矩母函数的形式。</p>
+<h4 id="43-2"><a href="#43-2" class="headerlink" title="43."></a>43.</h4><h5 id="a-43"><a href="#a-43" class="headerlink" title="(a)"></a>(a)</h5><p>由全概率定理： $P(X \leq x) =<br>            \frac{1}{16}(1 + 4\int_{0}^{x}f_Y(y)dy + 6\int_{0}^{x}f_{2Y}(y)dy + 4\int_{0}^{x}f_{3Y}(y)dy + \int_{0}^{x}f_{4Y}(y)dy)$<br>混合分布的对应的矩母函数为：<br>$M_X(s) = \frac{1}{16}(1 + 4e^{\frac{s^2}{8} + s} + 6e^{\frac{s^2}{4} + 2s} + 4e^{\frac{3s^2}{8} + 3s} + e^{\frac{s^2}{2} + 4s})$，<br>所以超过4分钟的概率为$1 - P(X \leq 4) \approx 0.06$。X不是正态的。</p>
+<h5 id="b-43"><a href="#b-43" class="headerlink" title="(b)"></a>(b)</h5><p>二项分布的矩母函数：$M_N(s) = (\frac{1}{2} + \frac{1}{2}e^s)^4$，用正态分布的矩母函数替换：<br>$M_X(s) = \frac{1}{16}(1 + e^{\frac{s^2}{8}} + s)^4$，展开后与(a)中结果一致。</p>
+<h4 id="44-2"><a href="#44-2" class="headerlink" title="44."></a>44.</h4><h5 id="a-44"><a href="#a-44" class="headerlink" title="(a)"></a>(a)</h5><p>$E[N] = E[M]E[K], var(N) = E[M]var(K) + E[K]^2var(M)$</p>
+<h5 id="b-44"><a href="#b-44" class="headerlink" title="(b)"></a>(b)</h5><p>$E[Y] = E[X]E[N] = E[X]E[M]E[K], var(Y) = E[N]var(X) +\ E[X]^2var(N) = E[M]E[K]var(X) + E[X]^2(E[M]var(K) + E[K]^2var(M))$</p>
+<h5 id="c-18"><a href="#c-18" class="headerlink" title="(c)"></a>(c)</h5><p>由题意得：$E[K] = \mu, E[X] = \frac{1}{\lambda}, E[M] = \frac{1}{p}, var(K) = \mu, var(X) = \frac{1}{\lambda^2}, var(M) = \frac{1 - p}{p^2}$，<br>由(b)中的公式，我们可以得到：$E[Y] = \frac{\mu}{p\lambda}, var(Y) = \frac{\mu}{p\lambda^2} + \frac{\mu p + \mu^2 - \mu^2p}{\lambda^2p^2}$</p>
+<h4 id="45-2"><a href="#45-2" class="headerlink" title="45."></a>45.</h4><p>略。</p>
+<h3 id="第五章-极限理论"><a href="#第五章-极限理论" class="headerlink" title="第五章 极限理论"></a>第五章 极限理论</h3><h4 id="1-6"><a href="#1-6" class="headerlink" title="1."></a>1.</h4><h5 id="a-45"><a href="#a-45" class="headerlink" title="(a)"></a>(a)</h5><p>因为$\sigma = 1, var(M_n) = \frac{\sigma^2}{n}$，<br>要求$var(M_n) = \frac{\sigma^2}{n} \leq 0.0001$， 所以$n \geq 10000$。</p>
+<h5 id="b-45"><a href="#b-45" class="headerlink" title="(b)"></a>(b)</h5><p>由切比雪夫不等式：<br>$P(|X - h| \geq 0.05) \leq \frac{1^2}{0.05^2n} \leq 0.01$，<br>解之得$n \geq 40000$。</p>
+<h5 id="c-19"><a href="#c-19" class="headerlink" title="(c)"></a>(c)</h5><p>令$\sigma = \frac{(b - a)}{2} = 0.3$，<br>则(a)中的不等式变为$\frac{0.09}{n} \leq 0.0001$，解之得$n \geq 900$；<br>(b)中的不等式变为$\frac{0.09}{0.0025n} \leq 0.01$，解之得$n \geq 3600$。</p>
+<h4 id="2-6"><a href="#2-6" class="headerlink" title="2."></a>2.</h4><p>略。</p>
+<h4 id="3-4"><a href="#3-4" class="headerlink" title="3."></a>3.</h4><p>略。</p>
+<h4 id="4-4"><a href="#4-4" class="headerlink" title="4."></a>4.</h4><p>由弱大数定律和切比雪夫不等式，我们可以得到：<br>$P(|M_n - \mu| \geq \epsilon) \leq \frac{\sigma^2}{n\epsilon^2} = \delta$：</p>
+<h5 id="a-46"><a href="#a-46" class="headerlink" title="(a)"></a>(a)</h5><p>当$\epsilon$缩小为原来的一半时，为了维持不等号不变，n至少要扩大到原来的4倍。</p>
+<h5 id="b-46"><a href="#b-46" class="headerlink" title="(b)"></a>(b)</h5><p>当$\delta$缩小为原来的一半时，为了维持不等号不变，n至少要扩大到原来的2倍。</p>
+<h4 id="5-4"><a href="#5-4" class="headerlink" title="5."></a>5.</h4><p>由题意得：$f_{X_i}(x) = \left{<br>            \begin{array}{lcr}<br>                \frac{1}{2} &amp; &amp; x \in [-1, 1]\<br>                 0 &amp; &amp; otherwise<br>            \end{array}<br>        \right.$</p>
+<h5 id="a-47"><a href="#a-47" class="headerlink" title="(a)"></a>(a)</h5><p>$Y_n$依概率收敛于0。 $$\begin{array}{l}<br>                \lim_{n \to \infty}P(|Y_n - a| \geq \epsilon)\<br>                = \lim_{n \to \infty}2P(Y_n \geq \epsilon)\<br>                = P(0 \geq \epsilon)\<br>                = 0<br>            \end{array}$$</p>
+<p>利用夹逼定理，容易得出极限值为0。</p>
+<h5 id="b-47"><a href="#b-47" class="headerlink" title="(b)"></a>(b)</h5><p>$Y_n$依概率收敛于0。 $$\begin{array}{l}<br>                \lim_{n \to \infty}P(|Y_n - a| \geq \epsilon)\<br>                = \lim_{n \to \infty}P(|X_n^n| \geq \epsilon)\<br>                = \lim_{n \to \infty}2P(X_n \geq \epsilon^n)\<br>                = \lim_{n \to \infty}2P(X_n \geq 1)\<br>                = 0<br>            \end{array}$$</p>
+<p>不难看出$Y_n$的极限不存在。</p>
+<h5 id="c-20"><a href="#c-20" class="headerlink" title="(c)"></a>(c)</h5><p>$Y_n$依概率收敛于0。 $$\begin{array}{l}<br>                \lim_{n \to \infty}P(|Y_n - a| \geq \epsilon)\<br>                = \lim_{n \to \infty}2P(Y_n \geq \epsilon)\<br>                = P(0 \geq \epsilon)\<br>                = 0<br>            \end{array}$$</p>
+<p>$Y_n$的极限为0。</p>
+<h5 id="d-7"><a href="#d-7" class="headerlink" title="(d)"></a>(d)</h5><p>$Y_n$依概率收敛于0。 $$\begin{array}{l}<br>                \lim_{n \to \infty}P(|Y_n - a| \geq \epsilon)\<br>                = \lim_{n \to \infty}2P(Y_n \geq \epsilon)\<br>                = \lim_{n \to \infty}P(max{X_1, X_2, \dots X_n}) \geq \epsilon)\<br>                = \lim_{n \to \infty}(\frac{1 - \epsilon}{2})^n\<br>                = 0<br>            \end{array}$$</p>
+<p>$Y_n$的极限为1。</p>
+<h4 id="6-4"><a href="#6-4" class="headerlink" title="6."></a>6.</h4><p>略。</p>
+<h4 id="7-4"><a href="#7-4" class="headerlink" title="7."></a>7.</h4><p>略。</p>
+<h4 id="8-4"><a href="#8-4" class="headerlink" title="8."></a>8.</h4><p>我们设第i次转动的结果为$X_i$，当转到奇数的时候值为1，偶数时为0。<br>如果轮盘公正，那么$\mu = 0.5, \sigma^2 = 0.25$，<br>则由中心极限定理，转到奇数的次数大于55次的概率为<br>$P(Z_n &gt; x) = P(Z_n &gt; \frac{55 - 100\mu}{10\sigma}) = 1 - P(Z_n \leq 1) = 2 - \Phi(1) \approx 0.1587$</p>
+<h4 id="9-4"><a href="#9-4" class="headerlink" title="9."></a>9.</h4><h5 id="a-48"><a href="#a-48" class="headerlink" title="(a)"></a>(a)</h5><p>设第i天内是否死机为$X_i$，当死机发生时记为1，没有发生记为0。<br>由题意得$\mu = 0.95, \sigma^2 = 0.0475$，<br>所以由中心极限定理，至少有45天没有死机的概率为<br>$P(Z_n &gt; \frac{45 - 50\mu}{\sqrt{50}\sigma}) \approx \Phi(1.62) = 0.9474$</p>
+<h5 id="b-48"><a href="#b-48" class="headerlink" title="(b)"></a>(b)</h5><p>由题意得：$\lambda = np = 47.5$，<br>那么$P(Z_n \leq 5) = \sum_{k = 0}^{5}e^{-\lambda}\frac{\lambda^k}{k!} \approx 1$</p>
+<h4 id="10-4"><a href="#10-4" class="headerlink" title="10."></a>10.</h4><h5 id="a-49"><a href="#a-49" class="headerlink" title="(a)"></a>(a)</h5><p>$P(Z_n &gt; x) = P(Z_n &gt; \frac{440 - 100\mu}{90}) = 1 - P(Z_n \leq -0.667) = \Phi(0.667) \approx 0.7454$</p>
+<h5 id="b-49"><a href="#b-49" class="headerlink" title="(b)"></a>(b)</h5><p>由题意得：$P(X_1 + \dots + X_n \leq 200 + 5n) = P(X_1 + \dots + X_n \leq \frac{200}{3\sqrt{n}}) \geq 0.95$，<br>所以$\frac{200}{3\sqrt{n}} \geq 1.65$，解得n的最大值为1632。</p>
+<h5 id="c-21"><a href="#c-21" class="headerlink" title="(c)"></a>(c)</h5><p>若恰好220天生产到第1000个，则每天平均需要生产约4.55个；<br>若219天就可以生产到第1000个，则每天平均需要生产约4.57个。<br>所以，由中心极限定理，我们有 $P(N \geq 220) \approx<br>            P(4.55 \times 220 \leq S_n \leq 4.57 \times 220) \approx<br>            \Phi(-2.12) - (1 - \Phi(2.22)) = \Phi(2.22) - \Phi(2.12) \approx 0.0038$</p>
+<h4 id="11-4"><a href="#11-4" class="headerlink" title="11."></a>11.</h4><p>不妨令$W_i = X_i - Y_i$，由于$X_i, Y_i$都是$[0, 1]$上的均匀分布，<br>所以$E[W_i] = E[X_i] - E[Y_i] = 0,<br>        var(W_i) = var(X_i) + var(Y_i) + 2cov(X_i + Y_i) = 1$。<br>由中心极限定理，原式$P(|W - E[W]| &lt; 0.001) = P(|W| \leq 0.001)<br>        = 2P(W \leq 0.001) \approx 2\Phi(0) = 1$。</p>
+<h4 id="12-4"><a href="#12-4" class="headerlink" title="12."></a>12.</h4><p>略。</p>
+<h4 id="13-4"><a href="#13-4" class="headerlink" title="13."></a>13.</h4><p>略。</p>
+<h4 id="14-4"><a href="#14-4" class="headerlink" title="14."></a>14.</h4><p>略。</p>
+<h4 id="15-4"><a href="#15-4" class="headerlink" title="15."></a>15.</h4><p>略。</p>
+<h4 id="16-4"><a href="#16-4" class="headerlink" title="16."></a>16.</h4><p>略。</p>
+<h4 id="17-4"><a href="#17-4" class="headerlink" title="17."></a>17.</h4><p>略。</p>
+<h4 id="18-4"><a href="#18-4" class="headerlink" title="18."></a>18.</h4><p>略。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lijianxiong.xyz/2021/20210122(1~5)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/20210224/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            《他者的消失》读书笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/20210122/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">《概率导论》学习笔记(持续更新中)</div>
+      </a>
+    
+  </nav>
+
+   
+ 
+   
+  
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2021
+        <i class="ri-heart-fill heart_icon"></i> LJX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="小熊的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">人间烟火</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://iclosemyeye.icu/">欧拉计划</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+<script src="/js/dz.js"></script>
+
+
+
+    
+  </div>
+</body>
+
+</html>
