@@ -93,7 +93,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">278</span>
+            <span class="post-count">286</span>
         </span>
     </span>
 
@@ -119,7 +119,7 @@ var _hmt = _hmt || [];
 <span id="more"></span>
 
 <p>更新日志：</p>
-<p>2021/07/10 恢复本地博客环境</p>
+<p>2021/07/10 恢复本地博客环境，写下第五十篇博客</p>
 <p>2021/07/06 电脑系统损坏，重装系统，本地博客环境丢失，博客暂停更新</p>
 <p>2021/05/05 增加置顶功能，博客时间增加更新时间（hexo-index-generator-plus）</p>
 <p>2021/04/15 写下第四十篇博客</p>
@@ -270,6 +270,25 @@ var _hmt = _hmt || [];
       </li>
     </ul>
   </div>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("08/10/2018 17:38:00");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
 </footer>
       <div class="float_btns">
         <div class="totop" id="totop">
